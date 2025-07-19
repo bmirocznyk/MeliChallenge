@@ -1,0 +1,839 @@
+[
+  {
+    "id": 1,
+    "title": "iPhone 15 Pro Max 256GB Titanio Natural",
+    "price": 1500000,
+    "currency": "ARS",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "condition": "new",
+    "description": "El iPhone 15 Pro Max con chip A17 Pro, cámara de 48MP y pantalla Super Retina XDR de 6.7 pulgadas.",
+    "specifications": {
+      "storage": "256GB",
+      "color": "Titanio Natural",
+      "screen": "6.7 pulgadas",
+      "camera": "48MP + 12MP + 12MP",
+      "battery": "4441mAh"
+    },
+    "images": [
+      { "url": "/product-images/iphone15-1.jpg", "alt": "iPhone 15 Pro Max front" },
+      { "url": "/product-images/iphone15-2.jpg", "alt": "iPhone 15 Pro Max back" },
+      { "url": "/product-images/iphone15-3.jpg", "alt": "iPhone 15 Pro Max side" },
+      { "url": "/product-images/iphone15-4.jpg", "alt": "iPhone 15 Pro Max angle" },
+      { "url": "/product-images/iphone15-4.jpg", "alt": "iPhone 15 Pro Max extra" }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Celulares y Smartphones",
+        "slug": "celulares-smartphones",
+        "parentId": null,
+        "level": 1,
+        "path": "Celulares y Smartphones",
+        "totalItems": 1500
+      }
+    ],
+    "seller": {
+      "id": 1,
+      "name": "Apple Store Argentina",
+      "username": "apple_store_ar",
+      "type": "official",
+      "reputation": 4.9,
+      "totalSales": 15000,
+      "location": "Buenos Aires, Argentina",
+      "verified": true,
+      "premium": true,
+      "responseTime": "2 horas",
+      "shippingOptions": ["gratis", "express"],
+      "returnPolicy": "30 días",
+      "warranty": "1 año oficial"
+    },
+    "reviewList": [
+      {
+        "id": 1,
+        "userId": 101,
+        "username": "maria_gonzalez",
+        "rating": 5,
+        "title": "Excelente teléfono",
+        "comment": "El iPhone 15 Pro Max superó todas mis expectativas. La cámara es increíble y el rendimiento es excepcional.",
+        "date": "2024-01-20T15:30:00.000Z",
+        "verified": true,
+        "helpful": 12
+      },
+      {
+        "id": 2,
+        "userId": 102,
+        "username": "carlos_rodriguez",
+        "rating": 4,
+        "title": "Muy bueno pero caro",
+        "comment": "El teléfono es excelente, pero el precio es muy alto. La calidad de construcción es impresionante.",
+        "date": "2024-01-18T10:15:00.000Z",
+        "verified": true,
+        "helpful": 8
+      },
+      {
+        "id": 3,
+        "userId": 103,
+        "username": "ana_martinez",
+        "rating": 5,
+        "title": "Perfecto para fotografía",
+        "comment": "Como fotógrafa amateur, este teléfono me permite tomar fotos profesionales. La cámara de 48MP es increíble.",
+        "date": "2024-01-16T14:45:00.000Z",
+        "verified": true,
+        "helpful": 15
+      }
+    ],
+    "reviews": {
+      "rating": 4.7,
+      "totalReviews": 3,
+      "ratingDistribution": {
+        "5": 2,
+        "4": 1,
+        "3": 0,
+        "2": 0,
+        "1": 0
+      }
+    },
+    "availability": {
+      "stock": 17,
+      "status": "in_stock",
+      "location": "Buenos Aires",
+      "shipping": {
+        "free": true,
+        "cost": 0,
+        "methods": [
+          {
+            "name": "Envío gratis",
+            "cost": 0,
+            "estimatedDays": "3-5 días hábiles",
+            "type": "standard"
+          },
+          {
+            "name": "Envío express",
+            "cost": 5000,
+            "estimatedDays": "1-2 días hábiles",
+            "type": "express"
+          }
+        ]
+      },
+      "pickup": {
+        "available": true,
+        "locations": [
+          {
+            "name": "Apple Store Palermo",
+            "address": "Av. Santa Fe 1234, Buenos Aires",
+            "available": true
+          },
+          {
+            "name": "Apple Store Recoleta",
+            "address": "Av. Alvear 567, Buenos Aires",
+            "available": true
+          }
+        ]
+      },
+      "warranty": "1 año oficial Apple",
+      "returnPolicy": "30 días para cambio o devolución"
+    },
+    "payment": {
+      "installments": [
+        {
+          "installments": 1,
+          "amount": 1500000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        },
+        {
+          "installments": 3,
+          "amount": 500000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        },
+        {
+          "installments": 6,
+          "amount": 250000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        },
+        {
+          "installments": 12,
+          "amount": 125000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": true
+        },
+        {
+          "installments": 18,
+          "amount": 83333.33,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "Tarjeta de crédito",
+          "type": "credit_card",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Tarjeta de débito",
+          "type": "debit_card",
+          "accepted": true,
+          "installments": false
+        },
+        {
+          "name": "Mercado Pago",
+          "type": "digital_wallet",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Transferencia bancaria",
+          "type": "bank_transfer",
+          "accepted": true,
+          "installments": false
+        }
+      ],
+      "promotions": [
+        {
+          "name": "10% OFF con Mercado Pago",
+          "discount": 10,
+          "code": "MP10OFF",
+          "validUntil": "2024-02-15T23:59:59.000Z"
+        }
+      ]
+    },
+    "priceHistory": [
+      {
+        "id": 1,
+        "price": 1500000,
+        "currency": "ARS",
+        "date": "2024-01-15T10:00:00.000Z",
+        "type": "current",
+        "reason": "initial_price"
+      },
+      {
+        "id": 2,
+        "price": 1450000,
+        "currency": "ARS",
+        "date": "2024-01-10T14:30:00.000Z",
+        "type": "historical",
+        "reason": "promotion"
+      },
+      {
+        "id": 3,
+        "price": 1600000,
+        "currency": "ARS",
+        "date": "2024-01-05T09:15:00.000Z",
+        "type": "historical",
+        "reason": "initial_price"
+      }
+    ],
+    "attributes": [
+      {
+        "id": "BRAND",
+        "name": "Marca",
+        "value": "Apple"
+      },
+      {
+        "id": "MODEL",
+        "name": "Modelo",
+        "value": "iPhone 15 Pro Max"
+      },
+      {
+        "id": "INTERNAL_MEMORY",
+        "name": "Memoria interna",
+        "value": "256 GB"
+      },
+      {
+        "id": "RAM",
+        "name": "Memoria RAM",
+        "value": "8 GB"
+      },
+      {
+        "id": "SCREEN_SIZE",
+        "name": "Tamaño de pantalla",
+        "value": "6.7 pulgadas"
+      },
+      {
+        "id": "OPERATING_SYSTEM",
+        "name": "Sistema operativo",
+        "value": "iOS 17"
+      },
+      {
+        "id": "CAMERA_RESOLUTION",
+        "name": "Resolución de la cámara trasera principal",
+        "value": "48 Mpx"
+      }
+    ],
+    "variants": [
+      {
+        "id": "color_titanio_natural",
+        "attributeId": "COLOR",
+        "value": "Titanio Natural",
+        "selected": true,
+        "available": true
+      },
+      {
+        "id": "color_titanio_azul",
+        "attributeId": "COLOR",
+        "value": "Titanio Azul",
+        "selected": false,
+        "available": true
+      },
+      {
+        "id": "color_titanio_blanco",
+        "attributeId": "COLOR",
+        "value": "Titanio Blanco",
+        "selected": false,
+        "available": true
+      },
+      {
+        "id": "color_titanio_negro",
+        "attributeId": "COLOR",
+        "value": "Titanio Negro",
+        "selected": false,
+        "available": true
+      },
+      {
+        "id": "storage_256gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "256 GB",
+        "selected": true,
+        "available": true
+      },
+      {
+        "id": "storage_512gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "512 GB",
+        "selected": false,
+        "available": true,
+        "price": 1800000
+      },
+      {
+        "id": "storage_1tb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "1 TB",
+        "selected": false,
+        "available": true,
+        "price": 2100000
+      }
+    ],
+    "features": [
+      "Chip A17 Pro con GPU de 6 núcleos",
+      "Pantalla Super Retina XDR de 6.7 pulgadas",
+      "Cámara principal de 48MP",
+      "Cámara ultra gran angular de 12MP",
+      "Cámara teleobjetivo de 12MP",
+      "Cámara frontal TrueDepth de 12MP",
+      "Batería de hasta 29 horas de reproducción de video",
+      "Resistente al agua y al polvo (IP68)",
+      "Conexión USB-C",
+      "Soporte para 5G"
+    ],
+    "shipping": {
+      "freeShipping": true,
+      "mode": "standard",
+      "estimatedDelivery": "3-5 días hábiles",
+      "cost": 0
+    },
+    "installments": {
+      "quantity": 12,
+      "amount": 125000,
+      "totalAmount": 1500000,
+      "interestRate": 0,
+      "isFree": true
+    }
+  },
+  {
+    "id": 2,
+    "title": "Samsung Galaxy S24 Ultra 512GB Phantom Black",
+    "price": 1200000,
+    "currency": "ARS",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "condition": "new",
+    "description": "El Samsung Galaxy S24 Ultra con cámara de 200MP, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y S Pen integrado.",
+    "specifications": {
+      "storage": "512GB",
+      "color": "Phantom Black",
+      "screen": "6.8 pulgadas",
+      "camera": "200MP + 12MP + 10MP + 10MP",
+      "battery": "5000mAh"
+    },
+    "images": [
+      { "url": "/product-images/galaxy-s24-1.jpg", "alt": "Samsung Galaxy S24 Ultra front" },
+      { "url": "/product-images/galaxy-s24-2.jpg", "alt": "Samsung Galaxy S24 Ultra back or angle" },
+      { "url": "/product-images/galaxy-s24-3.jpg", "alt": "Samsung Galaxy S24 Ultra lifestyle or in-hand" },
+      { "url": "/product-images/galaxy-s24-4.jpg", "alt": "Samsung Galaxy S24 Ultra camera or closeup" },
+      { "url": "/product-images/galaxy-s24-5.jpg", "alt": "Samsung Galaxy S24 Ultra extra or marketing" }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Celulares y Smartphones",
+        "slug": "celulares-smartphones",
+        "parentId": null,
+        "level": 1,
+        "path": "Celulares y Smartphones",
+        "totalItems": 1500
+      }
+    ],
+    "seller": {
+      "id": 2,
+      "name": "Samsung Oficial",
+      "username": "samsung_oficial",
+      "type": "official",
+      "reputation": 4.8,
+      "totalSales": 12000,
+      "location": "Buenos Aires, Argentina",
+      "verified": true,
+      "premium": true,
+      "responseTime": "3 horas",
+      "shippingOptions": ["gratis", "express"],
+      "returnPolicy": "30 días",
+      "warranty": "1 año oficial"
+    },
+    "reviewList": [],
+    "reviews": {
+      "rating": 4.5,
+      "totalReviews": 0,
+      "ratingDistribution": {
+        "5": 0,
+        "4": 0,
+        "3": 0,
+        "2": 0,
+        "1": 0
+      }
+    },
+    "availability": {
+      "stock": 0,
+      "status": "out_of_stock",
+      "location": "Buenos Aires",
+      "shipping": {
+        "free": true,
+        "cost": 0,
+        "methods": [
+          {
+            "name": "Envío gratis",
+            "cost": 0,
+            "estimatedDays": "3-5 días hábiles",
+            "type": "standard"
+          },
+          {
+            "name": "Envío express",
+            "cost": 4000,
+            "estimatedDays": "1-2 días hábiles",
+            "type": "express"
+          }
+        ]
+      },
+      "pickup": {
+        "available": true,
+        "locations": [
+          {
+            "name": "Samsung Store Palermo",
+            "address": "Av. Santa Fe 4321, Buenos Aires",
+            "available": true
+          }
+        ]
+      },
+      "warranty": "1 año oficial Samsung",
+      "returnPolicy": "30 días para cambio o devolución"
+    },
+    "payment": {
+      "installments": [
+        {
+          "installments": 1,
+          "amount": 1200000,
+          "rate": 0,
+          "total": 1200000,
+          "recommended": false
+        },
+        {
+          "installments": 12,
+          "amount": 100000,
+          "rate": 0,
+          "total": 1200000,
+          "recommended": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "Tarjeta de crédito",
+          "type": "credit_card",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Mercado Pago",
+          "type": "digital_wallet",
+          "accepted": true,
+          "installments": true
+        }
+      ],
+      "promotions": []
+    },
+    "priceHistory": [],
+    "attributes": [
+      { "id": "BRAND", "name": "Marca", "value": "Samsung" },
+      { "id": "MODEL", "name": "Modelo", "value": "Galaxy S24 Ultra" },
+      { "id": "INTERNAL_MEMORY", "name": "Memoria interna", "value": "512 GB" },
+      { "id": "RAM", "name": "Memoria RAM", "value": "12 GB" },
+      { "id": "SCREEN_SIZE", "name": "Tamaño de pantalla", "value": "6.8 pulgadas" },
+      { "id": "OPERATING_SYSTEM", "name": "Sistema operativo", "value": "Android 14" },
+      { "id": "CAMERA_RESOLUTION", "name": "Resolución de la cámara trasera principal", "value": "200 Mpx" }
+    ],
+    "variants": [
+      { "id": "color_phantom_black", "attributeId": "COLOR", "value": "Phantom Black", "selected": true, "available": true },
+      { "id": "color_silver", "attributeId": "COLOR", "value": "Silver", "selected": false, "available": true }
+    ],
+    "features": [
+      "Cámara principal de 200MP",
+      "Pantalla Dynamic AMOLED 2X de 6.8 pulgadas",
+      "S Pen integrado",
+      "Batería de 5000mAh",
+      "Resistente al agua y al polvo (IP68)",
+      "Soporte para 5G"
+    ],
+    "shipping": {
+      "freeShipping": true,
+      "mode": "standard",
+      "estimatedDelivery": "3-5 días hábiles",
+      "cost": 0
+    },
+    "installments": {
+      "quantity": 12,
+      "amount": 100000,
+      "totalAmount": 1200000,
+      "interestRate": 0,
+      "isFree": true
+    }
+  },
+  {
+    "id": 3,
+    "title": "Xiaomi 13T Pro 256GB Meadow Green",
+    "price": 800000,
+    "currency": "ARS",
+    "brand": "Xiaomi",
+    "model": "13T Pro",
+    "condition": "new",
+    "description": "Xiaomi 13T Pro con cámara triple Leica, pantalla AMOLED de 6.67 pulgadas y carga rápida de 120W.",
+    "specifications": {
+      "storage": "256GB",
+      "color": "Meadow Green",
+      "screen": "6.67 pulgadas",
+      "camera": "50MP + 50MP + 12MP",
+      "battery": "5000mAh"
+    },
+    "images": [
+      { "url": "/product-images/xiaomi.jpg", "alt": "Xiaomi 13T Pro main image" },
+      { "url": "/product-images/celular_xiaomi_14_ultra_dual_chip_512gb_5g_global_172055_550x550.jpg", "alt": "Xiaomi 13T Pro alternate image" }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Celulares y Smartphones",
+        "slug": "celulares-smartphones",
+        "parentId": null,
+        "level": 1,
+        "path": "Celulares y Smartphones",
+        "totalItems": 1500
+      }
+    ],
+    "seller": {
+      "id": 3,
+      "name": "Xiaomi Store Argentina",
+      "username": "xiaomi_store_ar",
+      "type": "official",
+      "reputation": 4.7,
+      "totalSales": 9000,
+      "location": "Buenos Aires, Argentina",
+      "verified": true,
+      "premium": true,
+      "responseTime": "4 horas",
+      "shippingOptions": ["gratis", "express"],
+      "returnPolicy": "30 días",
+      "warranty": "1 año oficial"
+    },
+    "reviewList": [],
+    "reviews": {
+      "rating": 4.6,
+      "totalReviews": 0,
+      "ratingDistribution": {
+        "5": 0,
+        "4": 0,
+        "3": 0,
+        "2": 0,
+        "1": 0
+      }
+    },
+    "availability": {
+      "stock": 8,
+      "status": "in_stock",
+      "location": "Buenos Aires",
+      "shipping": {
+        "free": true,
+        "cost": 0,
+        "methods": [
+          {
+            "name": "Envío gratis",
+            "cost": 0,
+            "estimatedDays": "3-5 días hábiles",
+            "type": "standard"
+          },
+          {
+            "name": "Envío express",
+            "cost": 3500,
+            "estimatedDays": "1-2 días hábiles",
+            "type": "express"
+          }
+        ]
+      },
+      "pickup": {
+        "available": true,
+        "locations": [
+          {
+            "name": "Xiaomi Store Caballito",
+            "address": "Av. Rivadavia 5555, Buenos Aires",
+            "available": true
+          }
+        ]
+      },
+      "warranty": "1 año oficial Xiaomi",
+      "returnPolicy": "30 días para cambio o devolución"
+    },
+    "payment": {
+      "installments": [
+        {
+          "installments": 1,
+          "amount": 800000,
+          "rate": 0,
+          "total": 800000,
+          "recommended": false
+        },
+        {
+          "installments": 12,
+          "amount": 66666.67,
+          "rate": 0,
+          "total": 800000,
+          "recommended": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "Tarjeta de crédito",
+          "type": "credit_card",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Mercado Pago",
+          "type": "digital_wallet",
+          "accepted": true,
+          "installments": true
+        }
+      ],
+      "promotions": []
+    },
+    "priceHistory": [],
+    "attributes": [
+      { "id": "BRAND", "name": "Marca", "value": "Xiaomi" },
+      { "id": "MODEL", "name": "Modelo", "value": "13T Pro" },
+      { "id": "INTERNAL_MEMORY", "name": "Memoria interna", "value": "256 GB" },
+      { "id": "RAM", "name": "Memoria RAM", "value": "12 GB" },
+      { "id": "SCREEN_SIZE", "name": "Tamaño de pantalla", "value": "6.67 pulgadas" },
+      { "id": "OPERATING_SYSTEM", "name": "Sistema operativo", "value": "Android 13" },
+      { "id": "CAMERA_RESOLUTION", "name": "Resolución de la cámara trasera principal", "value": "50 Mpx" }
+    ],
+    "variants": [
+      { "id": "color_meadow_green", "attributeId": "COLOR", "value": "Meadow Green", "selected": true, "available": true },
+      { "id": "color_black", "attributeId": "COLOR", "value": "Black", "selected": false, "available": true }
+    ],
+    "features": [
+      "Cámara triple Leica",
+      "Pantalla AMOLED de 6.67 pulgadas",
+      "Carga rápida de 120W",
+      "Batería de 5000mAh",
+      "Soporte para 5G"
+    ],
+    "shipping": {
+      "freeShipping": true,
+      "mode": "standard",
+      "estimatedDelivery": "3-5 días hábiles",
+      "cost": 0
+    },
+    "installments": {
+      "quantity": 12,
+      "amount": 66666.67,
+      "totalAmount": 800000,
+      "interestRate": 0,
+      "isFree": true
+    }
+  },
+  {
+    "id": 4,
+    "title": "Google Pixel 8 Pro 128GB Obsidian",
+    "price": 1100000,
+    "currency": "ARS",
+    "brand": "Google",
+    "model": "Pixel 8 Pro",
+    "condition": "new",
+    "description": "Google Pixel 8 Pro con procesador Google Tensor G3, cámara triple y pantalla OLED de 6.7 pulgadas.",
+    "specifications": {
+      "storage": "128GB",
+      "color": "Obsidian",
+      "screen": "6.7 pulgadas",
+      "camera": "50MP + 48MP + 48MP",
+      "battery": "5050mAh"
+    },
+    "images": [
+      { "url": "/product-images/Pixel.webp", "alt": "Google Pixel 8 Pro main image" },
+      { "url": "/product-images/Pixel2.webp", "alt": "Google Pixel 8 Pro alternate image" }
+    ],
+    "categories": [
+      {
+        "id": 1,
+        "name": "Celulares y Smartphones",
+        "slug": "celulares-smartphones",
+        "parentId": null,
+        "level": 1,
+        "path": "Celulares y Smartphones",
+        "totalItems": 1500
+      }
+    ],
+    "seller": {
+      "id": 4,
+      "name": "Google Store Argentina",
+      "username": "google_store_ar",
+      "type": "official",
+      "reputation": 4.6,
+      "totalSales": 7000,
+      "location": "Buenos Aires, Argentina",
+      "verified": true,
+      "premium": true,
+      "responseTime": "5 horas",
+      "shippingOptions": ["gratis", "express"],
+      "returnPolicy": "30 días",
+      "warranty": "1 año oficial"
+    },
+    "reviewList": [],
+    "reviews": {
+      "rating": 4.5,
+      "totalReviews": 0,
+      "ratingDistribution": {
+        "5": 0,
+        "4": 0,
+        "3": 0,
+        "2": 0,
+        "1": 0
+      }
+    },
+    "availability": {
+      "stock": 25,
+      "status": "in_stock",
+      "location": "Buenos Aires",
+      "shipping": {
+        "free": true,
+        "cost": 0,
+        "methods": [
+          {
+            "name": "Envío gratis",
+            "cost": 0,
+            "estimatedDays": "3-5 días hábiles",
+            "type": "standard"
+          },
+          {
+            "name": "Envío express",
+            "cost": 4500,
+            "estimatedDays": "1-2 días hábiles",
+            "type": "express"
+          }
+        ]
+      },
+      "pickup": {
+        "available": true,
+        "locations": [
+          {
+            "name": "Google Store Palermo",
+            "address": "Av. Santa Fe 6789, Buenos Aires",
+            "available": true
+          }
+        ]
+      },
+      "warranty": "1 año oficial Google",
+      "returnPolicy": "30 días para cambio o devolución"
+    },
+    "payment": {
+      "installments": [
+        {
+          "installments": 1,
+          "amount": 1100000,
+          "rate": 0,
+          "total": 1100000,
+          "recommended": false
+        },
+        {
+          "installments": 12,
+          "amount": 91666.67,
+          "rate": 0,
+          "total": 1100000,
+          "recommended": true
+        }
+      ],
+      "methods": [
+        {
+          "name": "Tarjeta de crédito",
+          "type": "credit_card",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Mercado Pago",
+          "type": "digital_wallet",
+          "accepted": true,
+          "installments": true
+        }
+      ],
+      "promotions": []
+    },
+    "priceHistory": [],
+    "attributes": [
+      { "id": "BRAND", "name": "Marca", "value": "Google" },
+      { "id": "MODEL", "name": "Modelo", "value": "Pixel 8 Pro" },
+      { "id": "INTERNAL_MEMORY", "name": "Memoria interna", "value": "128 GB" },
+      { "id": "RAM", "name": "Memoria RAM", "value": "12 GB" },
+      { "id": "SCREEN_SIZE", "name": "Tamaño de pantalla", "value": "6.7 pulgadas" },
+      { "id": "OPERATING_SYSTEM", "name": "Sistema operativo", "value": "Android 14" },
+      { "id": "CAMERA_RESOLUTION", "name": "Resolución de la cámara trasera principal", "value": "50 Mpx" }
+    ],
+    "variants": [
+      { "id": "color_obsidian", "attributeId": "COLOR", "value": "Obsidian", "selected": true, "available": true },
+      { "id": "color_bay", "attributeId": "COLOR", "value": "Bay", "selected": false, "available": true }
+    ],
+    "features": [
+      "Procesador Google Tensor G3",
+      "Pantalla OLED de 6.7 pulgadas",
+      "Cámara triple",
+      "Batería de 5050mAh",
+      "Soporte para 5G"
+    ],
+    "shipping": {
+      "freeShipping": true,
+      "mode": "standard",
+      "estimatedDelivery": "3-5 días hábiles",
+      "cost": 0
+    },
+    "installments": {
+      "quantity": 12,
+      "amount": 91666.67,
+      "totalAmount": 1100000,
+      "interestRate": 0,
+      "isFree": true
+    }
+  }
+] 

@@ -1,225 +1,207 @@
-# Backend Architecture - Repository Pattern
+# MercadoLibre Backend API
 
-## 🏗️ Arquitectura Orientada a Interfaces
+A clean, scalable backend API built with Express.js and TypeScript using hexagonal architecture.
 
-Este backend implementa el **patrón Repository** con interfaces que permiten cambiar fácilmente entre diferentes fuentes de datos (JSON, Database, API, etc.) sin afectar el resto de la aplicación.
+## 🏗️ Architecture
 
-## 📁 Estructura de Archivos
+This backend follows **Hexagonal Architecture** (Ports and Adapters) principles:
 
 ```
-backend/
-├── interfaces/
-│   └── IRepository.js          # Interfaz base para repositorios
-├── repositories/
-│   ├── JsonRepository.js       # Implementación para archivos JSON
-│   └── DatabaseRepository.js   # Implementación para bases de datos
-├── services/
-│   └── ProductService.js       # Lógica de negocio
-├── config/
-│   └── RepositoryFactory.js    # Factory para crear repositorios
-├── *.json                      # Archivos de datos JSON
-└── server.js                   # Servidor Express
+┌─────────────────────────────────────────────────────────────┐
+│                    Interfaces Layer                         │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
+│  │   Controllers   │  │     Routes      │  │   Middleware │ │
+│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
+└─────────────────────────────────────────────────────────────┘
+                              │
+┌─────────────────────────────────────────────────────────────┐
+│                   Application Layer                         │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
+│  │   Use Cases     │  │    Services     │  │   DTOs       │ │
+│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
+└─────────────────────────────────────────────────────────────┘
+                              │
+┌─────────────────────────────────────────────────────────────┐
+│                    Domain Layer                             │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
+│  │    Entities     │  │   Repositories  │  │   Business   │ │
+│  │                 │  │   (Interfaces)  │  │   Rules      │ │
+│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
+└─────────────────────────────────────────────────────────────┘
+                              │
+┌─────────────────────────────────────────────────────────────┐
+│                 Infrastructure Layer                        │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌──────────────┐ │
+│  │  Repositories   │  │    Database     │  │   External   │ │
+│  │  (Implement.)   │  │   (JSON/DB)     │  │   Services   │ │
+│  └─────────────────┘  └─────────────────┘  └──────────────┘ │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-## 🔄 Patrón Repository
+## 🚀 Features
 
-### 1. **Interfaz Base (IRepository)**
-```javascript
-// interfaces/IRepository.js
-export class IRepository {
-  async findById(id) { /* ... */ }
-  async findAll() { /* ... */ }
-  async findBy(filters) { /* ... */ }
-  async create(data) { /* ... */ }
-  async update(id, data) { /* ... */ }
-  async delete(id) { /* ... */ }
-}
-```
+- ✅ **Hexagonal Architecture** - Clean separation of concerns
+- ✅ **TypeScript** - Full type safety
+- ✅ **Express.js** - Fast and reliable web framework
+- ✅ **JSON Data Source** - Easy to switch to database later
+- ✅ **CORS Support** - Frontend integration ready
+- ✅ **Security Headers** - Helmet.js protection
+- ✅ **Logging** - Morgan HTTP request logger
+- ✅ **Error Handling** - Comprehensive error management
 
-### 2. **Implementaciones**
-- **JsonRepository**: Lee/escribe archivos JSON
-- **DatabaseRepository**: Ejecuta queries SQL
+## 📦 API Endpoints
 
-### 3. **Factory Pattern**
-```javascript
-// config/RepositoryFactory.js
-const factory = new RepositoryFactory();
-const productRepo = factory.createRepository('products');
-```
+### Products
+- `GET /api/products` - Get all products
+- `GET /api/products/:id` - Get product by ID
+- `GET /api/products/search?q=query` - Search products
 
-## 🚀 Cómo Usar
+### Health & Info
+- `GET /api/health` - Health check
+- `GET /` - API information
 
-### **Configuración Actual (JSON)**
+## 🛠️ Installation
+
 ```bash
-# Variable de entorno (opcional, por defecto es 'json')
-DATA_SOURCE=json
+# Install dependencies
+npm install
+
+# Development
+npm run dev
+
+# Production build
+npm run build
+npm start
+
+# Linting
+npm run lint
 ```
 
-### **Cambiar a Database**
-```bash
-# 1. Cambiar variable de entorno
-DATA_SOURCE=database
+## 🔧 Configuration
 
-# 2. Configurar conexión en el factory
-import sqlite3 from 'sqlite3';
-const db = new sqlite3.Database('./database.sqlite');
-repositoryFactory.setDatabaseConnection(db);
+### Environment Variables
+```env
+PORT=4000
+NODE_ENV=development
 ```
 
-### **Uso en el Servidor**
-```javascript
-// server.js
-const repositories = repositoryFactory.createAllRepositories();
-const productService = new ProductService(
-  repositories.products,
-  repositories.categories,
-  // ... otros repositorios
-);
+### CORS Origins
+The API is configured to accept requests from:
+- `http://localhost:5173` (Vite dev server)
+- `http://localhost:3000` (Alternative dev server)
+- `http://127.0.0.1:5173` (Localhost alternative)
+
+## 📁 Project Structure
+
+```
+src/
+├── domain/                    # Business logic
+│   ├── entities/             # Domain entities
+│   └── repositories/         # Repository interfaces
+├── application/              # Application services
+│   ├── use-cases/           # Business use cases
+│   └── services/            # Application services
+├── infrastructure/           # External concerns
+│   ├── repositories/        # Repository implementations
+│   └── database/            # Data sources
+├── interfaces/               # Web layer
+│   ├── controllers/         # HTTP controllers
+│   └── routes/              # Express routes
+├── shared/                   # Shared utilities
+│   ├── types/               # TypeScript types
+│   └── utils/               # Utility functions
+└── server.ts                # Application entry point
 ```
 
-## 📊 Endpoints Disponibles
+## 🔄 Database Migration
 
-### **Productos**
-- `GET /api/products/:id` - Información básica del producto
-- `GET /api/products/:id/complete` - Producto con todas las relaciones
-- `POST /api/products/:id/price` - Actualizar precio
+Currently using JSON files, but designed for easy database migration:
 
-### **Categorías**
-- `GET /api/categories/:id` - Información de categoría
-- `GET /api/categories/:id/products` - Productos por categoría
-
-### **Vendedores**
-- `GET /api/sellers/:id` - Información del vendedor
-- `GET /api/sellers/:id/products` - Productos del vendedor
-
-### **Datos Relacionados**
-- `GET /api/images/:productId` - Imágenes del producto
-- `GET /api/price-history/:productId` - Historial de precios
-- `GET /api/reviews/:productId` - Reseñas y calificaciones
-- `GET /api/availability/:productId` - Disponibilidad y envío
-- `GET /api/payment/:productId` - Información de pago
-
-### **Búsqueda**
-- `GET /api/search/products` - Búsqueda con filtros
-
-### **Legacy**
-- `GET /api/items/:id` - Endpoint legacy (compatibilidad)
-
-## 🔧 Agregar Nueva Fuente de Datos
-
-### 1. **Crear Nueva Implementación**
-```javascript
-// repositories/ApiRepository.js
-export class ApiRepository extends IRepository {
-  constructor(baseUrl, apiKey) {
-    super();
-    this.baseUrl = baseUrl;
-    this.apiKey = apiKey;
-  }
-
-  async findById(id) {
-    const response = await fetch(`${this.baseUrl}/products/${id}`, {
-      headers: { 'Authorization': `Bearer ${this.apiKey}` }
-    });
-    return response.json();
-  }
-  // ... implementar otros métodos
-}
-```
-
-### 2. **Actualizar Factory**
-```javascript
-// config/RepositoryFactory.js
-createRepository(type) {
-  if (this.dataSource === 'api') {
-    return new ApiRepository(this.apiUrl, this.apiKey);
-  }
-  // ... otros casos
-}
-```
-
-### 3. **Configurar**
-```bash
-DATA_SOURCE=api
-API_URL=https://api.example.com
-API_KEY=your_api_key
-```
-
-## 🎯 Beneficios
-
-### **✅ Separación de Responsabilidades**
-- **API Layer**: Solo maneja HTTP
-- **Service Layer**: Lógica de negocio
-- **Repository Layer**: Acceso a datos abstracto
-- **Data Source**: Implementación específica
-
-### **✅ Flexibilidad**
-- Cambiar fuente de datos sin tocar código
-- Agregar nuevas fuentes fácilmente
-- Testing simplificado con mocks
-
-### **✅ Escalabilidad**
-- Fácil agregar nuevos repositorios
-- Fácil agregar nuevos servicios
-- Arquitectura preparada para crecimiento
-
-### **✅ Mantenibilidad**
-- Código limpio y organizado
-- Fácil de entender y modificar
-- Patrones estándar de la industria
+1. **Create new repository implementation** in `infrastructure/repositories/`
+2. **Implement the same interface** as `JsonProductRepository`
+3. **Update dependency injection** in `server.ts`
+4. **No changes needed** in domain or application layers
 
 ## 🧪 Testing
 
-### **Mock Repository**
-```javascript
-class MockRepository extends IRepository {
-  constructor(data = []) {
-    super();
-    this.data = data;
-  }
+```bash
+# Run tests
+npm test
 
-  async findById(id) {
-    return this.data.find(item => item.id === id);
-  }
-  // ... implementar otros métodos
-}
-
-// Uso en tests
-const mockRepo = new MockRepository([{ id: 1, name: 'Test' }]);
-const service = new ProductService(mockRepo, ...);
+# Test coverage
+npm run test:coverage
 ```
 
-## 📈 Próximos Pasos
+## 📊 Data Models
 
-1. **Implementar DatabaseRepository** con SQLite/PostgreSQL
-2. **Agregar cache** con Redis
-3. **Implementar paginación** en repositorios
-4. **Agregar validación** de datos
-5. **Implementar logging** centralizado
-6. **Agregar tests** unitarios e integración
+### Product
+- **SellerInfo** - Seller details and reputation
+- **ProductInfo** - Product specifications and details
+- **ProductRating** - Reviews and ratings
+- **ProductImages** - Image gallery with metadata
 
-## 🔗 Ejemplos de Uso
-
-### **Buscar Productos**
-```bash
-# Por categoría
-GET /api/categories/1/products
-
-# Por vendedor
-GET /api/sellers/1/products
-
-# Con filtros
-GET /api/search/products?brand=Apple&minPrice=1000000&sortBy=price_asc
-```
-
-### **Actualizar Precio**
-```bash
-POST /api/products/1/price
-Content-Type: application/json
-
+### Example Response
+```json
 {
-  "price": 1600000
+  "id": 1,
+  "title": "iPhone 15 Pro Max 256GB Titanio Natural",
+  "price": 1500000,
+  "currency": "ARS",
+  "seller": {
+    "id": 1,
+    "name": "Apple Store Argentina",
+    "reputation": 4.9,
+    "verified": true
+  },
+  "images": [...],
+  "reviews": [...],
+  "attributes": [...],
+  "variants": [...]
 }
 ```
 
-Esta arquitectura te permite mantener la funcionalidad JSON actual mientras preparas tu aplicación para escalar a una base de datos real en el futuro. ¡Es una base sólida y profesional! 
+## 🔒 Security
+
+- **Helmet.js** - Security headers
+- **CORS** - Cross-origin resource sharing
+- **Input validation** - Request parameter validation
+- **Error handling** - No sensitive data in error responses
+
+## 🚀 Deployment
+
+### Development
+```bash
+npm run dev
+```
+
+### Production
+```bash
+npm run build
+npm start
+```
+
+### Docker (Future)
+```dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY dist ./dist
+EXPOSE 4000
+CMD ["npm", "start"]
+```
+
+## 🔄 Future Enhancements
+
+- [ ] **Database Integration** - MongoDB/PostgreSQL
+- [ ] **Authentication** - JWT tokens
+- [ ] **Caching** - Redis integration
+- [ ] **Rate Limiting** - API throttling
+- [ ] **Validation** - Joi/Zod schemas
+- [ ] **Documentation** - Swagger/OpenAPI
+- [ ] **Testing** - Unit and integration tests
+- [ ] **Monitoring** - Health checks and metrics
+
+## 📝 License
+
+This project is for educational purposes. 
