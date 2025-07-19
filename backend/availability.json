@@ -1,0 +1,85 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "availability": {
+      "stock": 15,
+      "status": "in_stock",
+      "location": "Buenos Aires",
+      "shipping": {
+        "free": true,
+        "cost": 0,
+        "methods": [
+          {
+            "name": "Envío gratis",
+            "cost": 0,
+            "estimatedDays": "3-5 días hábiles",
+            "type": "standard"
+          },
+          {
+            "name": "Envío express",
+            "cost": 5000,
+            "estimatedDays": "1-2 días hábiles",
+            "type": "express"
+          }
+        ]
+      },
+      "pickup": {
+        "available": true,
+        "locations": [
+          {
+            "name": "Apple Store Palermo",
+            "address": "Av. Santa Fe 1234, Buenos Aires",
+            "available": true
+          },
+          {
+            "name": "Apple Store Recoleta",
+            "address": "Av. Alvear 567, Buenos Aires",
+            "available": true
+          }
+        ]
+      },
+      "warranty": "1 año oficial Apple",
+      "returnPolicy": "30 días para cambio o devolución"
+    }
+  },
+  {
+    "id": 2,
+    "productId": 2,
+    "availability": {
+      "stock": 8,
+      "status": "in_stock",
+      "location": "Córdoba",
+      "shipping": {
+        "free": true,
+        "cost": 0,
+        "methods": [
+          {
+            "name": "Envío gratis",
+            "cost": 0,
+            "estimatedDays": "4-6 días hábiles",
+            "type": "standard"
+          },
+          {
+            "name": "Envío express",
+            "cost": 8000,
+            "estimatedDays": "2-3 días hábiles",
+            "type": "express"
+          }
+        ]
+      },
+      "pickup": {
+        "available": true,
+        "locations": [
+          {
+            "name": "Samsung Store Córdoba",
+            "address": "Av. Colón 890, Córdoba",
+            "available": true
+          }
+        ]
+      },
+      "warranty": "1 año oficial Samsung",
+      "returnPolicy": "30 días para cambio o devolución"
+    }
+  }
+] 

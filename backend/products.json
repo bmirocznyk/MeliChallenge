@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "iPhone 15 Pro Max 256GB Titanio Natural",
+    "price": 1500000,
+    "currency": "ARS",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "condition": "new",
+    "categoryId": 1,
+    "sellerId": 1,
+    "description": "El iPhone 15 Pro Max con chip A17 Pro, cámara de 48MP y pantalla Super Retina XDR de 6.7 pulgadas.",
+    "specifications": {
+      "storage": "256GB",
+      "color": "Titanio Natural",
+      "screen": "6.7 pulgadas",
+      "camera": "48MP + 12MP + 12MP",
+      "battery": "4441mAh"
+    },
+    "createdAt": "2024-01-15T10:00:00.000Z",
+    "updatedAt": "2024-01-15T10:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Samsung Galaxy S24 Ultra 512GB Titanio Negro",
+    "price": 1800000,
+    "currency": "ARS",
+    "brand": "Samsung",
+    "model": "Galaxy S24 Ultra",
+    "condition": "new",
+    "categoryId": 1,
+    "sellerId": 2,
+    "description": "El Samsung Galaxy S24 Ultra con S Pen integrado, cámara de 200MP y procesador Snapdragon 8 Gen 3.",
+    "specifications": {
+      "storage": "512GB",
+      "color": "Titanio Negro",
+      "screen": "6.8 pulgadas",
+      "camera": "200MP + 12MP + 50MP + 10MP",
+      "battery": "5000mAh"
+    },
+    "createdAt": "2024-01-10T14:30:00.000Z",
+    "updatedAt": "2024-01-10T14:30:00.000Z"
+  }
+] 

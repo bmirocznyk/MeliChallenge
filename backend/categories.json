@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Celulares y Smartphones",
+    "slug": "celulares-smartphones",
+    "parentId": null,
+    "level": 1,
+    "path": "Celulares y Smartphones",
+    "totalItems": 1500,
+    "children": [
+      {
+        "id": 2,
+        "name": "iPhone",
+        "slug": "iphone",
+        "parentId": 1,
+        "level": 2,
+        "path": "Celulares y Smartphones > iPhone",
+        "totalItems": 450
+      },
+      {
+        "id": 3,
+        "name": "Samsung",
+        "slug": "samsung",
+        "parentId": 1,
+        "level": 2,
+        "path": "Celulares y Smartphones > Samsung",
+        "totalItems": 380
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Computación",
+    "slug": "computacion",
+    "parentId": null,
+    "level": 1,
+    "path": "Computación",
+    "totalItems": 2200,
+    "children": [
+      {
+        "id": 5,
+        "name": "Notebooks",
+        "slug": "notebooks",
+        "parentId": 4,
+        "level": 2,
+        "path": "Computación > Notebooks",
+        "totalItems": 800
+      }
+    ]
+  }
+] 

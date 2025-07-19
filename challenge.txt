@@ -1,0 +1,80 @@
+Also, build its supporting backend API. This exercise will test your ability to design and implement both a frontend view and backend functionality under time constraints.
+
+
+Requirements
+
+
+1.⁠ ⁠Frontend: Items Page
+
+Design & Functionality:
+
+Create an item detail page that mimics the look and feel of MercadoLibre.
+
+The page should display key information such as:
+
+Product images
+
+Title and description
+
+Price
+
+Payment methods
+
+Seller information
+
+Additional details (e.g., ratings, reviews, or available stock)
+
+Recommendations isn’t required
+
+Checkout logic is not required
+
+User Experience:
+
+Ensure the page is responsive and user-friendly.
+
+Stack:
+
+You can use any frontend technology or framework of your choice.
+
+
+2.⁠ ⁠Backend: API Development
+
+API Endpoints:
+
+Implement a RESTful API that supports the frontend by providing the necessary product details
+
+The primary endpoint should fetch product details
+
+Stack:
+
+You can use any backend technology or framework of your choice
+
+Do not use real databases, persist everything in local JSON or CSV files
+
+
+Non-functional requirements:
+
+Proper error handling, documented, at least 80% code coverage
+
+
+Tool Usage
+
+Allowed Tools: You may use and are encouraged to use GenAI tools, agentic IDEs, and other code assistance tools to help generate ideas or code.
+
+Note: The final submitted code should reflect your understanding and modifications. Be prepared to explain the solution.
+
+
+3.⁠ ⁠Documentation:
+
+Along with your code submission, include a brief (1-2 page) document that:
+
+Explains your design choices.
+
+Describes any challenges you faced and how you addressed them.
+
+
+4.⁠ ⁠Submission
+
+Provide a link to your repository or a zipped project folder.
+
+It must contain a run.md explaining how to run the project

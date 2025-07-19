@@ -1,0 +1,156 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "payment": {
+      "installments": [
+        {
+          "installments": 1,
+          "amount": 1500000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        },
+        {
+          "installments": 3,
+          "amount": 500000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        },
+        {
+          "installments": 6,
+          "amount": 250000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        },
+        {
+          "installments": 12,
+          "amount": 125000,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": true
+        },
+        {
+          "installments": 18,
+          "amount": 83333.33,
+          "rate": 0,
+          "total": 1500000,
+          "recommended": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "Tarjeta de crédito",
+          "type": "credit_card",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Tarjeta de débito",
+          "type": "debit_card",
+          "accepted": true,
+          "installments": false
+        },
+        {
+          "name": "Mercado Pago",
+          "type": "digital_wallet",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Transferencia bancaria",
+          "type": "bank_transfer",
+          "accepted": true,
+          "installments": false
+        }
+      ],
+      "promotions": [
+        {
+          "name": "10% OFF con Mercado Pago",
+          "discount": 10,
+          "code": "MP10OFF",
+          "validUntil": "2024-02-15T23:59:59.000Z"
+        }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "productId": 2,
+    "payment": {
+      "installments": [
+        {
+          "installments": 1,
+          "amount": 1800000,
+          "rate": 0,
+          "total": 1800000,
+          "recommended": false
+        },
+        {
+          "installments": 3,
+          "amount": 600000,
+          "rate": 0,
+          "total": 1800000,
+          "recommended": false
+        },
+        {
+          "installments": 6,
+          "amount": 300000,
+          "rate": 0,
+          "total": 1800000,
+          "recommended": false
+        },
+        {
+          "installments": 12,
+          "amount": 150000,
+          "rate": 0,
+          "total": 1800000,
+          "recommended": true
+        },
+        {
+          "installments": 18,
+          "amount": 100000,
+          "rate": 0,
+          "total": 1800000,
+          "recommended": false
+        }
+      ],
+      "methods": [
+        {
+          "name": "Tarjeta de crédito",
+          "type": "credit_card",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Tarjeta de débito",
+          "type": "debit_card",
+          "accepted": true,
+          "installments": false
+        },
+        {
+          "name": "Mercado Pago",
+          "type": "digital_wallet",
+          "accepted": true,
+          "installments": true
+        },
+        {
+          "name": "Transferencia bancaria",
+          "type": "bank_transfer",
+          "accepted": true,
+          "installments": false
+        }
+      ],
+      "promotions": [
+        {
+          "name": "15% OFF con Samsung Pay",
+          "discount": 15,
+          "code": "SAMSUNG15",
+          "validUntil": "2024-02-20T23:59:59.000Z"
+        }
+      ]
+    }
+  }
+] 

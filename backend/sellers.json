@@ -1,0 +1,53 @@
+[
+  {
+    "id": 1,
+    "name": "Apple Store Argentina",
+    "username": "apple_store_ar",
+    "type": "official",
+    "reputation": 4.9,
+    "totalSales": 15000,
+    "location": "Buenos Aires, Argentina",
+    "verified": true,
+    "premium": true,
+    "responseTime": "2 horas",
+    "shippingOptions": ["gratis", "express"],
+    "returnPolicy": "30 días",
+    "warranty": "1 año oficial",
+    "createdAt": "2020-03-15T10:00:00.000Z",
+    "updatedAt": "2024-01-15T10:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "name": "Samsung Argentina",
+    "username": "samsung_argentina",
+    "type": "official",
+    "reputation": 4.8,
+    "totalSales": 12000,
+    "location": "Córdoba, Argentina",
+    "verified": true,
+    "premium": true,
+    "responseTime": "4 horas",
+    "shippingOptions": ["gratis", "express"],
+    "returnPolicy": "30 días",
+    "warranty": "1 año oficial",
+    "createdAt": "2019-08-20T14:30:00.000Z",
+    "updatedAt": "2024-01-10T14:30:00.000Z"
+  },
+  {
+    "id": 3,
+    "name": "TechStore",
+    "username": "techstore_ba",
+    "type": "store",
+    "reputation": 4.7,
+    "totalSales": 8500,
+    "location": "Buenos Aires, Argentina",
+    "verified": true,
+    "premium": false,
+    "responseTime": "6 horas",
+    "shippingOptions": ["express"],
+    "returnPolicy": "15 días",
+    "warranty": "6 meses",
+    "createdAt": "2021-01-10T09:15:00.000Z",
+    "updatedAt": "2024-01-12T16:45:00.000Z"
+  }
+] 

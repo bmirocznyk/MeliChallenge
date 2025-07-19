@@ -1,0 +1,194 @@
+[
+  {
+    "id": 1,
+    "title": "Samsung Galaxy S25 Plus 256 GB Icy Blue",
+    "price": 1889995,
+    "currency": "ARS",
+    "condition": "new",
+    "soldQuantity": 50,
+    "availableQuantity": 20,
+    "images": [
+      {
+        "id": "s25-front",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_907020-MLU77717743585_072024-O.webp",
+        "alt": "Samsung Galaxy S25 Plus Icy Blue - Vista frontal",
+        "width": 640,
+        "height": 818
+      },
+      {
+        "id": "s25-back",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_612304-MLU77717860905_072024-O.webp",
+        "alt": "Samsung Galaxy S25 Plus Icy Blue - Vista trasera",
+        "width": 352,
+        "height": 828
+      },
+      {
+        "id": "s25-side",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_864787-MLU77500463742_072024-O.webp",
+        "alt": "Samsung Galaxy S25 Plus Icy Blue - Vista lateral",
+        "width": 399,
+        "height": 818
+      },
+      {
+        "id": "s25-accessories",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_727709-MLA79831897975_102024-O.webp",
+        "alt": "Samsung Galaxy S25 Plus Icy Blue - Accesorios",
+        "width": 1152,
+        "height": 1200
+      }
+    ],
+    "description": "El Samsung Galaxy S25 Plus combina un diseño premium con un rendimiento de alta gama. Pantalla Dynamic AMOLED 2X de 6.7\" QHD+, Snapdragon 8 Elite, 12GB RAM, 256GB almacenamiento, triple cámara trasera de 50+10+12MP, batería de larga duración y conectividad 5G.",
+    "features": [
+      "Pantalla Dynamic AMOLED 2X de 6.7\" QHD+",
+      "Procesador Snapdragon 8 Elite",
+      "12GB de RAM + 256GB de almacenamiento",
+      "Triple cámara trasera: 50MP + 10MP + 12MP",
+      "Cámara frontal de 12MP",
+      "Batería de larga duración",
+      "Conectividad 5G",
+      "Android 14"
+    ],
+    "seller": {
+      "id": "samsung_official",
+      "name": "Samsung Store",
+      "reputation": "green",
+      "level": "MercadoLíder Platinum",
+      "sales": 5000,
+      "isOfficialStore": true
+    },
+    "shipping": {
+      "freeShipping": true,
+      "mode": "standard",
+      "estimatedDelivery": "2-4 días hábiles",
+      "cost": 0
+    },
+    "reviews": {
+      "rating": 4.8,
+      "totalReviews": 223,
+      "ratingDistribution": { "5": 180, "4": 30, "3": 8, "2": 3, "1": 2 }
+    },
+    "installments": {
+      "quantity": 12,
+      "amount": 157499.58,
+      "totalAmount": 1889995,
+      "interestRate": 0,
+      "isFree": true
+    },
+    "categories": [
+      { "id": "MLA1051", "name": "Celulares y Teléfonos", "path": "/c/celulares-y-telefonos" },
+      { "id": "MLA1055", "name": "Celulares y Smartphones", "path": "/c/celulares-y-smartphones" }
+    ],
+    "attributes": [
+      { "id": "BRAND", "name": "Marca", "value": "Samsung" },
+      { "id": "MODEL", "name": "Modelo", "value": "S25 Plus Dual SIM" },
+      { "id": "INTERNAL_MEMORY", "name": "Memoria interna", "value": "256 GB" },
+      { "id": "RAM", "name": "Memoria RAM", "value": "12 GB" },
+      { "id": "SCREEN_SIZE", "name": "Tamaño de pantalla", "value": "6.7\"" },
+      { "id": "OPERATING_SYSTEM", "name": "Sistema operativo", "value": "Android 14" },
+      { "id": "CAMERA_RESOLUTION", "name": "Resolución de la cámara trasera principal", "value": "50 Mpx" }
+    ],
+    "variants": [
+      { "id": "color_icyblue", "attributeId": "COLOR", "value": "Icy Blue", "selected": true, "available": true },
+      { "id": "color_negro", "attributeId": "COLOR", "value": "Negro", "selected": false, "available": true },
+      { "id": "storage_256gb", "attributeId": "INTERNAL_MEMORY", "value": "256 GB", "selected": true, "available": true },
+      { "id": "storage_512gb", "attributeId": "INTERNAL_MEMORY", "value": "512 GB", "selected": false, "available": true, "price": 2089995 }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Apple iPhone 16 Pro 256 GB Titanio Negro",
+    "price": 2499999,
+    "currency": "ARS",
+    "condition": "new",
+    "soldQuantity": 100,
+    "availableQuantity": 15,
+    "images": [
+      {
+        "id": "iphone-front",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_883433-MLM51559383744_092022-O.webp",
+        "alt": "iPhone 14 - Vista frontal",
+        "width": 640,
+        "height": 818
+      },
+      {
+        "id": "iphone-back",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_614419-MLM51559383743_092022-O.webp",
+        "alt": "iPhone 14 - Vista trasera",
+        "width": 352,
+        "height": 828
+      },
+      {
+        "id": "iphone-side",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_800271-MLM74117531714_012024-O.webp",
+        "alt": "iPhone 14 - Vista lateral",
+        "width": 399,
+        "height": 818
+      },
+      {
+        "id": "iphone-accessories",
+        "url": "https://http2.mlstatic.com/D_NQ_NP_797906-MLM74134564054_012024-O.webp",
+        "alt": "iPhone 14 - Accesorios",
+        "width": 1152,
+        "height": 1200
+      }
+    ],
+    "description": "El Apple iPhone 16 Pro redefine la innovación con su chip A18 Pro, pantalla Super Retina XDR de 6.1\", cámara triple de 48+12+12MP, diseño en titanio negro, Dynamic Island, Face ID y conectividad 5G.",
+    "features": [
+      "Pantalla Super Retina XDR de 6.1\"",
+      "Chip A18 Pro",
+      "8GB de RAM + 256GB de almacenamiento",
+      "Cámara triple: 48MP + 12MP + 12MP",
+      "Cámara frontal de 12MP",
+      "Dynamic Island",
+      "iOS 18",
+      "Face ID y 5G"
+    ],
+    "seller": {
+      "id": "apple_distribuidor",
+      "name": "Apple Distribuidor Oficial",
+      "reputation": "green",
+      "level": "MercadoLíder Platinum",
+      "sales": 3000,
+      "isOfficialStore": true
+    },
+    "shipping": {
+      "freeShipping": true,
+      "mode": "standard",
+      "estimatedDelivery": "2-3 días hábiles",
+      "cost": 0
+    },
+    "reviews": {
+      "rating": 4.9,
+      "totalReviews": 320,
+      "ratingDistribution": { "5": 270, "4": 40, "3": 6, "2": 2, "1": 2 }
+    },
+    "installments": {
+      "quantity": 12,
+      "amount": 208333.25,
+      "totalAmount": 2499999,
+      "interestRate": 0,
+      "isFree": true
+    },
+    "categories": [
+      { "id": "MLA1051", "name": "Celulares y Teléfonos", "path": "/c/celulares-y-telefonos" },
+      { "id": "MLA1055", "name": "Celulares y Smartphones", "path": "/c/celulares-y-smartphones" }
+    ],
+    "attributes": [
+      { "id": "BRAND", "name": "Marca", "value": "Apple" },
+      { "id": "MODEL", "name": "Modelo", "value": "iPhone 16 Pro" },
+      { "id": "INTERNAL_MEMORY", "name": "Memoria interna", "value": "256 GB" },
+      { "id": "RAM", "name": "Memoria RAM", "value": "8 GB" },
+      { "id": "SCREEN_SIZE", "name": "Tamaño de pantalla", "value": "6.1\"" },
+      { "id": "OPERATING_SYSTEM", "name": "Sistema operativo", "value": "iOS 18" },
+      { "id": "CAMERA_RESOLUTION", "name": "Resolución de la cámara trasera principal", "value": "48 Mpx" }
+    ],
+    "variants": [
+      { "id": "color_titanio_negro", "attributeId": "COLOR", "value": "Titanio Negro", "selected": true, "available": true },
+      { "id": "color_blanco", "attributeId": "COLOR", "value": "Blanco", "selected": false, "available": true },
+      { "id": "color_azul", "attributeId": "COLOR", "value": "Azul", "selected": false, "available": true },
+      { "id": "storage_256gb", "attributeId": "INTERNAL_MEMORY", "value": "256 GB", "selected": true, "available": true },
+      { "id": "storage_512gb", "attributeId": "INTERNAL_MEMORY", "value": "512 GB", "selected": false, "available": true, "price": 2899999 },
+      { "id": "storage_1tb", "attributeId": "INTERNAL_MEMORY", "value": "1 TB", "selected": false, "available": true, "price": 3299999 }
+    ]
+  }
+] 

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "productId": 1,
+    "price": 1500000,
+    "currency": "ARS",
+    "date": "2024-01-15T10:00:00.000Z",
+    "type": "current",
+    "reason": "initial_price"
+  },
+  {
+    "id": 2,
+    "productId": 1,
+    "price": 1450000,
+    "currency": "ARS",
+    "date": "2024-01-10T14:30:00.000Z",
+    "type": "historical",
+    "reason": "promotion"
+  },
+  {
+    "id": 3,
+    "productId": 1,
+    "price": 1600000,
+    "currency": "ARS",
+    "date": "2024-01-05T09:15:00.000Z",
+    "type": "historical",
+    "reason": "initial_price"
+  },
+  {
+    "id": 4,
+    "productId": 2,
+    "price": 1800000,
+    "currency": "ARS",
+    "date": "2024-01-10T14:30:00.000Z",
+    "type": "current",
+    "reason": "initial_price"
+  },
+  {
+    "id": 5,
+    "productId": 2,
+    "price": 1750000,
+    "currency": "ARS",
+    "date": "2024-01-08T11:20:00.000Z",
+    "type": "historical",
+    "reason": "launch_promotion"
+  },
+  {
+    "id": 6,
+    "productId": 2,
+    "price": 1900000,
+    "currency": "ARS",
+    "date": "2024-01-01T00:00:00.000Z",
+    "type": "historical",
+    "reason": "pre_order"
+  }
+] 
