@@ -2,12 +2,14 @@ import { Request, Response } from 'express';
 import { GetProductUseCase } from '@/application/use-cases/GetProductUseCase';
 import { GetAllProductsUseCase } from '@/application/use-cases/GetAllProductsUseCase';
 import { SearchProductsUseCase } from '@/application/use-cases/SearchProductsUseCase';
+import { GetProductCommentsUseCase } from '@/application/use-cases/GetProductCommentsUseCase';
 
 export class ProductController {
   constructor(
     private getProductUseCase: GetProductUseCase,
     private getAllProductsUseCase: GetAllProductsUseCase,
-    private searchProductsUseCase: SearchProductsUseCase
+    private searchProductsUseCase: SearchProductsUseCase,
+    private getProductCommentsUseCase: GetProductCommentsUseCase
   ) {}
 
   async getProduct(req: Request, res: Response): Promise<void> {
@@ -70,13 +72,21 @@ export class ProductController {
   }
 
   async getProductComments(req: Request, res: Response): Promise<void> {
-    const id = req.params.id;
     try {
-      // Access the repository via the use case (like getProduct)
-      const comments = await this.getProductUseCase.repository.getProductComments(id);
-      res.json(comments || []);
+      const { id } = req.params;
+      const comments = await this.getProductCommentsUseCase.execute(id);
+      const reviewSummary = await this.getProductCommentsUseCase.getReviewSummary(id);
+      
+      res.json({
+        comments,
+        summary: reviewSummary
+      });
     } catch (error) {
-      res.status(500).json({ error: 'Error fetching comments' });
+      console.error('Error getting product comments:', error);
+      res.status(500).json({ 
+        error: 'Internal server error',
+        message: 'An error occurred while retrieving product comments'
+      });
     }
   }
 } 

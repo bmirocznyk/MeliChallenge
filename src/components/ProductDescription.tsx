@@ -4,7 +4,7 @@ interface ProductDescriptionProps {
   product: any;
 }
 
-export const ProductDescription: React.FC<ProductDescriptionProps> = ({ product }) => {
+export const ProductDescription: React.FC<ProductDescriptionProps> = ({ product: _product }) => {
   return (
     <div className="pt-6 border-t border-gray-200">
       <h2 className="text-xl font-bold text-gray-900 mb-6">Descripción</h2>

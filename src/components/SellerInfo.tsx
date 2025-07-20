@@ -60,7 +60,7 @@ export const SellerInfo: React.FC<SellerInfoProps> = ({ seller }) => {
         </div>
         
         <div className="text-sm text-gray-600">
-          +{seller.sales.toLocaleString()} ventas
+          +{seller.sales?.toLocaleString() || '0'} ventas
         </div>
         
         {seller.isOfficialStore && (

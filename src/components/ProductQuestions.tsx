@@ -5,7 +5,7 @@ interface ProductQuestionsProps {
   product: any;
 }
 
-export const ProductQuestions: React.FC<ProductQuestionsProps> = ({ product }) => {
+export const ProductQuestions: React.FC<ProductQuestionsProps> = ({ product: _product }) => {
   const [showHelp, setShowHelp] = useState(true);
   const [question, setQuestion] = useState('');
 

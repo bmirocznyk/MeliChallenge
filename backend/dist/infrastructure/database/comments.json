@@ -1,0 +1,52 @@
+{
+  "1": [
+    {
+      "id": 1,
+      "user": "maria_gonzalez",
+      "rating": 5,
+      "comment": "Excelente producto, llegó rápido y en perfectas condiciones.",
+      "date": "2024-06-01"
+    },
+    {
+      "id": 2,
+      "user": "juan_perez",
+      "rating": 4,
+      "comment": "Muy buen teléfono, aunque esperaba más de la batería.",
+      "date": "2024-06-02"
+    }
+  ],
+  "2": [
+    {
+      "id": 1,
+      "user": "sofia_fernandez",
+      "rating": 5,
+      "comment": "La cámara es increíble y el diseño me encanta.",
+      "date": "2024-06-03"
+    },
+    {
+      "id": 2,
+      "user": "lucas_martinez",
+      "rating": 3,
+      "comment": "Buen equipo pero el precio es alto.",
+      "date": "2024-06-04"
+    }
+  ],
+  "3": [
+    {
+      "id": 1,
+      "user": "carla_lopez",
+      "rating": 4,
+      "comment": "Gran relación calidad-precio.",
+      "date": "2024-06-05"
+    }
+  ],
+  "4": [
+    {
+      "id": 1,
+      "user": "diego_sanchez",
+      "rating": 5,
+      "comment": "El mejor Pixel hasta ahora, muy fluido.",
+      "date": "2024-06-06"
+    }
+  ]
+} 

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, Shield, Truck } from 'lucide-react';
 import { Product } from '../types/product';
+import { ReviewsModal } from './ReviewsModal';
 
 interface ProductInfoProps {
   product: Product;
@@ -8,6 +9,7 @@ interface ProductInfoProps {
 }
 
 export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVariant }) => {
+  const [isReviewsModalOpen, setIsReviewsModalOpen] = useState(false);
   const colorVariants = product.variants.filter(v => v.attributeId === 'COLOR');
   const storageVariants = product.variants.filter(v => v.attributeId === 'INTERNAL_MEMORY');
 
@@ -46,9 +48,12 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
         <span className="text-sm font-medium text-gray-900">
           {product.reviews.rating}
         </span>
-        <span className="text-sm text-gray-500">
+        <button
+          onClick={() => setIsReviewsModalOpen(true)}
+          className="text-sm text-blue-500 hover:text-blue-600 hover:underline cursor-pointer transition-colors"
+        >
           ({product.reviews.totalReviews} opiniones)
-        </span>
+        </button>
       </div>
 
       {/* Color Variants */}
@@ -117,6 +122,14 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
           Stock disponible: {product.availableQuantity} unidades
         </div>
       </div>
+
+      {/* Reviews Modal */}
+      <ReviewsModal
+        isOpen={isReviewsModalOpen}
+        onClose={() => setIsReviewsModalOpen(false)}
+        productId={product.id}
+        productTitle={product.title}
+      />
     </div>
   );
 }; 
