@@ -7,6 +7,7 @@
     "brand": "Apple",
     "model": "iPhone 15 Pro Max",
     "condition": "new",
+    "availableQuantity": 25,
     "description": "El iPhone 15 Pro Max con chip A17 Pro, cámara de 48MP y pantalla Super Retina XDR de 6.7 pulgadas.",
     "specifications": {
       "storage": "256GB",
@@ -48,6 +49,7 @@
       "returnPolicy": "30 días",
       "warranty": "1 año oficial"
     },
+    "paymentMethodIds": ["pm_007", "pm_001", "pm_002", "pm_003", "pm_004", "pm_011", "pm_005", "pm_006", "pm_008"],
     "reviewList": [
       {
         "id": 1,
@@ -84,12 +86,12 @@
       }
     ],
     "reviews": {
-      "rating": 4.7,
-      "totalReviews": 3,
+      "rating": 4.5,
+      "totalReviews": 8,
       "ratingDistribution": {
-        "5": 2,
-        "4": 1,
-        "3": 0,
+        "5": 4,
+        "4": 3,
+        "3": 1,
         "2": 0,
         "1": 0
       }
@@ -357,6 +359,7 @@
     "brand": "Samsung",
     "model": "Galaxy S24 Ultra",
     "condition": "new",
+    "availableQuantity": 1,
     "description": "El Samsung Galaxy S24 Ultra con cámara de 200MP, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y S Pen integrado.",
     "specifications": {
       "storage": "512GB",
@@ -398,14 +401,15 @@
       "returnPolicy": "30 días",
       "warranty": "1 año oficial"
     },
+    "paymentMethodIds": ["pm_007", "pm_001", "pm_002", "pm_004", "pm_011", "pm_005", "pm_006", "pm_008"],
     "reviewList": [],
     "reviews": {
-      "rating": 4.5,
-      "totalReviews": 0,
+      "rating": 4.4,
+      "totalReviews": 7,
       "ratingDistribution": {
-        "5": 0,
-        "4": 0,
-        "3": 0,
+        "5": 4,
+        "4": 2,
+        "3": 1,
         "2": 0,
         "1": 0
       }
@@ -560,21 +564,23 @@
       "returnPolicy": "30 días",
       "warranty": "1 año oficial"
     },
+    "paymentMethodIds": ["pm_007", "pm_001", "pm_002", "pm_004", "pm_011", "pm_006", "pm_008", "pm_009"],
     "reviewList": [],
     "reviews": {
-      "rating": 4.6,
-      "totalReviews": 0,
+      "rating": 4.2,
+      "totalReviews": 6,
       "ratingDistribution": {
-        "5": 0,
-        "4": 0,
-        "3": 0,
+        "5": 2,
+        "4": 3,
+        "3": 1,
         "2": 0,
         "1": 0
       }
     },
+    "availableQuantity": 0,
     "availability": {
-      "stock": 8,
-      "status": "in_stock",
+      "stock": 0,
+      "status": "out_of_stock",
       "location": "Buenos Aires",
       "shipping": {
         "free": true,
@@ -721,14 +727,15 @@
       "returnPolicy": "30 días",
       "warranty": "1 año oficial"
     },
+    "paymentMethodIds": ["pm_007", "pm_001", "pm_002", "pm_011", "pm_005", "pm_006", "pm_008"],
     "reviewList": [],
     "reviews": {
-      "rating": 4.5,
-      "totalReviews": 0,
+      "rating": 4.4,
+      "totalReviews": 5,
       "ratingDistribution": {
-        "5": 0,
-        "4": 0,
-        "3": 0,
+        "5": 2,
+        "4": 2,
+        "3": 1,
         "2": 0,
         "1": 0
       }

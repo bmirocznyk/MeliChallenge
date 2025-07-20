@@ -23,6 +23,7 @@ export interface Product {
   availability?: any;
   payment?: any;
   priceHistory?: any;
+  paymentMethodIds: string[];
 }
 
 export interface ProductImage {
@@ -117,4 +118,19 @@ export interface ProductVariant {
   selected: boolean;
   available: boolean;
   price?: number;
+}
+
+export interface PaymentMethod {
+  id: string;
+  name: string;
+  slug: string;
+  type: 'credit_card' | 'debit_card' | 'digital_wallet' | 'cash_payment' | 'bank_transfer';
+  category: string;
+  icon: string | null;
+  enabled: boolean;
+  maxInstallments: number;
+  acceptsInstallments: boolean;
+  interestFree: boolean;
+  description: string;
+  priority: number;
 } 

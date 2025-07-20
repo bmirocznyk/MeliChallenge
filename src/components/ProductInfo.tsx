@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Shield, Truck } from 'lucide-react';
+import { Star, Shield, Truck, AlertTriangle, Package } from 'lucide-react';
 import { Product } from '../types/product';
 import { ReviewsModal } from './ReviewsModal';
 
@@ -12,6 +12,41 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
   const [isReviewsModalOpen, setIsReviewsModalOpen] = useState(false);
   const colorVariants = product.variants.filter(v => v.attributeId === 'COLOR');
   const storageVariants = product.variants.filter(v => v.attributeId === 'INTERNAL_MEMORY');
+
+  // Stock status calculations
+  const isOutOfStock = product.availableQuantity === 0;
+  const isLowStock = product.availableQuantity === 1; // Only for exactly 1 unit
+  const isInStock = product.availableQuantity > 1;
+
+  const getStockStatus = () => {
+    if (isOutOfStock) {
+      return {
+        text: 'Sin stock',
+        color: 'text-red-600',
+        bgColor: 'bg-red-50',
+        borderColor: 'border-red-200',
+        icon: <AlertTriangle className="w-4 h-4" />
+      };
+    } else if (isLowStock) {
+      return {
+        text: 'Última unidad',
+        color: 'text-yellow-600',
+        bgColor: 'bg-yellow-50',
+        borderColor: 'border-yellow-200',
+        icon: <Package className="w-4 h-4" />
+      };
+    } else {
+      return {
+        text: 'En stock',
+        color: 'text-green-600',
+        bgColor: 'bg-green-50',
+        borderColor: 'border-green-200',
+        icon: <Package className="w-4 h-4" />
+      };
+    }
+  };
+
+  const stockStatus = getStockStatus();
 
   return (
     <div className="space-y-6">
@@ -68,9 +103,12 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
                 key={variant.id}
                 type="button"
                 onClick={() => onSelectVariant && onSelectVariant('COLOR', variant.value)}
+                disabled={isOutOfStock}
                 className={`px-4 py-2 text-sm border rounded-md transition-colors ${
                   variant.selected
                     ? 'border-blue-500 bg-blue-500 text-white'
+                    : isOutOfStock
+                    ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed'
                     : 'border-gray-300 hover:border-gray-400 bg-white'
                 }`}
               >
@@ -93,9 +131,12 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
                 key={variant.id}
                 type="button"
                 onClick={() => onSelectVariant && onSelectVariant('INTERNAL_MEMORY', variant.value)}
+                disabled={isOutOfStock}
                 className={`px-4 py-2 text-sm border rounded-md transition-colors ${
                   variant.selected
                     ? 'border-blue-500 bg-blue-500 text-white'
+                    : isOutOfStock
+                    ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed'
                     : 'border-gray-300 hover:border-gray-400 bg-white'
                 }`}
               >
@@ -108,7 +149,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
 
       {/* Benefits */}
       <div className="space-y-3 pt-4 border-t border-gray-200">
-        {product.shipping.freeShipping && (
+        {product.shipping.freeShipping && !isOutOfStock && (
           <div className="flex items-center space-x-2 text-sm text-green-600">
             <Truck className="w-4 h-4" />
             <span className="font-medium">Envío gratis</span>
@@ -118,9 +159,11 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
           <Shield className="w-4 h-4" />
           <span>Compra protegida</span>
         </div>
-        <div className="text-sm text-gray-600">
-          Stock disponible: {product.availableQuantity} unidades
-        </div>
+        {!isOutOfStock && (
+          <div className="text-sm text-gray-600">
+            Stock disponible: {product.availableQuantity} unidades
+          </div>
+        )}
       </div>
 
       {/* Reviews Modal */}

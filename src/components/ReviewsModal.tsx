@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Star, User } from 'lucide-react';
+import { api } from '../services/api';
 
 interface Comment {
   id: number;
@@ -47,11 +48,7 @@ export const ReviewsModal: React.FC<ReviewsModalProps> = ({
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`http://localhost:4000/api/products/${productId}/comments`);
-      if (!response.ok) {
-        throw new Error('Error al cargar las opiniones');
-      }
-      const data = await response.json();
+      const data = await api.getProductComments(productId);
       setReviewsData(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error desconocido');

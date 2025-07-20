@@ -1,9 +1,9 @@
+/* Import custom components first */
+@import './styles/components.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import custom components */
-@import './styles/components.css';
 
 @layer base {
   * {

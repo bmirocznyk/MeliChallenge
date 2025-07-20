@@ -7,7 +7,7 @@ export const mockProduct: Product = {
   currency: 'ARS',
   condition: 'new',
   soldQuantity: 1000,
-  availableQuantity: 45,
+  availableQuantity: 1, // Set to 1 unit for testing subtle low stock warning
   images: [
     {
       id: '97020-MLU77717743585_072024',
@@ -64,14 +64,14 @@ export const mockProduct: Product = {
     cost: 0
   },
   reviews: {
-    rating: 4.8,
-    totalReviews: 1416,
+    rating: 4.5,
+    totalReviews: 8,
     ratingDistribution: {
-      5: 120,
-      4: 180,
-      3: 25,
-      2: 8,
-      1: 1
+      5: 4,
+      4: 3,
+      3: 1,
+      2: 0,
+      1: 0
     }
   },
   installments: {
@@ -175,5 +175,6 @@ export const mockProduct: Product = {
       available: true,
       price: 2014916
     }
-  ]
+  ],
+  paymentMethodIds: ["pm_007", "pm_001", "pm_002", "pm_003", "pm_004", "pm_005", "pm_006"]
 }; 

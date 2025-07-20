@@ -3,22 +3,11 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 
-// Infrastructure
-import { JsonProductRepository } from './infrastructure/repositories/JsonProductRepository.js';
-import { JsonCommentRepository } from './infrastructure/repositories/JsonCommentRepository.js';
-
-// Application
-import { GetProductUseCase } from './application/use-cases/GetProductUseCase.js';
-import { GetAllProductsUseCase } from './application/use-cases/GetAllProductsUseCase.js';
-import { SearchProductsUseCase } from './application/use-cases/SearchProductsUseCase.js';
-import { GetProductCommentsUseCase } from './application/use-cases/GetProductCommentsUseCase.js';
-
-// Interfaces
-import { ProductController } from './interfaces/controllers/ProductController.js';
-import { createProductRoutes } from './interfaces/routes/ProductRoutes.js';
+// Routes
+import productRoutes from './interfaces/routes/ProductRoutes.js';
 
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 3001;
 
 // Middleware
 app.use(helmet());
@@ -29,24 +18,8 @@ app.use(cors({
 app.use(morgan('combined'));
 app.use(express.json());
 
-// Dependency Injection Setup
-const productRepository = new JsonProductRepository();
-const getProductUseCase = new GetProductUseCase(productRepository);
-const getAllProductsUseCase = new GetAllProductsUseCase(productRepository);
-const searchProductsUseCase = new SearchProductsUseCase(productRepository);
-
-const commentRepository = new JsonCommentRepository();
-const getProductCommentsUseCase = new GetProductCommentsUseCase(commentRepository);
-
-const productController = new ProductController(
-  getProductUseCase,
-  getAllProductsUseCase,
-  searchProductsUseCase,
-  getProductCommentsUseCase
-);
-
 // Routes
-app.use('/api/products', createProductRoutes(productController));
+app.use('/api', productRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {

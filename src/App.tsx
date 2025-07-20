@@ -5,7 +5,7 @@ import { Breadcrumb } from './components/Breadcrumb';
 import { ProductDetail } from './components/ProductDetail';
 import { NotFoundProduct } from './components/NotFoundProduct';
 import { mockProduct } from './data/mockProduct';
-import { apiService } from './services/api';
+import { api } from './services/api';
 
 function ProductPage() {
   const { id } = useParams();
@@ -20,7 +20,7 @@ function ProductPage() {
       setLoading(true);
       setError(null);
       try {
-        const apiData = await apiService.getItem(Number(id));
+        const apiData = await api.getItem(Number(id));
         
         // Map API data to product structure
         const mappedProduct = {

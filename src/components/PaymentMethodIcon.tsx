@@ -14,6 +14,7 @@ const PaymentMethodIcon: React.FC<PaymentMethodIconProps> = ({
   const getIconSrc = (method: string) => {
     const iconMap: { [key: string]: string } = {
       'visa': '/payment-icons/visa.png',
+      'visa-debit': '/payment-icons/visa.png', // Same as visa but for debit cards
       'mastercard': '/payment-icons/mastercard.png',
       'amex': '/payment-icons/amex.png',
       'maestro': '/payment-icons/maestro.png',
@@ -29,6 +30,7 @@ const PaymentMethodIcon: React.FC<PaymentMethodIconProps> = ({
   const getIconText = (method: string) => {
     const textMap: { [key: string]: string } = {
       'visa': 'VISA',
+      'visa-debit': 'VISA débito',
       'mastercard': 'MC',
       'amex': 'AMEX',
       'maestro': 'maestro',

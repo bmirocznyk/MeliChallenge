@@ -1,20 +1,20 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
 import { ProductController } from '../controllers/ProductController';
 
-export function createProductRoutes(productController: ProductController): Router {
-  const router = Router();
+const router = Router();
+const productController = new ProductController();
 
-  // GET /api/products - Get all products
-  router.get('/', (req: Request, res: Response) => productController.getAllProducts(req, res));
+// Existing routes
+router.get('/products', (req, res) => productController.getAllProducts(req, res));
+router.get('/products/search', (req, res) => productController.searchProducts(req, res));
+router.get('/products/:id', (req, res) => productController.getProduct(req, res));
+router.get('/products/:id/comments', (req, res) => productController.getProductComments(req, res));
 
-  // GET /api/products/search?q=query - Search products
-  router.get('/search', (req: Request, res: Response) => productController.searchProducts(req, res));
+// New payment methods routes
+router.get('/payment-methods', (req, res) => productController.getPaymentMethods(req, res));
+router.get('/payment-methods/by-ids', (req, res) => productController.getPaymentMethodsByIds(req, res));
 
-  // GET /api/products/:id - Get product by ID
-  router.get('/:id', (req: Request, res: Response) => productController.getProduct(req, res));
+// Enhanced product route with payment methods
+router.get('/products/:id/with-payment-methods', (req, res) => productController.getProductWithPaymentMethods(req, res));
 
-  // GET /api/products/:id/comments - Get product comments
-  router.get('/:id/comments', (req: Request, res: Response) => productController.getProductComments(req, res));
-
-  return router;
-} 
+export default router; 

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { apiService } from '../api'
+import { api } from '../api'
 
 // Mock fetch globally
 global.fetch = vi.fn()
@@ -22,9 +22,9 @@ describe('API Service', () => {
       json: async () => mockProduct
     })
 
-    const result = await apiService.getItem(1)
+    const result = await api.getItem(1)
 
-    expect(fetch).toHaveBeenCalledWith('http://localhost:4000/api/items/1')
+    expect(fetch).toHaveBeenCalledWith('http://localhost:3001/api/products/1')
     expect(result).toEqual(mockProduct)
   })
 
@@ -36,14 +36,14 @@ describe('API Service', () => {
       statusText: 'Not Found'
     })
 
-    await expect(apiService.getItem(999)).rejects.toThrow('Item not found')
+    await expect(api.getItem(999)).rejects.toThrow('Item not found')
   })
 
   it('handles network errors', async () => {
     // Mock network error
     ;(fetch as any).mockRejectedValueOnce(new Error('Network error'))
 
-    await expect(apiService.getItem(1)).rejects.toThrow('Network error')
+    await expect(api.getItem(1)).rejects.toThrow('Network error')
   })
 
   it('handles JSON parsing errors', async () => {
@@ -55,7 +55,7 @@ describe('API Service', () => {
       }
     })
 
-    await expect(apiService.getItem(1)).rejects.toThrow('Invalid JSON')
+    await expect(api.getItem(1)).rejects.toThrow('Invalid JSON')
   })
 
   it('calls correct endpoint for different IDs', async () => {
@@ -66,8 +66,8 @@ describe('API Service', () => {
       json: async () => mockProduct
     })
 
-    await apiService.getItem(2)
+    await api.getItem(2)
 
-    expect(fetch).toHaveBeenCalledWith('http://localhost:4000/api/items/2')
+    expect(fetch).toHaveBeenCalledWith('http://localhost:3001/api/products/2')
   })
 }) 
