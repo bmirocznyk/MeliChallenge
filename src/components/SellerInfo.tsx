@@ -70,12 +70,6 @@ export const SellerInfo: React.FC<SellerInfoProps> = ({ seller }) => {
           </div>
         )}
       </div>
-
-      <div className="pt-2 border-t">
-        <button className="text-sm text-ml-blue hover:text-blue-600 transition-colors">
-          Ver más datos del vendedor
-        </button>
-      </div>
     </div>
   );
 }; 

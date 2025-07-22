@@ -39,16 +39,6 @@ export const mockProduct: Product = {
     }
   ],
   description: 'Descubrí el iPhone 15, la evolución perfecta de la innovación Apple. Con el poderoso chip A16 Bionic y cámara de 48MP, experimentá fotografía profesional y rendimiento excepcional en el diseño más elegante.\n\n🔥 CARACTERÍSTICAS DESTACADAS:\n• Pantalla Super Retina XDR de 6.1\" con Dynamic Island\n• Chip A16 Bionic para rendimiento ultrarrápido\n• Cámara principal de 48MP con modo Retrato avanzado\n• Diseño en aluminio aeroespacial con Ceramic Shield\n• Puerto USB-C para carga y transferencia universal\n• iOS 17 con nuevas funciones de personalización\n• Detección de choques automática para emergencias\n• Resistencia al agua IP68\n\n📸 FOTOGRAFÍA REVOLUCIONARIA:\nCámara de 48MP con zoom óptico 2x, modo Nocturno mejorado y grabación 4K Dolby Vision.\n\n⚡ CONECTIVIDAD UNIVERSAL:\nPuerto USB-C para compatibilidad con todos tus dispositivos y accesorios.\n\n🛡️ SEGURIDAD AVANZADA:\nDetección de choques que automáticamente contacta servicios de emergencia cuando más lo necesitás.\n\n✅ INCLUYE:\n• iPhone 15 128GB\n• Cable USB-C a USB-C\n• Documentación\n\n🛡️ GARANTÍA: 1 año de cobertura oficial Apple con servicio técnico autorizado.',
-  features: [
-    'Pantalla Super Retina XDR de 61',
-    'Chip A16 Bionic',
-    '6 de RAM + 128GB de almacenamiento',
-    'Cámara principal de 48 ultra gran angular',
-    'Cámara frontal de 12 Dynamic Island',
-    'Conexión USB-C',
-    'iOS 17',
-    'Detección de choques para pedir ayuda'
-  ],
   shipping: {
     freeShipping: true,
     mode: 'standard',

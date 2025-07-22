@@ -22,12 +22,6 @@ export const ProductAttributes: React.FC<ProductAttributesProps> = ({ attributes
           </div>
         ))}
       </div>
-
-      <div className="pt-2 border-t">
-        <button className="text-sm text-ml-blue hover:text-blue-600 transition-colors">
-          Ver todas las características
-        </button>
-      </div>
     </div>
   );
 }; 

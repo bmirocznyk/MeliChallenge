@@ -15,7 +15,7 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
 
   // Stock status calculations
   const isOutOfStock = product.availableQuantity === 0;
-  const isLowStock = product.availableQuantity === 1; // Only show for exactly 1 unit
+  const isLowStock = product.availableQuantity === 1;
   const canPurchase = product.availableQuantity > 0;
 
   useEffect(() => {
