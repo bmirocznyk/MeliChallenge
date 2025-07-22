@@ -1,4 +1,7 @@
-export class GetProductCommentsUseCase {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GetProductCommentsUseCase = void 0;
+class GetProductCommentsUseCase {
     commentRepository;
     constructor(commentRepository) {
         this.commentRepository = commentRepository;
@@ -10,3 +13,4 @@ export class GetProductCommentsUseCase {
         return this.commentRepository.getReviewSummary(productId);
     }
 }
+exports.GetProductCommentsUseCase = GetProductCommentsUseCase;

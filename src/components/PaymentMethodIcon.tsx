@@ -11,59 +11,78 @@ const PaymentMethodIcon: React.FC<PaymentMethodIconProps> = ({
   size = 'medium', 
   className = '' 
 }) => {
-  const getIconSrc = (method: string) => {
-    const iconMap: { [key: string]: string } = {
-      'visa': '/payment-icons/visa.png',
-      'visa-debit': '/payment-icons/visa.png', // Same as visa but for debit cards
-      'mastercard': '/payment-icons/mastercard.png',
-      'amex': '/payment-icons/amex.png',
-      'maestro': '/payment-icons/maestro.png',
-      'mercadopago': '/payment-icons/mercadopago.png',
-      'naranja-x': '/payment-icons/naranja-x.svg',
-      'cabal': '/payment-icons/cabal.svg',
-      'rapipago': '/payment-icons/rapipago.svg'
-    };
-    
-    return iconMap[method] || null;
-  };
-
-  const getIconText = (method: string) => {
-    const textMap: { [key: string]: string } = {
-      'visa': 'VISA',
-      'visa-debit': 'VISA débito',
-      'mastercard': 'MC',
-      'amex': 'AMEX',
-      'maestro': 'maestro',
-      'mercadopago': 'mercado pago',
-      'naranja-x': 'Naranja X',
-      'cabal': 'CABAL',
-      'rapipago': 'rapipago'
-    };
-    
-    return textMap[method] || method;
-  };
-
-  const getSizeClass = (size: 'small' | 'medium') => {
-    return size === 'small' ? 'payment-icon-small' : 'payment-icon-medium';
-  };
-
-  const iconSrc = getIconSrc(method);
+  const sizeClass = size === 'small' ? 'h-8 w-12' : 'h-10 w-16';
   
-  if (iconSrc) {
-    return (
-      <img 
-        src={iconSrc} 
-        alt={getIconText(method)}
-        className={`${getSizeClass(size)} ${className}`}
-      />
-    );
-  }
+  // Simple mapping: PNG files or CSS divs
+  const methodMap: { [key: string]: JSX.Element } = {
+    // PNG Images
+    'visa': <img src="/payment-icons/visa.png" alt="VISA" className={`${sizeClass} object-contain ${className}`} />,
+    'visa-debit': <img src="/payment-icons/visa.png" alt="VISA" className={`${sizeClass} object-contain ${className}`} />,
+    'mastercard': <img src="/payment-icons/mastercard.png" alt="Mastercard" className={`${sizeClass} object-contain ${className}`} />,
+    'amex': <img src="/payment-icons/amex.png" alt="AMEX" className={`${sizeClass} object-contain ${className}`} />,
+    'maestro': <img src="/payment-icons/maestro.png" alt="Maestro" className={`${sizeClass} object-contain ${className}`} />,
+    'mercadopago': <img src="/payment-icons/mercadopago.png" alt="Mercado Pago" className={`${sizeClass} object-contain ${className}`} />,
+    'rapipago': <img src="/payment-icons/rapipago.png" alt="Rapipago" className={`${sizeClass} object-contain ${className}`} />,
+    
+    // CSS Divs
+    'naranja-x': (
+      <div className={`${sizeClass} rounded flex items-center justify-center text-white font-bold ${className}`}
+           style={{ background: 'linear-gradient(135deg, #FF6B35 0%, #FF4500 100%)', fontSize: '7px' }}>
+        NARANJA
+      </div>
+    ),
+    
+    'cabal': (
+      <div className={`${sizeClass} rounded flex flex-col items-center justify-center text-white font-bold ${className}`}
+           style={{ backgroundColor: '#1E4A72', fontSize: '6px' }}>
+        <div className="w-3 h-3 border-2 border-white transform rotate-45 mb-1"></div>
+        CABAL
+      </div>
+    ),
+    
+    'bank_transfer': (
+      <div className={`${sizeClass} rounded flex flex-col items-center justify-center text-white font-bold ${className}`}
+           style={{ background: 'linear-gradient(135deg, #00BFFF 0%, #1E90FF 100%)', fontSize: '6px' }}>
+        <div className="flex space-x-1 mb-1">
+          <div className="w-1 h-3 bg-white"></div>
+          <div className="w-1 h-3 bg-white"></div>
+          <div className="w-1 h-3 bg-white"></div>
+        </div>
+        TRANSFER
+      </div>
+    ),
+    
+    'pagofacil': (
+      <div className={`${sizeClass} rounded-full flex flex-col items-center justify-center ${className}`}
+           style={{ backgroundColor: '#FFD700' }}>
+        <span style={{ fontSize: '8px', color: '#1976D2', fontWeight: 'bold', lineHeight: '1' }}>PAGO</span>
+        <span style={{ fontSize: '7px', color: '#E91E63', fontWeight: 'bold', lineHeight: '1' }}>Fácil</span>
+      </div>
+    ),
+    
+    'efectivo': (
+      <div className={`${sizeClass} rounded flex flex-col items-center justify-center text-white font-bold ${className}`}
+           style={{ backgroundColor: '#4CAF50' }}>
+        <span style={{ fontSize: '14px' }}>$</span>
+        <span style={{ fontSize: '6px' }}>EFECTIVO</span>
+      </div>
+    ),
+    
+    'cash': (
+      <div className={`${sizeClass} rounded flex flex-col items-center justify-center text-white font-bold ${className}`}
+           style={{ backgroundColor: '#4CAF50' }}>
+        <span style={{ fontSize: '14px' }}>$</span>
+        <span style={{ fontSize: '6px' }}>EFECTIVO</span>
+      </div>
+    )
+  };
 
-  // Fallback to text if no icon is available
-  return (
-    <span className={`inline-block px-2 py-1 text-xs font-bold rounded ${className}`}>
-      {getIconText(method)}
-    </span>
+  // Return mapped element or simple fallback
+  return methodMap[method] || (
+    <div className={`${sizeClass} rounded flex items-center justify-center bg-gray-200 text-gray-700 font-bold ${className}`}
+         style={{ fontSize: '6px' }}>
+      {method.toUpperCase()}
+    </div>
   );
 };
 

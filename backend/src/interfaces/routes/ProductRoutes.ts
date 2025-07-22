@@ -1,20 +1,25 @@
 import { Router } from 'express';
 import { ProductController } from '../controllers/ProductController';
 
-const router = Router();
-const productController = new ProductController();
+export function createProductRoutes(productController: ProductController): Router {
+  const router = Router();
 
-// Existing routes
-router.get('/products', (req, res) => productController.getAllProducts(req, res));
-router.get('/products/search', (req, res) => productController.searchProducts(req, res));
-router.get('/products/:id', (req, res) => productController.getProduct(req, res));
-router.get('/products/:id/comments', (req, res) => productController.getProductComments(req, res));
+  // Product routes
+  router.get('/products', productController.getAllProducts.bind(productController));
+  router.get('/products/search', productController.searchProducts.bind(productController));
+  router.get('/products/:id', productController.getProduct.bind(productController));
+  router.get('/products/:id/comments', productController.getProductComments.bind(productController));
+  router.get('/products/:id/with-payment-methods', productController.getProductWithPaymentMethods.bind(productController));
 
-// New payment methods routes
-router.get('/payment-methods', (req, res) => productController.getPaymentMethods(req, res));
-router.get('/payment-methods/by-ids', (req, res) => productController.getPaymentMethodsByIds(req, res));
+  // Payment method routes
+  router.get('/payment-methods', productController.getPaymentMethods.bind(productController));
+  router.get('/payment-methods/by-ids', productController.getPaymentMethodsByIds.bind(productController));
 
-// Enhanced product route with payment methods
-router.get('/products/:id/with-payment-methods', (req, res) => productController.getProductWithPaymentMethods(req, res));
+  // Seller routes
+  router.get('/sellers', productController.getAllSellers.bind(productController));
+  router.get('/sellers/verified', productController.getVerifiedSellers.bind(productController));
+  router.get('/sellers/by-ids', productController.getSellersByIds.bind(productController));
+  router.get('/sellers/:id', productController.getSeller.bind(productController));
 
-export default router; 
+  return router;
+} 

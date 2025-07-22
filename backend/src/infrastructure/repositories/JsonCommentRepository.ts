@@ -1,10 +1,6 @@
 import { CommentRepository, Comment } from '@/domain/repositories/CommentRepository';
 import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { join } from 'path';
 
 export class JsonCommentRepository implements CommentRepository {
   private comments: { [productId: string]: Comment[] } = {};

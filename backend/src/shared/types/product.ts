@@ -13,7 +13,7 @@ export interface Product {
   features?: string[];
   specifications?: any;
   images: ProductImage[];
-  seller: Seller;
+  sellerId: string | number;
   shipping?: ShippingInfo;
   reviews: ReviewInfo | Review[];
   installments?: InstallmentInfo;
@@ -23,7 +23,7 @@ export interface Product {
   availability?: any;
   payment?: any;
   priceHistory?: any;
-  paymentMethodIds: string[];
+  paymentMethodIds: number[];
 }
 
 export interface ProductImage {
@@ -65,13 +65,6 @@ export interface ShippingInfo {
 export interface ReviewInfo {
   rating: number;
   totalReviews: number;
-  ratingDistribution: {
-    5: number;
-    4: number;
-    3: number;
-    2: number;
-    1: number;
-  };
 }
 
 export interface Review {
@@ -121,16 +114,9 @@ export interface ProductVariant {
 }
 
 export interface PaymentMethod {
-  id: string;
+  id: number;
   name: string;
-  slug: string;
   type: 'credit_card' | 'debit_card' | 'digital_wallet' | 'cash_payment' | 'bank_transfer';
   category: string;
   icon: string | null;
-  enabled: boolean;
-  maxInstallments: number;
-  acceptsInstallments: boolean;
-  interestFree: boolean;
-  description: string;
-  priority: number;
 } 

@@ -1,38 +1,29 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
-// Infrastructure
-import { JsonProductRepository } from './infrastructure/repositories/JsonProductRepository.js';
-import { JsonCommentRepository } from './infrastructure/repositories/JsonCommentRepository.js';
-// Application
-import { GetProductUseCase } from './application/use-cases/GetProductUseCase.js';
-import { GetAllProductsUseCase } from './application/use-cases/GetAllProductsUseCase.js';
-import { SearchProductsUseCase } from './application/use-cases/SearchProductsUseCase.js';
-import { GetProductCommentsUseCase } from './application/use-cases/GetProductCommentsUseCase.js';
-// Interfaces
-import { ProductController } from './interfaces/controllers/ProductController.js';
-import { createProductRoutes } from './interfaces/routes/ProductRoutes.js';
-const app = express();
-const PORT = process.env.PORT || 4000;
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const helmet_1 = __importDefault(require("helmet"));
+const morgan_1 = __importDefault(require("morgan"));
+// Routes
+const ProductRoutes_js_1 = require("./interfaces/routes/ProductRoutes.js");
+const ProductController_js_1 = require("./interfaces/controllers/ProductController.js");
+const app = (0, express_1.default)();
+const PORT = process.env.PORT || 3001;
 // Middleware
-app.use(helmet());
-app.use(cors({
+app.use((0, helmet_1.default)());
+app.use((0, cors_1.default)({
     origin: ['http://localhost:5173', 'http://localhost:3000', 'http://127.0.0.1:5173'],
     credentials: true
 }));
-app.use(morgan('combined'));
-app.use(express.json());
-// Dependency Injection Setup
-const productRepository = new JsonProductRepository();
-const getProductUseCase = new GetProductUseCase(productRepository);
-const getAllProductsUseCase = new GetAllProductsUseCase(productRepository);
-const searchProductsUseCase = new SearchProductsUseCase(productRepository);
-const commentRepository = new JsonCommentRepository();
-const getProductCommentsUseCase = new GetProductCommentsUseCase(commentRepository);
-const productController = new ProductController(getProductUseCase, getAllProductsUseCase, searchProductsUseCase, getProductCommentsUseCase);
+app.use((0, morgan_1.default)('combined'));
+app.use(express_1.default.json());
 // Routes
-app.use('/api/products', createProductRoutes(productController));
+const productController = new ProductController_js_1.ProductController();
+const apiRoutes = (0, ProductRoutes_js_1.createProductRoutes)(productController);
+app.use('/api', apiRoutes);
 // Health check endpoint
 app.get('/api/health', (req, res) => {
     res.json({
@@ -50,7 +41,10 @@ app.get('/', (req, res) => {
             health: '/api/health',
             products: '/api/products',
             productById: '/api/products/:id',
-            search: '/api/products/search?q=query'
+            search: '/api/products/search?q=query',
+            sellers: '/api/sellers',
+            sellerById: '/api/sellers/:id',
+            paymentMethods: '/api/payment-methods'
         }
     });
 });

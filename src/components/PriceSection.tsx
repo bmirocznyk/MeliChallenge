@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CreditCard, ShoppingCart, Heart, Minus, Plus, ChevronDown, AlertTriangle } from 'lucide-react';
+import { CreditCard, ShoppingCart, Heart, Minus, Plus, AlertTriangle } from 'lucide-react';
 import { Product, PaymentMethod } from '../types/product';
 import PaymentMethodIcon from './PaymentMethodIcon';
 import { api } from '../services/api';
@@ -10,7 +10,6 @@ interface PriceSectionProps {
 
 export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
   const [quantity, setQuantity] = useState(1);
-  const [showAllPaymentMethods, setShowAllPaymentMethods] = useState(false);
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -72,6 +71,24 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
     acc[method.category].push(method);
     return acc;
   }, {} as Record<string, PaymentMethod[]>);
+
+  // Convert method name to slug for PaymentMethodIcon
+  const getMethodSlug = (methodName: string): string => {
+    const nameToSlug: { [key: string]: string } = {
+      'Visa': 'visa',
+      'Visa Débito': 'visa-debit',
+      'Mastercard': 'mastercard',
+      'American Express': 'amex',
+      'Maestro': 'maestro',
+      'Mercado Pago': 'mercadopago',
+      'Rapipago': 'rapipago',
+      'Naranja X': 'naranja-x',
+      'Cabal': 'cabal',
+      'Pago Fácil': 'pagofacil',
+      'Transferencia bancaria': 'bank_transfer'
+    };
+    return nameToSlug[methodName] || methodName.toLowerCase().replace(/\s+/g, '-');
+  };
 
   return (
     <div className="space-y-6 pt-6 border-t border-gray-200">
@@ -175,33 +192,22 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
         
         {isLoading ? (
           <div className="text-sm text-gray-500">Cargando métodos de pago...</div>
+        ) : paymentMethods.length === 0 ? (
+          <div className="text-sm text-gray-500">No se pudieron cargar los métodos de pago</div>
         ) : (
           <>
             {Object.entries(groupedPaymentMethods).map(([category, methods]) => (
               <div key={category} className="mb-4">
                 <div className="text-sm font-medium text-gray-700 mb-2">{category}</div>
                 <div className="flex space-x-2 flex-wrap gap-2">
-                  {methods.slice(0, showAllPaymentMethods ? undefined : 4).map((method) => (
+                  {methods.map((method) => (
                     <div key={method.id} className="w-12 h-8 bg-gray-100 rounded flex items-center justify-center">
-                      <PaymentMethodIcon method={method.slug} size="small" />
+                      <PaymentMethodIcon method={getMethodSlug(method.name)} size="small" />
                     </div>
                   ))}
                 </div>
               </div>
             ))}
-
-            {/* More Payment Methods Link */}
-            {paymentMethods.length > 4 && (
-              <button 
-                onClick={() => setShowAllPaymentMethods(!showAllPaymentMethods)}
-                className="text-blue-500 hover:text-blue-600 text-sm font-medium flex items-center space-x-1"
-              >
-                <span>
-                  {showAllPaymentMethods ? 'Ver menos' : 'Conocé otros medios de pago'}
-                </span>
-                <ChevronDown className={`w-4 h-4 transition-transform ${showAllPaymentMethods ? 'rotate-180' : ''}`} />
-              </button>
-            )}
           </>
         )}
       </div>

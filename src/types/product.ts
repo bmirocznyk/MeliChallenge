@@ -10,14 +10,13 @@ export interface Product {
   images: ProductImage[];
   description: string;
   features: string[];
-  seller: Seller;
   shipping: ShippingInfo;
   reviews: ReviewInfo;
   installments: InstallmentInfo;
   categories: Category[];
   attributes: ProductAttribute[];
   variants: ProductVariant[];
-  paymentMethodIds: string[];
+  paymentMethodIds?: number[];
 }
 
 export interface ProductImage {
@@ -29,12 +28,26 @@ export interface ProductImage {
 }
 
 export interface Seller {
-  id: string;
+  id: string | number;
   name: string;
-  reputation: 'green' | 'yellow' | 'orange' | 'red';
-  level: string;
-  sales: number;
-  isOfficialStore: boolean;
+  username?: string;
+  type?: string;
+  reputation: 'green' | 'yellow' | 'orange' | 'red'; // Keep original for component compatibility
+  reputationScore?: number; // Add for numeric reputation from backend
+  totalSales?: number; // For backend JSON data
+  salesHistory?: {
+    thisMonth: number;
+    lastMonth: number;
+    thisYear: number;
+    allTime: number;
+  };
+  location?: string;
+  verified?: boolean;
+  premium?: boolean;
+  responseTime?: string;
+  level?: string;
+  sales?: number; // Keep for backward compatibility
+  isOfficialStore?: boolean;
 }
 
 export interface ShippingInfo {
@@ -87,16 +100,21 @@ export interface ProductVariant {
 }
 
 export interface PaymentMethod {
-  id: string;
+  id: number;
   name: string;
-  slug: string;
   type: 'credit_card' | 'debit_card' | 'digital_wallet' | 'cash_payment' | 'bank_transfer';
   category: string;
   icon: string | null;
-  enabled: boolean;
-  maxInstallments: number;
-  acceptsInstallments: boolean;
-  interestFree: boolean;
-  description: string;
-  priority: number;
+}
+
+export interface ReviewItem {
+  id: number;
+  userId: number;
+  username: string;
+  rating: number;
+  title: string;
+  comment: string;
+  date: string;
+  verified: boolean;
+  helpful: number;
 } 

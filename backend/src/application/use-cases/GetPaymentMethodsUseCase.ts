@@ -5,12 +5,11 @@ export class GetPaymentMethodsUseCase {
   constructor(private paymentMethodRepository: PaymentMethodRepository) {}
 
   async execute(): Promise<PaymentMethod[]> {
-    return this.paymentMethodRepository.findEnabled();
+    return this.paymentMethodRepository.findAll();
   }
 
-  async executeByIds(ids: string[]): Promise<PaymentMethod[]> {
-    const paymentMethods = await this.paymentMethodRepository.findByIds(ids);
-    return paymentMethods.filter(pm => pm.enabled).sort((a, b) => a.priority - b.priority);
+  async executeByIds(ids: number[]): Promise<PaymentMethod[]> {
+    return this.paymentMethodRepository.findByIds(ids);
   }
 
   async executeByCategory(category: string): Promise<PaymentMethod[]> {

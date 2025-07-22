@@ -7,7 +7,8 @@
     "brand": "Apple",
     "model": "iPhone 15 Pro Max",
     "condition": "new",
-    "description": "El iPhone 15 Pro Max con chip A17 Pro, cámara de 48MP y pantalla Super Retina XDR de 6.7 pulgadas.",
+    "availableQuantity": 25,
+    "description": "Descubrí el iPhone 15 Pro Max, el smartphone más avanzado de Apple. Con el revolucionario chip A17 Pro fabricado en 3 nanómetros, experimentá un rendimiento sin precedentes para gaming, fotografía profesional y multitasking intensivo.\n\n🔥 CARACTERÍSTICAS DESTACADAS:\n• Pantalla Super Retina XDR de 6.7\" con ProMotion y Dynamic Island\n• Sistema de cámaras Pro con sensor principal de 48MP y zoom óptico 5x\n• Chip A17 Pro - El procesador más potente en un smartphone\n• Diseño en titanio grado aeroespacial - 19% más liviano que el acero inoxidable\n• Batería de hasta 29 horas de reproducción de video\n• Puerto USB-C con USB 3 para transferencias ultrarrápidas\n• iOS 17 con nuevas funciones de personalización y productividad\n\n📸 FOTOGRAFÍA PROFESIONAL:\nCámara principal de 48MP con modo Retrato avanzado, fotografía macro y Video Acción. Grabá en ProRes 4K y editá como un profesional directamente en tu iPhone.\n\n🎮 GAMING EXTREMO:\nJugá los títulos más exigentes con gráficos console-quality gracias al GPU de 6 núcleos del A17 Pro.\n\n✅ INCLUYE:\n• iPhone 15 Pro Max\n• Cable USB-C a USB-C\n• Documentación\n\n🛡️ GARANTÍA OFICIAL APPLE: 1 año de cobertura completa con servicio técnico autorizado en Argentina.",
     "specifications": {
       "storage": "256GB",
       "color": "Titanio Natural",
@@ -33,21 +34,8 @@
         "totalItems": 1500
       }
     ],
-    "seller": {
-      "id": 1,
-      "name": "Apple Store Argentina",
-      "username": "apple_store_ar",
-      "type": "official",
-      "reputation": 4.9,
-      "totalSales": 15000,
-      "location": "Buenos Aires, Argentina",
-      "verified": true,
-      "premium": true,
-      "responseTime": "2 horas",
-      "shippingOptions": ["gratis", "express"],
-      "returnPolicy": "30 días",
-      "warranty": "1 año oficial"
-    },
+    "sellerId": 1,
+    "paymentMethodIds": [8, 1, 2, 3, 4, 6, 5, 7, 9],
     "reviewList": [
       {
         "id": 1,
@@ -84,15 +72,8 @@
       }
     ],
     "reviews": {
-      "rating": 4.7,
-      "totalReviews": 3,
-      "ratingDistribution": {
-        "5": 2,
-        "4": 1,
-        "3": 0,
-        "2": 0,
-        "1": 0
-      }
+      "rating": 4.5,
+      "totalReviews": 8
     },
     "availability": {
       "stock": 17,
@@ -207,32 +188,6 @@
         }
       ]
     },
-    "priceHistory": [
-      {
-        "id": 1,
-        "price": 1500000,
-        "currency": "ARS",
-        "date": "2024-01-15T10:00:00.000Z",
-        "type": "current",
-        "reason": "initial_price"
-      },
-      {
-        "id": 2,
-        "price": 1450000,
-        "currency": "ARS",
-        "date": "2024-01-10T14:30:00.000Z",
-        "type": "historical",
-        "reason": "promotion"
-      },
-      {
-        "id": 3,
-        "price": 1600000,
-        "currency": "ARS",
-        "date": "2024-01-05T09:15:00.000Z",
-        "type": "historical",
-        "reason": "initial_price"
-      }
-    ],
     "attributes": [
       {
         "id": "BRAND",
@@ -357,7 +312,8 @@
     "brand": "Samsung",
     "model": "Galaxy S24 Ultra",
     "condition": "new",
-    "description": "El Samsung Galaxy S24 Ultra con cámara de 200MP, pantalla Dynamic AMOLED 2X de 6.8 pulgadas y S Pen integrado.",
+    "availableQuantity": 1,
+    "description": "Experimentá la evolución de la serie Galaxy con el S24 Ultra, el smartphone Android más potente de Samsung. Diseñado para profesionales y creadores de contenido que exigen lo máximo en fotografía, productividad y rendimiento.\n\n🔥 CARACTERÍSTICAS DESTACADAS:\n• Pantalla Dynamic AMOLED 2X de 6.8\" con brillo adaptativo hasta 2600 nits\n• Cámara principal de 200MP con zoom óptico 10x y Space Zoom 100x\n• S Pen integrado para máxima productividad y creatividad\n• Procesador Snapdragon 8 Gen 3 para Galaxy (optimizado exclusivamente)\n• 12GB RAM + 512GB almacenamiento - Multitasking sin límites\n• Batería de 5000mAh con carga rápida de 45W\n• Resistencia IP68 y Gorilla Glass Armor\n• Samsung DeX para experiencia desktop\n\n📱 S PEN REVOLUCIONARIO:\nTomá notas, dibujá, editá fotos y controlá tu teléfono con precisión milimétrica. El S Pen ahora tiene menor latencia y nuevos gestos Air Actions.\n\n📸 FOTOGRAFÍA PROFESIONAL:\nCapturá cada detalle con el sensor de 200MP. Modo Nightography mejorado, grabación 8K y edición IA integrada.\n\n🤖 INTELIGENCIA ARTIFICIAL:\nTraducción en tiempo real, asistente de escritura, búsqueda con Circle to Search y optimización automática de rendimiento.\n\n✅ INCLUYE:\n• Galaxy S24 Ultra 512GB\n• S Pen integrado\n• Cable USB-C\n• Herramienta para SIM\n• Guía de inicio rápido\n\n🛡️ GARANTÍA OFICIAL SAMSUNG: 1 año con servicio técnico autorizado y Samsung Members support 24/7.",
     "specifications": {
       "storage": "512GB",
       "color": "Phantom Black",
@@ -383,32 +339,90 @@
         "totalItems": 1500
       }
     ],
-    "seller": {
-      "id": 2,
-      "name": "Samsung Oficial",
-      "username": "samsung_oficial",
-      "type": "official",
-      "reputation": 4.8,
-      "totalSales": 12000,
-      "location": "Buenos Aires, Argentina",
-      "verified": true,
-      "premium": true,
-      "responseTime": "3 horas",
-      "shippingOptions": ["gratis", "express"],
-      "returnPolicy": "30 días",
-      "warranty": "1 año oficial"
-    },
-    "reviewList": [],
-    "reviews": {
-      "rating": 4.5,
-      "totalReviews": 0,
-      "ratingDistribution": {
-        "5": 0,
-        "4": 0,
-        "3": 0,
-        "2": 0,
-        "1": 0
+    "sellerId": 2,
+    "paymentMethodIds": [8, 1, 2, 4, 6, 5, 7, 9],
+    "reviewList": [
+      {
+        "id": 1,
+        "userId": 201,
+        "username": "sofia_fernandez",
+        "rating": 5,
+        "title": "Excelente Samsung",
+        "comment": "La cámara de 200MP es increíble y el diseño me encanta. S Pen incluido es perfecto.",
+        "date": "2024-02-01T10:00:00.000Z",
+        "verified": true,
+        "helpful": 15
+      },
+      {
+        "id": 2,
+        "userId": 202,
+        "username": "lucas_martinez",
+        "rating": 4,
+        "title": "Buen equipo pero caro",
+        "comment": "Buen equipo pero el precio es alto. La pantalla de 6.8 pulgadas es hermosa.",
+        "date": "2024-01-30T14:30:00.000Z",
+        "verified": true,
+        "helpful": 8
+      },
+      {
+        "id": 3,
+        "userId": 203,
+        "username": "valentina_ruiz",
+        "rating": 5,
+        "title": "Samsung excelente",
+        "comment": "Samsung hizo un trabajo excelente. One UI es muy fluido y personalizable.",
+        "date": "2024-01-28T16:45:00.000Z",
+        "verified": true,
+        "helpful": 12
+      },
+      {
+        "id": 4,
+        "userId": 204,
+        "username": "mateo_silva",
+        "rating": 4,
+        "title": "Perfecto para productividad",
+        "comment": "Excelente para productividad. S Pen hace la diferencia en reuniones.",
+        "date": "2024-01-26T09:15:00.000Z",
+        "verified": true,
+        "helpful": 10
+      },
+      {
+        "id": 5,
+        "userId": 205,
+        "username": "camila_vega",
+        "rating": 5,
+        "title": "Batería increíble",
+        "comment": "La batería dura todo el día incluso con uso intensivo. Carga rápida muy eficiente.",
+        "date": "2024-01-24T11:20:00.000Z",
+        "verified": true,
+        "helpful": 9
+      },
+      {
+        "id": 6,
+        "userId": 206,
+        "username": "rodrigo_herrera",
+        "rating": 3,
+        "title": "Buen teléfono pero pesado",
+        "comment": "Buen teléfono pero pesado. La cámara nocturna podría ser mejor.",
+        "date": "2024-01-22T13:45:00.000Z",
+        "verified": true,
+        "helpful": 5
+      },
+      {
+        "id": 7,
+        "userId": 207,
+        "username": "isabella_castro",
+        "rating": 5,
+        "title": "Ideal para trabajo",
+        "comment": "Para trabajar desde casa es perfecto. La pantalla grande es ideal para multitarea.",
+        "date": "2024-01-20T08:30:00.000Z",
+        "verified": true,
+        "helpful": 11
       }
+    ],
+    "reviews": {
+      "rating": 4.4,
+      "totalReviews": 7
     },
     "availability": {
       "stock": 0,
@@ -478,7 +492,6 @@
       ],
       "promotions": []
     },
-    "priceHistory": [],
     "attributes": [
       { "id": "BRAND", "name": "Marca", "value": "Samsung" },
       { "id": "MODEL", "name": "Modelo", "value": "Galaxy S24 Ultra" },
@@ -522,7 +535,7 @@
     "brand": "Xiaomi",
     "model": "13T Pro",
     "condition": "new",
-    "description": "Xiaomi 13T Pro con cámara triple Leica, pantalla AMOLED de 6.67 pulgadas y carga rápida de 120W.",
+    "description": "Descubrí el Xiaomi 13T Pro, la perfecta combinación entre innovación Xiaomi y la legendaria calidad óptica Leica. Un flagship que redefine la fotografía móvil y el rendimiento, todo a un precio accesible.\n\n🔥 CARACTERÍSTICAS DESTACADAS:\n• Pantalla CrystalRes AMOLED de 6.67\" con 144Hz y Dolby Vision\n• Cámara triple co-desarrollada con Leica - Autenticidad fotográfica\n• Procesador MediaTek Dimensity 9200+ para máximo rendimiento\n• 12GB RAM + 256GB almacenamiento UFS 4.0\n• Carga HyperCharge de 120W - 0 a 100% en solo 19 minutos\n• Batería de 5000mAh con tecnología de gestión inteligente\n• MIUI 14 basado en Android 13 con 4 años de actualizaciones\n• Diseño premium con acabado eco-leather vegano\n\n📸 SISTEMA LEICA PROFESSIONAL:\nCámara principal de 50MP Leica Summicron, ultra gran angular de 50MP y teleobjetivo de 12MP. Modos Leica Authentic y Leica Vibrant para diferentes estilos fotográficos.\n\n⚡ CARGA MÁS RÁPIDA DEL MUNDO:\n120W de carga por cable te lleva del 0 al 100% en menos de 20 minutos. Tecnología de batería de doble celda para mayor durabilidad.\n\n🎮 RENDIMIENTO GAMING:\nDimensity 9200+ con GPU Immortalis-G715 MC11 para gaming fluido en máxima calidad.\n\n✅ INCLUYE:\n• Xiaomi 13T Pro 256GB\n• Cargador HyperCharge 120W\n• Cable USB-C premium\n• Protector de pantalla preinstalado\n• Funda TPU transparente\n• Herramienta SIM\n\n🛡️ GARANTÍA OFICIAL XIAOMI: 1 año con servicio técnico autorizado y Mi Care+.",
     "specifications": {
       "storage": "256GB",
       "color": "Meadow Green",
@@ -545,36 +558,17 @@
         "totalItems": 1500
       }
     ],
-    "seller": {
-      "id": 3,
-      "name": "Xiaomi Store Argentina",
-      "username": "xiaomi_store_ar",
-      "type": "official",
-      "reputation": 4.7,
-      "totalSales": 9000,
-      "location": "Buenos Aires, Argentina",
-      "verified": true,
-      "premium": true,
-      "responseTime": "4 horas",
-      "shippingOptions": ["gratis", "express"],
-      "returnPolicy": "30 días",
-      "warranty": "1 año oficial"
-    },
+    "sellerId": 3,
+    "paymentMethodIds": [8, 1, 2, 4, 6, 7, 9, 10],
     "reviewList": [],
     "reviews": {
-      "rating": 4.6,
-      "totalReviews": 0,
-      "ratingDistribution": {
-        "5": 0,
-        "4": 0,
-        "3": 0,
-        "2": 0,
-        "1": 0
-      }
+      "rating": 4.2,
+      "totalReviews": 6
     },
+    "availableQuantity": 0,
     "availability": {
-      "stock": 8,
-      "status": "in_stock",
+      "stock": 0,
+      "status": "out_of_stock",
       "location": "Buenos Aires",
       "shipping": {
         "free": true,
@@ -640,7 +634,6 @@
       ],
       "promotions": []
     },
-    "priceHistory": [],
     "attributes": [
       { "id": "BRAND", "name": "Marca", "value": "Xiaomi" },
       { "id": "MODEL", "name": "Modelo", "value": "13T Pro" },
@@ -683,7 +676,7 @@
     "brand": "Google",
     "model": "Pixel 8 Pro",
     "condition": "new",
-    "description": "Google Pixel 8 Pro con procesador Google Tensor G3, cámara triple y pantalla OLED de 6.7 pulgadas.",
+    "description": "Experimentá la inteligencia artificial más avanzada en smartphones con el Google Pixel 8 Pro. Diseñado por Google, potenciado por IA, este flagship redefine lo que esperás de la fotografía computacional y la experiencia Android pura.\n\n🔥 CARACTERÍSTICAS DESTACADAS:\n• Pantalla Super Actua de 6.7\" con 120Hz adaptativo y brillo de 2400 nits\n• Procesador Google Tensor G3 con TPU dedicada para IA\n• Cámara triple con sensor principal de 50MP y zoom óptico 5x\n• 12GB RAM + 128GB almacenamiento con 7 años de actualizaciones\n• Batería de 5050mAh con carga inalámbrica de 30W\n• Android 14 puro con funciones exclusivas Pixel\n• Diseño premium con barra de cámara icónica y Gorilla Glass Victus 2\n• Titan M security chip para máxima seguridad\n\n📸 FOTOGRAFÍA COMPUTACIONAL LÍDER:\nMagic Eraser, Photo Unblur, Real Tone, Night Sight astronómico y el nuevo Best Take para fotos grupales perfectas.\n\n🤖 INTELIGENCIA ARTIFICIAL AVANZADA:\n• Call Screen para filtrar llamadas spam\n• Live Translate en tiempo real\n• Car Crash Detection con ubicación automática\n• Hold for Me para esperas telefónicas\n• Assistant Voice Typing mejorado\n• Magic Eraser para video\n\n🛡️ SEGURIDAD TITAN M:\nChip de seguridad dedicado que protege tus datos más sensibles y transacciones.\n\n📱 ANDROID PURO:\n7 años de actualizaciones garantizadas de Android y parches de seguridad. Siempre tendrás las últimas funciones.\n\n✅ INCLUYE:\n• Pixel 8 Pro 128GB\n• Cable USB-C a USB-C\n• Adaptador USB-C a USB-A\n• Herramienta SIM\n• Guía de inicio rápido\n\n🛡️ GARANTÍA OFICIAL GOOGLE: 1 año con soporte directo de Google y Pixel Care.",
     "specifications": {
       "storage": "128GB",
       "color": "Obsidian",
@@ -706,32 +699,12 @@
         "totalItems": 1500
       }
     ],
-    "seller": {
-      "id": 4,
-      "name": "Google Store Argentina",
-      "username": "google_store_ar",
-      "type": "official",
-      "reputation": 4.6,
-      "totalSales": 7000,
-      "location": "Buenos Aires, Argentina",
-      "verified": true,
-      "premium": true,
-      "responseTime": "5 horas",
-      "shippingOptions": ["gratis", "express"],
-      "returnPolicy": "30 días",
-      "warranty": "1 año oficial"
-    },
+    "sellerId": 4,
+    "paymentMethodIds": [8, 1, 2, 6, 5, 7, 9],
     "reviewList": [],
     "reviews": {
-      "rating": 4.5,
-      "totalReviews": 0,
-      "ratingDistribution": {
-        "5": 0,
-        "4": 0,
-        "3": 0,
-        "2": 0,
-        "1": 0
-      }
+      "rating": 4.4,
+      "totalReviews": 5
     },
     "availability": {
       "stock": 25,
@@ -801,7 +774,6 @@
       ],
       "promotions": []
     },
-    "priceHistory": [],
     "attributes": [
       { "id": "BRAND", "name": "Marca", "value": "Google" },
       { "id": "MODEL", "name": "Modelo", "value": "Pixel 8 Pro" },

@@ -4,15 +4,57 @@
       "id": 1,
       "user": "maria_gonzalez",
       "rating": 5,
-      "comment": "Excelente producto, llegó rápido y en perfectas condiciones.",
-      "date": "2024-06-01"
+      "comment": "Excelente producto, llegó rápido y en perfectas condiciones. La cámara de 48MP es espectacular.",
+      "date": "2024-01-20"
     },
     {
       "id": 2,
       "user": "juan_perez",
       "rating": 4,
-      "comment": "Muy buen teléfono, aunque esperaba más de la batería.",
-      "date": "2024-06-02"
+      "comment": "Muy buen teléfono, aunque esperaba más de la batería. El diseño de titanio se siente premium.",
+      "date": "2024-01-18"
+    },
+    {
+      "id": 3,
+      "user": "ana_martinez",
+      "rating": 5,
+      "comment": "Como fotógrafa amateur, este teléfono me permite tomar fotos profesionales. Dynamic Island es muy útil.",
+      "date": "2024-01-16"
+    },
+    {
+      "id": 4,
+      "user": "carlos_rodriguez",
+      "rating": 4,
+      "comment": "El iPhone más potente que he tenido. Corre todos los juegos sin problemas.",
+      "date": "2024-01-15"
+    },
+    {
+      "id": 5,
+      "user": "sofia_fernandez",
+      "rating": 5,
+      "comment": "La pantalla es increíble, los colores se ven muy vibrantes. Action Button es una gran adición.",
+      "date": "2024-01-14"
+    },
+    {
+      "id": 6,
+      "user": "diego_sanchez",
+      "rating": 3,
+      "comment": "Buen teléfono pero muy caro. El cambio de Lightning a USB-C es bienvenido.",
+      "date": "2024-01-12"
+    },
+    {
+      "id": 7,
+      "user": "lucia_torres",
+      "rating": 5,
+      "comment": "Perfecto para video 4K. La estabilización es excelente. Vale cada peso.",
+      "date": "2024-01-10"
+    },
+    {
+      "id": 8,
+      "user": "pablo_morales",
+      "rating": 4,
+      "comment": "Gran rendimiento y duración de batería mejorada respecto al modelo anterior.",
+      "date": "2024-01-08"
     }
   ],
   "2": [
@@ -20,15 +62,50 @@
       "id": 1,
       "user": "sofia_fernandez",
       "rating": 5,
-      "comment": "La cámara es increíble y el diseño me encanta.",
-      "date": "2024-06-03"
+      "comment": "La cámara de 200MP es increíble y el diseño me encanta. S Pen incluido es perfecto.",
+      "date": "2024-02-01"
     },
     {
       "id": 2,
       "user": "lucas_martinez",
+      "rating": 4,
+      "comment": "Buen equipo pero el precio es alto. La pantalla de 6.8 pulgadas es hermosa.",
+      "date": "2024-01-30"
+    },
+    {
+      "id": 3,
+      "user": "valentina_ruiz",
+      "rating": 5,
+      "comment": "Samsung hizo un trabajo excelente. One UI es muy fluido y personalizable.",
+      "date": "2024-01-28"
+    },
+    {
+      "id": 4,
+      "user": "mateo_silva",
+      "rating": 4,
+      "comment": "Excelente para productividad. S Pen hace la diferencia en reuniones.",
+      "date": "2024-01-26"
+    },
+    {
+      "id": 5,
+      "user": "camila_vega",
+      "rating": 5,
+      "comment": "La batería dura todo el día incluso con uso intensivo. Carga rápida muy eficiente.",
+      "date": "2024-01-24"
+    },
+    {
+      "id": 6,
+      "user": "rodrigo_herrera",
       "rating": 3,
-      "comment": "Buen equipo pero el precio es alto.",
-      "date": "2024-06-04"
+      "comment": "Buen teléfono pero pesado. La cámara nocturna podría ser mejor.",
+      "date": "2024-01-22"
+    },
+    {
+      "id": 7,
+      "user": "isabella_castro",
+      "rating": 5,
+      "comment": "Para trabajar desde casa es perfecto. La pantalla grande es ideal para multitarea.",
+      "date": "2024-01-20"
     }
   ],
   "3": [
@@ -36,8 +113,43 @@
       "id": 1,
       "user": "carla_lopez",
       "rating": 4,
-      "comment": "Gran relación calidad-precio.",
-      "date": "2024-06-05"
+      "comment": "Gran relación calidad-precio. Xiaomi siempre sorprende con sus características.",
+      "date": "2024-02-05"
+    },
+    {
+      "id": 2,
+      "user": "alejandro_gutierrez",
+      "rating": 5,
+      "comment": "Por este precio, es imbatible. MIUI funciona muy bien y es personalizable.",
+      "date": "2024-02-03"
+    },
+    {
+      "id": 3,
+      "user": "natalia_romero",
+      "rating": 4,
+      "comment": "Cámara Leica es muy buena. La carga de 120W es increíblemente rápida.",
+      "date": "2024-02-01"
+    },
+    {
+      "id": 4,
+      "user": "gabriel_mendez",
+      "rating": 3,
+      "comment": "Buen teléfono pero la interfaz tiene demasiada publicidad. Hardware excelente.",
+      "date": "2024-01-30"
+    },
+    {
+      "id": 5,
+      "user": "fernanda_aguilar",
+      "rating": 5,
+      "comment": "Me encanta el color Meadow Green. Rendimiento en juegos es sorprendente.",
+      "date": "2024-01-28"
+    },
+    {
+      "id": 6,
+      "user": "nicolas_vargas",
+      "rating": 4,
+      "comment": "Excelente teléfono para el día a día. Pantalla AMOLED muy vibrante.",
+      "date": "2024-01-26"
     }
   ],
   "4": [
@@ -45,8 +157,36 @@
       "id": 1,
       "user": "diego_sanchez",
       "rating": 5,
-      "comment": "El mejor Pixel hasta ahora, muy fluido.",
-      "date": "2024-06-06"
+      "comment": "El mejor Pixel hasta ahora, muy fluido. Cámara computacional Google es única.",
+      "date": "2024-02-10"
+    },
+    {
+      "id": 2,
+      "user": "mariana_jimenez", 
+      "rating": 4,
+      "comment": "Android puro es una delicia. Actualizaciones rápidas garantizadas por años.",
+      "date": "2024-02-08"
+    },
+    {
+      "id": 3,
+      "user": "sebastian_torres",
+      "rating": 5,
+      "comment": "Magic Eraser y todas las funciones de IA son increíbles. Vale la pena.",
+      "date": "2024-02-06"
+    },
+    {
+      "id": 4,
+      "user": "andrea_molina",
+      "rating": 4,
+      "comment": "Pixel Camera es la mejor para fotos familiares. Night Sight impresionante.",
+      "date": "2024-02-04"
+    },
+    {
+      "id": 5,
+      "user": "francisco_ramos",
+      "rating": 3,
+      "comment": "Buen teléfono pero la batería podría ser mejor. Tensor G3 es eficiente.",
+      "date": "2024-02-02"
     }
   ]
 } 

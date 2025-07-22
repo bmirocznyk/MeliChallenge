@@ -1,27 +1,24 @@
 import React from 'react';
+import { Product } from '../types/product';
 
 interface ProductDescriptionProps {
-  product: any;
+  product: Product;
 }
 
-export const ProductDescription: React.FC<ProductDescriptionProps> = ({ product: _product }) => {
+export const ProductDescription: React.FC<ProductDescriptionProps> = ({ product }) => {
+  // Split description into paragraphs for better formatting
+  const descriptionParagraphs = product.description.split('\n\n').filter(paragraph => paragraph.trim().length > 0);
+
   return (
     <div className="pt-6 border-t border-gray-200">
       <h2 className="text-xl font-bold text-gray-900 mb-6">Descripción</h2>
       
       <div className="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-          Descubre Adidas Vibes Full Recharge Eau de Parfum, un perfume que busca una fragancia fresca y energizante. 
-          Con un formato de spray de 100 ml, este perfume se convierte en el compañero ideal para cualquier ocasión, 
-          ya sea un día en la oficina o una salida nocturna.
-        </p>
-        
-        <p>
-          La familia olfativa Fougére aporta una mezcla equilibrada de notas de hojas de cedro y menta, 
-          creando una experiencia olfativa única que resalta la masculinidad y la vitalidad. 
-          Su aroma envolvente y duradero te acompañará a lo largo del día, dejando una estela de frescura 
-          que no pasará desapercibida.
-        </p>
+        {descriptionParagraphs.map((paragraph, index) => (
+          <div key={index} className="whitespace-pre-line">
+            {paragraph}
+          </div>
+        ))}
       </div>
     </div>
   );

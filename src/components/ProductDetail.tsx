@@ -40,7 +40,7 @@ export const ProductDetail: React.FC<ProductDetailProps> = ({ product }) => {
         <div className="lg:col-span-5 space-y-6">
           <ProductInfo product={currentProduct} onSelectVariant={selectVariant} />
           <PriceSection product={currentProduct} />
-          <SellerInfo seller={currentProduct.seller} />
+          {currentProduct.seller && <SellerInfo seller={currentProduct.seller} />}
           <ProductAttributes attributes={currentProduct.attributes} />
         </div>
       </div>

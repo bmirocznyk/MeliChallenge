@@ -20,12 +20,12 @@ function ProductPage() {
       setLoading(true);
       setError(null);
       try {
-        const apiData = await api.getItem(Number(id));
+        const apiData = await api.getProductWithSellerAndPaymentMethods(id);
         
         // Map API data to product structure
         const mappedProduct = {
           ...mockProduct,
-          ...apiData // Use all fields from backend, including images, attributes, variants, etc.
+          ...apiData // Use all fields from backend, including seller, payment methods, etc.
         };
         
         setProduct(mappedProduct);

@@ -4,7 +4,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 // Routes
-import productRoutes from './interfaces/routes/ProductRoutes.js';
+import { createProductRoutes } from './interfaces/routes/ProductRoutes.js';
+import { ProductController } from './interfaces/controllers/ProductController.js';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -19,7 +20,9 @@ app.use(morgan('combined'));
 app.use(express.json());
 
 // Routes
-app.use('/api', productRoutes);
+const productController = new ProductController();
+const apiRoutes = createProductRoutes(productController);
+app.use('/api', apiRoutes);
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -39,7 +42,10 @@ app.get('/', (req, res) => {
       health: '/api/health',
       products: '/api/products',
       productById: '/api/products/:id',
-      search: '/api/products/search?q=query'
+      search: '/api/products/search?q=query',
+      sellers: '/api/sellers',
+      sellerById: '/api/sellers/:id',
+      paymentMethods: '/api/payment-methods'
     }
   });
 });

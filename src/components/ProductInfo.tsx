@@ -172,6 +172,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
         onClose={() => setIsReviewsModalOpen(false)}
         productId={product.id}
         productTitle={product.title}
+        product={product}
       />
     </div>
   );

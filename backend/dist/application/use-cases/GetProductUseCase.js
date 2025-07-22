@@ -1,4 +1,7 @@
-export class GetProductUseCase {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.GetProductUseCase = void 0;
+class GetProductUseCase {
     productRepository;
     constructor(productRepository) {
         this.productRepository = productRepository;
@@ -10,3 +13,4 @@ export class GetProductUseCase {
         return this.productRepository;
     }
 }
+exports.GetProductUseCase = GetProductUseCase;

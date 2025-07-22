@@ -1,12 +1,8 @@
 import { Product } from '@/shared/types/product';
 import { ProductRepository } from '@/domain/repositories/ProductRepository';
 import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
 import fs from 'fs/promises';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import { join } from 'path';
 
 export class JsonProductRepository implements ProductRepository {
   private products: Product[] = [];

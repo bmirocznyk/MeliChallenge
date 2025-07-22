@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Apple Store Argentina",
+    "username": "apple_store_ar",
+    "type": "official",
+    "reputation": 4.9,
+    "totalSales": 15000,
+    "salesHistory": {
+      "thisMonth": 1250,
+      "lastMonth": 1180,
+      "thisYear": 15000,
+      "allTime": 45000
+    },
+    "location": "Buenos Aires, Argentina",
+    "verified": true,
+    "premium": true,
+    "responseTime": "2 horas",
+    "shippingOptions": ["gratis", "express"],
+    "returnPolicy": "30 días",
+    "warranty": "1 año oficial"
+  },
+  {
+    "id": 2,
+    "name": "Samsung Oficial",
+    "username": "samsung_oficial",
+    "type": "official",
+    "reputation": 4.8,
+    "totalSales": 12000,
+    "salesHistory": {
+      "thisMonth": 980,
+      "lastMonth": 1020,
+      "thisYear": 12000,
+      "allTime": 34500
+    },
+    "location": "Buenos Aires, Argentina",
+    "verified": true,
+    "premium": true,
+    "responseTime": "3 horas",
+    "shippingOptions": ["gratis", "express"],
+    "returnPolicy": "30 días",
+    "warranty": "1 año oficial"
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi Store Argentina",
+    "username": "xiaomi_store_ar",
+    "type": "official",
+    "reputation": 4.7,
+    "totalSales": 9000,
+    "salesHistory": {
+      "thisMonth": 750,
+      "lastMonth": 820,
+      "thisYear": 9000,
+      "allTime": 28000
+    },
+    "location": "Buenos Aires, Argentina",
+    "verified": true,
+    "premium": true,
+    "responseTime": "4 horas",
+    "shippingOptions": ["gratis", "express"],
+    "returnPolicy": "30 días",
+    "warranty": "1 año oficial"
+  },
+  {
+    "id": 4,
+    "name": "Google Store Argentina",
+    "username": "google_store_ar",
+    "type": "official",
+    "reputation": 4.6,
+    "totalSales": 7000,
+    "salesHistory": {
+      "thisMonth": 580,
+      "lastMonth": 640,
+      "thisYear": 7000,
+      "allTime": 21500
+    },
+    "location": "Buenos Aires, Argentina",
+    "verified": true,
+    "premium": true,
+    "responseTime": "5 horas",
+    "shippingOptions": ["gratis", "express"],
+    "returnPolicy": "30 días",
+    "warranty": "1 año oficial"
+  }
+] 

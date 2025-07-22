@@ -1,17 +1,17 @@
-import { readFileSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-export class JsonCommentRepository {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.JsonCommentRepository = void 0;
+const fs_1 = require("fs");
+const path_1 = require("path");
+class JsonCommentRepository {
     comments = {};
     constructor() {
         this.loadComments();
     }
     loadComments() {
         try {
-            const dataPath = join(__dirname, '../database/comments.json');
-            const data = readFileSync(dataPath, 'utf-8');
+            const dataPath = (0, path_1.join)(__dirname, '../database/comments.json');
+            const data = (0, fs_1.readFileSync)(dataPath, 'utf-8');
             this.comments = JSON.parse(data);
         }
         catch (error) {
@@ -44,3 +44,4 @@ export class JsonCommentRepository {
         };
     }
 }
+exports.JsonCommentRepository = JsonCommentRepository;
