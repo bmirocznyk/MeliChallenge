@@ -1,8 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { api } from '../api'
 
-// Mock fetch globally
-global.fetch = vi.fn()
+// Mock global fetch
+Object.defineProperty(globalThis, 'fetch', {
+  value: vi.fn(),
+  writable: true
+});
 
 describe('API Service', () => {
   beforeEach(() => {
@@ -36,7 +39,7 @@ describe('API Service', () => {
       statusText: 'Not Found'
     })
 
-    await expect(api.getItem(999)).rejects.toThrow('Item not found')
+    await expect(api.getItem(999)).rejects.toThrow('Product not found')
   })
 
   it('handles network errors', async () => {

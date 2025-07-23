@@ -6,4 +6,5 @@ export interface ProductRepository {
   findByCategory(categoryId: string | number): Promise<Product[]>;
   search(query: string): Promise<Product[]>;
   getProductComments(productId: string | number): Promise<any[]>;
+  saveProducts(): Promise<void>;
 } 

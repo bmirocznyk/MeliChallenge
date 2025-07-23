@@ -6,12 +6,14 @@ import { api } from '../services/api';
 
 interface PriceSectionProps {
   product: Product;
+  onProductUpdate?: (updatedProduct: Product) => void;
 }
 
-export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
+export const PriceSection: React.FC<PriceSectionProps> = ({ product, onProductUpdate }) => {
   const [quantity, setQuantity] = useState(1);
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isPurchasing, setIsPurchasing] = useState(false);
 
   // Stock status calculations
   const isOutOfStock = product.availableQuantity === 0;
@@ -60,6 +62,34 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
   const decreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
+    }
+  };
+
+  const handlePurchase = async () => {
+    if (!canPurchase || isPurchasing) return;
+    
+    setIsPurchasing(true);
+    try {
+      const updatedProduct = await api.purchaseProduct(product.id, quantity);
+      
+      // Update the local product state with the new availableQuantity
+      if (onProductUpdate) {
+        onProductUpdate({
+          ...product,
+          availableQuantity: updatedProduct.availableQuantity
+        });
+      }
+      
+      // Reset quantity to 1 after successful purchase
+      setQuantity(1);
+      
+      // Show success message (you can replace this with a toast or modal)
+      alert(`¡Compra exitosa! Compraste ${quantity} unidad(es) de "${updatedProduct.title}". Stock restante: ${updatedProduct.availableQuantity}`);
+    } catch (error) {
+      console.error('Purchase failed:', error);
+      alert(`Error en la compra: ${error instanceof Error ? error.message : 'Error desconocido'}`);
+    } finally {
+      setIsPurchasing(false);
     }
   };
 
@@ -155,14 +185,15 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
       {/* Purchase Buttons */}
       <div className="space-y-3">
         <button 
-          disabled={!canPurchase}
+          onClick={handlePurchase}
+          disabled={!canPurchase || isPurchasing}
           className={`w-full font-medium py-3 px-6 rounded-md transition-colors ${
-            canPurchase 
+            canPurchase && !isPurchasing
               ? 'bg-blue-500 hover:bg-blue-600 text-white' 
               : 'bg-gray-300 text-gray-500 cursor-not-allowed'
           }`}
         >
-          {isOutOfStock ? 'Sin stock' : 'Comprar ahora'}
+          {isPurchasing ? 'Procesando...' : isOutOfStock ? 'Sin stock' : 'Comprar ahora'}
         </button>
         <button 
           disabled={!canPurchase}
@@ -212,22 +243,18 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product }) => {
         )}
       </div>
 
-      {/* Shipping Info */}
+      {/* Shipping Info - Hardcoded */}
       <div className="border-t border-gray-200 pt-6">
         <div className="space-y-2">
           <div className="text-sm font-medium text-gray-700">
             Envío
           </div>
           <div className="text-sm text-gray-600">
-            {product.shipping.freeShipping ? (
-              <span className="text-green-600 font-medium">Gratis</span>
-            ) : (
-              formatPrice(product.shipping.cost)
-            )}
+            <span className="text-green-600 font-medium">Gratis</span>
           </div>
           {canPurchase && (
             <div className="text-xs text-gray-500">
-              Llega {product.shipping.estimatedDelivery}
+              Llega en 2-3 días hábiles
             </div>
           )}
         </div>

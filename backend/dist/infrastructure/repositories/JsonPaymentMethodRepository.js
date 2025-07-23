@@ -36,9 +36,5 @@ class JsonPaymentMethodRepository {
         const paymentMethods = await this.loadPaymentMethods();
         return paymentMethods.filter(pm => pm.category === category);
     }
-    async findEnabled() {
-        const paymentMethods = await this.loadPaymentMethods();
-        return paymentMethods.filter(pm => pm.enabled);
-    }
 }
 exports.JsonPaymentMethodRepository = JsonPaymentMethodRepository;

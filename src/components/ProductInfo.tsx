@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Star, Shield, Truck, AlertTriangle, Package } from 'lucide-react';
+import { Star, Shield, Truck } from 'lucide-react';
 import { Product } from '../types/product';
-import { ReviewsModal } from './ReviewsModal';
+import ReviewsModal from './ReviewsModal';
 
 interface ProductInfoProps {
   product: Product;
@@ -15,47 +15,16 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
 
   // Stock status calculations
   const isOutOfStock = product.availableQuantity === 0;
-  const isLowStock = product.availableQuantity === 1; // Only for exactly 1 unit
-  const isInStock = product.availableQuantity > 1;
 
-  const getStockStatus = () => {
-    if (isOutOfStock) {
-      return {
-        text: 'Sin stock',
-        color: 'text-red-600',
-        bgColor: 'bg-red-50',
-        borderColor: 'border-red-200',
-        icon: <AlertTriangle className="w-4 h-4" />
-      };
-    } else if (isLowStock) {
-      return {
-        text: 'Última unidad',
-        color: 'text-yellow-600',
-        bgColor: 'bg-yellow-50',
-        borderColor: 'border-yellow-200',
-        icon: <Package className="w-4 h-4" />
-      };
-    } else {
-      return {
-        text: 'En stock',
-        color: 'text-green-600',
-        bgColor: 'bg-green-50',
-        borderColor: 'border-green-200',
-        icon: <Package className="w-4 h-4" />
-      };
-    }
-  };
-
-  const stockStatus = getStockStatus();
 
   return (
-    <div className="space-y-6">
+    <div className="section-spacing">
       {/* Condition and Sales */}
-      <div className="flex items-center space-x-4 text-sm text-gray-600">
+      <div className="flex-start-4 text-description">
         <span className="font-medium">
           {product.condition === 'new' ? 'Nuevo' : 'Usado'}
         </span>
-        <span className="text-gray-400">|</span>
+        <span className="separator">|</span>
         <span>
           +{product.soldQuantity} vendidos
         </span>
@@ -67,8 +36,8 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
       </h1>
 
       {/* Reviews */}
-      <div className="flex items-center space-x-2">
-        <div className="flex items-center">
+      <div className="flex-start-2">
+        <div className="flex-start">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
@@ -80,12 +49,12 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
             />
           ))}
         </div>
-        <span className="text-sm font-medium text-gray-900">
+        <span className="text-label">
           {product.reviews.rating}
         </span>
         <button
           onClick={() => setIsReviewsModalOpen(true)}
-          className="text-sm text-blue-500 hover:text-blue-600 hover:underline cursor-pointer transition-colors"
+          className="text-link"
         >
           ({product.reviews.totalReviews} opiniones)
         </button>
@@ -93,8 +62,8 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
 
       {/* Color Variants */}
       {colorVariants.length > 0 && (
-        <div className="space-y-3">
-          <h3 className="text-sm font-medium text-gray-900">
+        <div className="section-spacing-sm">
+          <h3 className="text-label">
             Color: {colorVariants.find(v => v.selected)?.value}
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -104,13 +73,13 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
                 type="button"
                 onClick={() => onSelectVariant && onSelectVariant('COLOR', variant.value)}
                 disabled={isOutOfStock}
-                className={`px-4 py-2 text-sm border rounded-md transition-colors ${
+                className={
                   variant.selected
-                    ? 'border-blue-500 bg-blue-500 text-white'
+                    ? 'btn-variant--selected'
                     : isOutOfStock
-                    ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'border-gray-300 hover:border-gray-400 bg-white'
-                }`}
+                    ? 'btn-variant--disabled'
+                    : 'btn-variant--unselected'
+                }
               >
                 {variant.value}
               </button>
@@ -121,8 +90,8 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
 
       {/* Storage Variants */}
       {storageVariants.length > 0 && (
-        <div className="space-y-3">
-          <h3 className="text-sm font-medium text-gray-900">
+        <div className="section-spacing-sm">
+          <h3 className="text-label">
             Memoria: {storageVariants.find(v => v.selected)?.value}
           </h3>
           <div className="flex flex-wrap gap-2">
@@ -132,13 +101,13 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
                 type="button"
                 onClick={() => onSelectVariant && onSelectVariant('INTERNAL_MEMORY', variant.value)}
                 disabled={isOutOfStock}
-                className={`px-4 py-2 text-sm border rounded-md transition-colors ${
+                className={
                   variant.selected
-                    ? 'border-blue-500 bg-blue-500 text-white'
+                    ? 'btn-variant--selected'
                     : isOutOfStock
-                    ? 'border-gray-200 bg-gray-100 text-gray-400 cursor-not-allowed'
-                    : 'border-gray-300 hover:border-gray-400 bg-white'
-                }`}
+                    ? 'btn-variant--disabled'
+                    : 'btn-variant--unselected'
+                }
               >
                 {variant.value}
               </button>
@@ -148,32 +117,36 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
       )}
 
       {/* Benefits */}
-      <div className="space-y-3 pt-4 border-t border-gray-200">
-        {product.shipping.freeShipping && !isOutOfStock && (
-          <div className="flex items-center space-x-2 text-sm text-green-600">
-            <Truck className="w-4 h-4" />
-            <span className="font-medium">Envío gratis</span>
-          </div>
-        )}
-        <div className="flex items-center space-x-2 text-sm text-gray-600">
-          <Shield className="w-4 h-4" />
-          <span>Compra protegida</span>
-        </div>
+      <div className="section-spacing-sm pt-4 divider">
         {!isOutOfStock && (
-          <div className="text-sm text-gray-600">
-            Stock disponible: {product.availableQuantity} unidades
+          <>
+            <div className="flex-start-2 text-success">
+              <Shield className="w-4 h-4" />
+              <span>Compra Protegida</span>
+            </div>
+            <div className="flex-start-2 text-description">
+              <Truck className="w-4 h-4" />
+              <span>Envío gratis</span>
+            </div>
+          </>
+        )}
+        
+        {isOutOfStock && (
+          <div className="text-description">
+            Producto agotado
           </div>
         )}
       </div>
 
       {/* Reviews Modal */}
-      <ReviewsModal
-        isOpen={isReviewsModalOpen}
-        onClose={() => setIsReviewsModalOpen(false)}
-        productId={product.id}
-        productTitle={product.title}
-        product={product}
-      />
+      {isReviewsModalOpen && (
+        <ReviewsModal
+          isOpen={isReviewsModalOpen}
+          onClose={() => setIsReviewsModalOpen(false)}
+          productId={product.id}
+          productTitle={product.title}
+        />
+      )}
     </div>
   );
 }; 

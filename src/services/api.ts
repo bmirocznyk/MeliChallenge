@@ -3,6 +3,8 @@ import { PaymentMethod, Seller } from '../types/product';
 
 const API_BASE = 'http://localhost:3001/api';
 
+const PURCHASE_API_BASE = 'http://localhost:3002/api';
+
 export const api = {
   async getItem(id: number) {
     const response = await fetch(`${API_BASE}/products/${id}`);
@@ -97,5 +99,20 @@ export const api = {
       seller,
       paymentMethods: paymentMethodsData.paymentMethods
     };
+  },
+
+  async purchaseProduct(productId: string | number, quantity: number): Promise<any> {
+    const response = await fetch(`${PURCHASE_API_BASE}/purchase`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ productId, quantity }),
+    });
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || 'Purchase failed');
+    }
+    return response.json();
   }
 }; 

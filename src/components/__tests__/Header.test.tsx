@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { Header } from '../Header'
@@ -11,9 +11,15 @@ const mockLocation = {
   reload: vi.fn(),
 }
 
-Object.defineProperty(window, 'location', {
-  value: mockLocation,
-  writable: true,
+vi.stubGlobal('window', {
+  location: mockLocation,
+  history: {
+    back: vi.fn(),
+    forward: vi.fn(),
+    go: vi.fn(),
+    pushState: vi.fn(),
+    replaceState: vi.fn(),
+  }
 })
 
 const renderWithRouter = (component: React.ReactElement) => {
@@ -86,7 +92,7 @@ describe('Header Component', () => {
   it('handles empty search input', () => {
     renderWithRouter(<Header />)
     
-    const searchInput = screen.getByPlaceholderText('Buscar productos, marcas y más...')
+    screen.getByPlaceholderText('Buscar productos, marcas y más...')
     const searchButton = screen.getByRole('button', { name: /buscar/i })
     
     // Leave input empty

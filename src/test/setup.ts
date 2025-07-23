@@ -1,17 +1,41 @@
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 
 // Mock IntersectionObserver
-global.IntersectionObserver = class IntersectionObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
+if (!globalThis.IntersectionObserver) {
+  globalThis.IntersectionObserver = class IntersectionObserver {
+    constructor() {}
+    observe() { return null; }
+    disconnect() { return null; }
+    unobserve() { return null; }
+  } as any;
 }
 
-// Mock ResizeObserver
-global.ResizeObserver = class ResizeObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  unobserve() {}
-} 
+// Mock ResizeObserver  
+if (!globalThis.ResizeObserver) {
+  globalThis.ResizeObserver = class ResizeObserver {
+    constructor() {}
+    observe() { return null; }
+    disconnect() { return null; }
+    unobserve() { return null; }
+  } as any;
+}
+
+// Mock window object for tests
+Object.defineProperty(globalThis, 'window', {
+  value: {
+    location: {
+      href: '',
+      assign: () => {},
+      replace: () => {},
+      reload: () => {}
+    },
+    history: {
+      back: () => {},
+      forward: () => {},
+      go: () => {},
+      pushState: () => {},
+      replaceState: () => {}
+    }
+  },
+  writable: true
+}); 

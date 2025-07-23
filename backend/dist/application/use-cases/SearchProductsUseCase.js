@@ -9,5 +9,8 @@ class SearchProductsUseCase {
     async execute(query) {
         return await this.productRepository.search(query);
     }
+    get repository() {
+        return this.productRepository;
+    }
 }
 exports.SearchProductsUseCase = SearchProductsUseCase;

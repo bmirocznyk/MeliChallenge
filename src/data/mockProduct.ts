@@ -10,41 +10,42 @@ export const mockProduct: Product = {
   availableQuantity: 1, // Set to 1 unit for testing subtle low stock warning
   images: [
     {
-      id: '97020-MLU77717743585_072024',
-      url: 'https://http2.mlstatic.com/D_NQ_NP_97020-MLU77717743585_072024-O.webp',
-      alt: 'Apple iPhone 15 128ro - Vista frontal',
-      width: 640,
-      height: 818
+      id: 'iphone15-1',
+      url: '/public/product-images/iphone15/iphone15-1.jpg',
+      alt: 'Apple iPhone 15 - 1',
+      width: 400,
+      height: 400
     },
     {
-      id: '61234-MLU77717860905_072024',
-      url: 'https://http2.mlstatic.com/D_NQ_NP_61234-MLU77717860905_072024-O.webp',
-      alt: 'Apple iPhone 15 128Negro - Vista trasera',
-      width: 352,
-      height: 828
+      id: 'iphone15-2',
+      url: '/public/product-images/iphone15/iphone15-2.jpg',
+      alt: 'Apple iPhone 15 - 2',
+      width: 400,
+      height: 400
     },
     {
-      id: '864787-MLU77500463742_072024',
-      url: 'https://http2.mlstatic.com/D_NQ_NP_864787-MLU77500463742_072024-O.webp',
-      alt: 'Apple iPhone 15 128ro - Vista lateral',
-      width: 399,
-      height: 818
+      id: 'iphone15-3',
+      url: '/public/product-images/iphone15/iphone15-3.jpg',
+      alt: 'Apple iPhone 15 - 3',
+      width: 400,
+      height: 400
     },
     {
-      id: '72779-MLA79831897975_102024',
-      url: 'https://http2.mlstatic.com/D_NQ_NP_72779-MLA79831897975_102024-O.webp',
-      alt: 'Apple iPhone 15128GB Negro - Accesorios',
-      width: 1152,
-      height: 1200
+      id: 'iphone15-4',
+      url: '/public/product-images/iphone15/iphone15-4.jpg',
+      alt: 'Apple iPhone 15 - 4',
+      width: 400,
+      height: 400
+    },
+    {
+      id: 'iphone15-5',
+      url: '/public/product-images/iphone15/iphone15-5.jpg',
+      alt: 'Apple iPhone 15 - 5',
+      width: 400,
+      height: 400
     }
   ],
   description: 'Descubrí el iPhone 15, la evolución perfecta de la innovación Apple. Con el poderoso chip A16 Bionic y cámara de 48MP, experimentá fotografía profesional y rendimiento excepcional en el diseño más elegante.\n\n🔥 CARACTERÍSTICAS DESTACADAS:\n• Pantalla Super Retina XDR de 6.1\" con Dynamic Island\n• Chip A16 Bionic para rendimiento ultrarrápido\n• Cámara principal de 48MP con modo Retrato avanzado\n• Diseño en aluminio aeroespacial con Ceramic Shield\n• Puerto USB-C para carga y transferencia universal\n• iOS 17 con nuevas funciones de personalización\n• Detección de choques automática para emergencias\n• Resistencia al agua IP68\n\n📸 FOTOGRAFÍA REVOLUCIONARIA:\nCámara de 48MP con zoom óptico 2x, modo Nocturno mejorado y grabación 4K Dolby Vision.\n\n⚡ CONECTIVIDAD UNIVERSAL:\nPuerto USB-C para compatibilidad con todos tus dispositivos y accesorios.\n\n🛡️ SEGURIDAD AVANZADA:\nDetección de choques que automáticamente contacta servicios de emergencia cuando más lo necesitás.\n\n✅ INCLUYE:\n• iPhone 15 128GB\n• Cable USB-C a USB-C\n• Documentación\n\n🛡️ GARANTÍA: 1 año de cobertura oficial Apple con servicio técnico autorizado.',
-  shipping: {
-    freeShipping: true,
-    mode: 'standard',
-    estimatedDelivery: '2-3 días hábiles',
-    cost: 0
-  },
   reviews: {
     rating: 4.5,
     totalReviews: 8,

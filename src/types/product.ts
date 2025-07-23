@@ -8,7 +8,6 @@ export interface Product {
   availableQuantity: number;
   images: ProductImage[];
   description: string;
-  shipping: ShippingInfo;
   reviews: ReviewInfo;
   installments: InstallmentInfo;
   categories: Category[];
@@ -34,13 +33,6 @@ export interface Seller {
   level?: string;
   sales?: number;
   isOfficialStore?: boolean;
-}
-
-export interface ShippingInfo {
-  freeShipping: boolean;
-  mode: string;
-  estimatedDelivery: string;
-  cost: number;
 }
 
 export interface ReviewInfo {

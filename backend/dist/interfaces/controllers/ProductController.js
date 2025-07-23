@@ -120,7 +120,7 @@ class ProductController {
                 res.status(400).json({ error: 'Payment method IDs are required' });
                 return;
             }
-            const idArray = ids.split(',');
+            const idArray = ids.split(',').map(id => parseInt(id.trim()));
             const paymentMethods = await this.getPaymentMethodsUseCase.executeByIds(idArray);
             res.json(paymentMethods);
         }

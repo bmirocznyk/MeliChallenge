@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { X, Star, User } from 'lucide-react';
 import { api } from '../services/api';
-import { Product } from '../types/product';
 
 interface Comment {
   id: number;
@@ -29,15 +28,13 @@ interface ReviewsModalProps {
   onClose: () => void;
   productId: string;
   productTitle: string;
-  product?: Product; // Add product as optional prop for fallback
 }
 
 export const ReviewsModal: React.FC<ReviewsModalProps> = ({
   isOpen,
   onClose,
   productId,
-  productTitle,
-  product
+  productTitle
 }) => {
   const [reviewsData, setReviewsData] = useState<ReviewsData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -162,4 +159,6 @@ export const ReviewsModal: React.FC<ReviewsModalProps> = ({
       </div>
     </div>
   );
-}; 
+};
+
+export default ReviewsModal; 

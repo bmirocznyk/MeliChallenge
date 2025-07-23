@@ -1,29 +1,22 @@
 export interface Product {
-  id: string | number;
+  id: number;
   title: string;
   price: number;
-  originalPrice?: number;
   currency: string;
-  condition: 'new' | 'used';
+  condition: 'new' | 'used' | 'refurbished';
   soldQuantity?: number;
   availableQuantity?: number;
   brand?: string;
   model?: string;
   description: string;
-  features?: string[];
-  specifications?: any;
-  images: ProductImage[];
-  sellerId: string | number;
-  shipping?: ShippingInfo;
-  reviews: ReviewInfo | Review[];
-  installments?: InstallmentInfo;
   categories: Category[];
+  images: ProductImage[];
+  sellerId?: number;
+  paymentMethodIds?: number[];
+  reviews: ReviewInfo;
   attributes: ProductAttribute[];
   variants: ProductVariant[];
-  availability?: any;
-  payment?: any;
-  priceHistory?: any;
-  paymentMethodIds: number[];
+  installments: InstallmentInfo;
 }
 
 export interface ProductImage {
@@ -82,8 +75,8 @@ export interface Review {
 export interface InstallmentInfo {
   quantity: number;
   amount: number;
-  totalAmount: number;
-  interestRate: number;
+  totalAmount?: number;
+  interestRate?: number;
   isFree: boolean;
 }
 

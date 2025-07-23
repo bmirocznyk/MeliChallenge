@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import { NotFoundProduct } from '../NotFoundProduct'
@@ -19,14 +19,9 @@ const mockHistory = {
   replaceState: vi.fn(),
 }
 
-Object.defineProperty(window, 'location', {
-  value: mockLocation,
-  writable: true,
-})
-
-Object.defineProperty(window, 'history', {
-  value: mockHistory,
-  writable: true,
+vi.stubGlobal('window', {
+  location: mockLocation,
+  history: mockHistory
 })
 
 const renderWithRouter = (component: React.ReactElement) => {
