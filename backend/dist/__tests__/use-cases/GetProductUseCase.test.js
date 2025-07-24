@@ -2,13 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const vitest_1 = require("vitest");
 const GetProductUseCase_1 = require("../../application/use-cases/GetProductUseCase");
+// Mock repository
 const mockProductRepository = {
-    findAll: vitest_1.vi.fn(),
-    findById: vitest_1.vi.fn(),
-    findByCategory: vitest_1.vi.fn(),
-    search: vitest_1.vi.fn(),
-    getProductComments: vitest_1.vi.fn(),
-    saveProducts: vitest_1.vi.fn(),
+    findById: vitest_1.vi.fn()
 };
 const mockProduct = {
     id: 1,
@@ -16,15 +12,22 @@ const mockProduct = {
     price: 1200000,
     currency: 'ARS',
     condition: 'new',
-    soldQuantity: 150,
-    availableQuantity: 25,
-    images: [],
-    description: 'Latest iPhone with advanced features',
-    reviews: { rating: 4.5, totalReviews: 89 },
-    installments: { quantity: 12, amount: 100000, isFree: true },
-    categories: [{ id: 1, name: 'Electronics', path: '/electronics' }],
+    availableQuantity: 10,
+    brand: 'Apple',
+    model: 'iPhone 15 Pro',
+    description: 'El iPhone más potente hasta ahora',
+    categories: [{ id: 1, name: 'Smartphones', path: '/smartphones' }],
+    images: [
+        { id: 1, url: '/product-images/iphone15/iphone1.jpg', alt: 'iPhone 15 Pro - Vista frontal' },
+        { id: 2, url: '/product-images/iphone15/iphone2.webp', alt: 'iPhone 15 Pro - Vista trasera' },
+        { id: 3, url: '/product-images/iphone15/iphone3.png', alt: 'iPhone 15 Pro - Vista lateral' }
+    ],
+    sellerId: 1,
+    paymentMethodIds: [1, 2, 3, 4, 5, 7, 8],
+    reviews: { rating: 4.8, totalReviews: 127 },
     attributes: [],
-    variants: []
+    variants: [],
+    installments: { quantity: 12, amount: 100000, isFree: true }
 };
 (0, vitest_1.describe)('GetProductUseCase', () => {
     let getProductUseCase;
@@ -78,8 +81,8 @@ const mockProduct = {
         const productWithVariants = {
             ...mockProduct,
             variants: [
-                { id: 1, attributeId: 'COLOR', value: 'Black', selected: true },
-                { id: 2, attributeId: 'STORAGE', value: '256GB', selected: false, price: 1300000 }
+                { id: '1', attributeId: 'COLOR', value: 'Black', selected: true, available: true },
+                { id: '2', attributeId: 'STORAGE', value: '256GB', selected: false, available: true, price: 1300000 }
             ]
         };
         mockProductRepository.findById.mockResolvedValue(productWithVariants);
@@ -107,11 +110,5 @@ const mockProduct = {
         (0, vitest_1.expect)(result).toEqual(productWithAttributes);
         (0, vitest_1.expect)(result.attributes).toHaveLength(2);
         (0, vitest_1.expect)(mockProductRepository.findById).toHaveBeenCalledWith(productId);
-    });
-    (0, vitest_1.it)('should use injected repository for findById operations', () => {
-        // Arrange & Act
-        const useCase = new GetProductUseCase_1.GetProductUseCase(mockProductRepository);
-        // Assert
-        (0, vitest_1.expect)(useCase.repository).toBe(mockProductRepository);
     });
 });

@@ -13,9 +13,7 @@ export class PurchaseProductUseCase {
     }
     product.availableQuantity -= quantity;
     // Persist the change
-    if (typeof (this.productRepository as any).saveProducts === 'function') {
-      await (this.productRepository as any).saveProducts();
-    }
+    await this.productRepository.saveProducts();
     return { success: true, product };
   }
 } 

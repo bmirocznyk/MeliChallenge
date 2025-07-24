@@ -19,25 +19,9 @@ class JsonSellerRepository {
             this.sellers = [];
         }
     }
-    async findAll() {
-        return this.sellers;
-    }
     async findById(id) {
         const sellerId = typeof id === 'string' ? parseInt(id) : id;
         return this.sellers.find(seller => seller.id === sellerId) || null;
-    }
-    async findByIds(ids) {
-        return this.sellers.filter(seller => ids.some(id => {
-            const numericId = typeof id === 'string' ? parseInt(id) : id;
-            const sellerIdNum = typeof seller.id === 'string' ? parseInt(seller.id) : seller.id;
-            return numericId === sellerIdNum;
-        }));
-    }
-    async findByType(type) {
-        return this.sellers.filter(seller => seller.type === type);
-    }
-    async findVerified() {
-        return this.sellers.filter(seller => seller.verified === true);
     }
 }
 exports.JsonSellerRepository = JsonSellerRepository;

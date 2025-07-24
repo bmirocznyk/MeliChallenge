@@ -4,8 +4,8 @@ export interface Product {
   price: number;
   currency: string;
   condition: 'new' | 'used';
-  soldQuantity: number;
   availableQuantity: number;
+  soldQuantity: number;
   images: ProductImage[];
   description: string;
   reviews: ReviewInfo;
@@ -31,7 +31,6 @@ export interface Seller {
   reputation: 'green' | 'yellow' | 'orange' | 'red';
   totalSales?: number;
   level?: string;
-  sales?: number;
   isOfficialStore?: boolean;
 }
 

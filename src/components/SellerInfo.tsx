@@ -1,41 +1,31 @@
 import React from 'react';
-import { Store, Shield, Star, MessageCircle } from 'lucide-react';
 import { Seller } from '../types/product';
+import { Store, Shield } from 'lucide-react';
 
 interface SellerInfoProps {
   seller: Seller;
 }
 
 export const SellerInfo: React.FC<SellerInfoProps> = ({ seller }) => {
-  const getReputationColor = (reputation: string) => {
+  function getReputationColor(reputation: Seller['reputation']) {
     switch (reputation) {
-      case 'green':
-        return 'text-green-600 bg-green-100';
-      case 'yellow':
-        return 'text-yellow-600 bg-yellow-100';
-      case 'orange':
-        return 'text-orange-600 bg-orange-100';
-      case 'red':
-        return 'text-red-600 bg-red-100';
-      default:
-        return 'text-gray-600 bg-gray-100';
+      case 'green': return 'bg-green-100 text-green-700';
+      case 'yellow': return 'bg-yellow-100 text-yellow-700';
+      case 'orange': return 'bg-orange-100 text-orange-700';
+      case 'red': return 'bg-red-100 text-red-700';
+      default: return 'bg-gray-100 text-gray-700';
     }
-  };
+  }
 
-  const getReputationIcon = (reputation: string) => {
+  function getReputationIcon(reputation: Seller['reputation']) {
     switch (reputation) {
-      case 'green':
-        return <Shield className="w-4 h-4" />;
-      case 'yellow':
-        return <Star className="w-4 h-4" />;
-      case 'orange':
-        return <Star className="w-4 h-4" />;
-      case 'red':
-        return <MessageCircle className="w-4 h-4" />;
-      default:
-        return <Store className="w-4 h-4" />;
+      case 'green': return <span>●</span>;
+      case 'yellow': return <span>●</span>;
+      case 'orange': return <span>●</span>;
+      case 'red': return <span>●</span>;
+      default: return <span>●</span>;
     }
-  };
+  }
 
   return (
     <div className="card p-4 space-y-4">
@@ -54,15 +44,16 @@ export const SellerInfo: React.FC<SellerInfoProps> = ({ seller }) => {
             {seller.name}
           </span>
         </div>
-        
-        <div className="text-sm text-gray-600">
-          {seller.level}
-        </div>
-        
-        <div className="text-sm text-gray-600">
-          +{(seller.totalSales || seller.sales || 0).toLocaleString()} ventas
-        </div>
-        
+        {typeof seller.totalSales === 'number' && (
+          <div className="text-sm text-gray-600">
+            {seller.totalSales.toLocaleString()} ventas
+          </div>
+        )}
+        {seller.level && (
+          <div className="text-sm text-gray-600">
+            {seller.level}
+          </div>
+        )}
         {seller.isOfficialStore && (
           <div className="inline-flex items-center space-x-1 text-sm text-ml-blue">
             <Shield className="w-4 h-4" />

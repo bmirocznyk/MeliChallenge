@@ -24,18 +24,8 @@ export class JsonPaymentMethodRepository implements PaymentMethodRepository {
     return this.loadPaymentMethods();
   }
 
-  async findById(id: number): Promise<PaymentMethod | null> {
-    const paymentMethods = await this.loadPaymentMethods();
-    return paymentMethods.find(pm => pm.id === id) || null;
-  }
-
   async findByIds(ids: number[]): Promise<PaymentMethod[]> {
     const paymentMethods = await this.loadPaymentMethods();
     return paymentMethods.filter(pm => ids.includes(pm.id));
-  }
-
-  async findByCategory(category: string): Promise<PaymentMethod[]> {
-    const paymentMethods = await this.loadPaymentMethods();
-    return paymentMethods.filter(pm => pm.category === category);
   }
 } 

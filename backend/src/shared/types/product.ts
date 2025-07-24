@@ -1,93 +1,61 @@
 export interface Product {
-  id: number;
+  id: string;
   title: string;
   price: number;
   currency: string;
-  condition: 'new' | 'used' | 'refurbished';
-  soldQuantity?: number;
-  availableQuantity?: number;
-  brand?: string;
-  model?: string;
-  description: string;
-  categories: Category[];
+  condition: 'new' | 'used';
+  availableQuantity: number;
   images: ProductImage[];
-  sellerId?: number;
-  paymentMethodIds?: number[];
+  description: string;
   reviews: ReviewInfo;
+  installments: InstallmentInfo;
+  categories: Category[];
   attributes: ProductAttribute[];
   variants: ProductVariant[];
-  installments: InstallmentInfo;
+  paymentMethodIds?: number[];
+  seller?: Seller;
 }
 
 export interface ProductImage {
-  id: string | number;
+  id: string;
   url: string;
   alt: string;
-  width?: number;
-  height?: number;
-  order?: number;
-  isMain?: boolean;
+  width: number;
+  height: number;
 }
 
 export interface Seller {
   id: string | number;
   name: string;
-  reputation?: 'green' | 'yellow' | 'orange' | 'red' | number;
+  reputation: 'green' | 'yellow' | 'orange' | 'red';
   level?: string;
-  sales?: number;
   isOfficialStore?: boolean;
-  username?: string;
-  type?: string;
-  totalSales?: number;
-  location?: string;
-  verified?: boolean;
-  premium?: boolean;
-  responseTime?: string;
-  shippingOptions?: string[];
-  returnPolicy?: string;
-  warranty?: string;
-}
-
-export interface ShippingInfo {
-  freeShipping: boolean;
-  mode: string;
-  estimatedDelivery: string;
-  cost: number;
 }
 
 export interface ReviewInfo {
   rating: number;
   totalReviews: number;
-}
-
-export interface Review {
-  id: number;
-  userId: number;
-  username: string;
-  rating: number;
-  title: string;
-  comment: string;
-  date: string;
-  verified: boolean;
-  helpful: number;
+  ratingDistribution: {
+    5: number;
+    4: number;
+    3: number;
+    2: number;
+    1: number;
+  };
 }
 
 export interface InstallmentInfo {
   quantity: number;
   amount: number;
-  totalAmount?: number;
-  interestRate?: number;
+  totalAmount: number;
+  interestRate: number;
   isFree: boolean;
 }
 
 export interface Category {
-  id: string | number;
+  id: string;
   name: string;
-  path?: string;
-  slug?: string;
-  parentId?: number | null;
-  level?: number;
-  totalItems?: number;
+  path: string;
 }
 
 export interface ProductAttribute {

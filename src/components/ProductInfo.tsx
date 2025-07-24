@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Star, Shield, Truck } from 'lucide-react';
+import { Star,Truck } from 'lucide-react';
 import { Product } from '../types/product';
 import ReviewsModal from './ReviewsModal';
 
@@ -16,7 +16,6 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
   // Stock status calculations
   const isOutOfStock = product.availableQuantity === 0;
 
-
   return (
     <div className="section-spacing">
       {/* Condition and Sales */}
@@ -26,7 +25,7 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
         </span>
         <span className="separator">|</span>
         <span>
-          +{product.soldQuantity} vendidos
+          {product.soldQuantity.toLocaleString()} vendidos
         </span>
       </div>
 
@@ -119,21 +118,9 @@ export const ProductInfo: React.FC<ProductInfoProps> = ({ product, onSelectVaria
       {/* Benefits */}
       <div className="section-spacing-sm pt-4 divider">
         {!isOutOfStock && (
-          <>
-            <div className="flex-start-2 text-success">
-              <Shield className="w-4 h-4" />
-              <span>Compra Protegida</span>
-            </div>
-            <div className="flex-start-2 text-description">
-              <Truck className="w-4 h-4" />
-              <span>Envío gratis</span>
-            </div>
-          </>
-        )}
-        
-        {isOutOfStock && (
-          <div className="text-description">
-            Producto agotado
+          <div className="flex items-center gap-2 text-green-700 font-medium">
+            <Truck className="w-5 h-5" />
+            Envío gratis a todo el país
           </div>
         )}
       </div>

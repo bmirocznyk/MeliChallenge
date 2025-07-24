@@ -1,44 +1,50 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.JsonCommentRepository = void 0;
-const fs_1 = require("fs");
-const path_1 = require("path");
+const promises_1 = __importDefault(require("fs/promises"));
+const path_1 = __importDefault(require("path"));
 class JsonCommentRepository {
-    comments = {};
+    dataPath;
     constructor() {
-        this.loadComments();
+        this.dataPath = path_1.default.join(__dirname, '../database/comments.json');
     }
-    loadComments() {
+    async loadComments() {
         try {
-            const dataPath = (0, path_1.join)(__dirname, '../database/comments.json');
-            const data = (0, fs_1.readFileSync)(dataPath, 'utf-8');
-            this.comments = JSON.parse(data);
+            const data = await promises_1.default.readFile(this.dataPath, 'utf-8');
+            return JSON.parse(data);
         }
         catch (error) {
             console.error('Error loading comments:', error);
-            this.comments = {};
+            return {};
         }
     }
     async findByProductId(productId) {
-        return this.comments[productId] || [];
-    }
-    async calculateAverageRating(productId) {
-        const comments = this.comments[productId] || [];
-        if (comments.length === 0)
-            return 0;
-        const totalRating = comments.reduce((sum, comment) => sum + comment.rating, 0);
-        return Math.round((totalRating / comments.length) * 10) / 10; // Round to 1 decimal
+        const comments = await this.loadComments();
+        return comments[String(productId)] || [];
     }
     async getReviewSummary(productId) {
-        const comments = this.comments[productId] || [];
-        const averageRating = await this.calculateAverageRating(productId);
-        // Calculate rating distribution
-        const ratingDistribution = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        const comments = await this.findByProductId(productId);
+        if (comments.length === 0) {
+            return {
+                averageRating: 0,
+                totalReviews: 0,
+                ratingDistribution: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 }
+            };
+        }
+        const totalRating = comments.reduce((sum, comment) => sum + comment.rating, 0);
+        const averageRating = totalRating / comments.length;
+        const ratingDistribution = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
         comments.forEach(comment => {
-            ratingDistribution[comment.rating]++;
+            const rating = comment.rating;
+            if (ratingDistribution[rating] !== undefined) {
+                ratingDistribution[rating]++;
+            }
         });
         return {
-            averageRating,
+            averageRating: Math.round(averageRating * 10) / 10,
             totalReviews: comments.length,
             ratingDistribution
         };

@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductController = void 0;
-const GetAllProductsUseCase_1 = require("../../application/use-cases/GetAllProductsUseCase");
 const GetProductUseCase_1 = require("../../application/use-cases/GetProductUseCase");
-const SearchProductsUseCase_1 = require("../../application/use-cases/SearchProductsUseCase");
 const GetProductCommentsUseCase_1 = require("../../application/use-cases/GetProductCommentsUseCase");
 const GetPaymentMethodsUseCase_1 = require("../../application/use-cases/GetPaymentMethodsUseCase");
 const GetSellerUseCase_1 = require("../../application/use-cases/GetSellerUseCase");
@@ -12,9 +10,7 @@ const JsonCommentRepository_1 = require("../../infrastructure/repositories/JsonC
 const JsonPaymentMethodRepository_1 = require("../../infrastructure/repositories/JsonPaymentMethodRepository");
 const JsonSellerRepository_1 = require("../../infrastructure/repositories/JsonSellerRepository");
 class ProductController {
-    getAllProductsUseCase;
     getProductUseCase;
-    searchProductsUseCase;
     getProductCommentsUseCase;
     getPaymentMethodsUseCase;
     getSellerUseCase;
@@ -23,9 +19,7 @@ class ProductController {
         const commentRepository = new JsonCommentRepository_1.JsonCommentRepository();
         const paymentMethodRepository = new JsonPaymentMethodRepository_1.JsonPaymentMethodRepository();
         const sellerRepository = new JsonSellerRepository_1.JsonSellerRepository();
-        this.getAllProductsUseCase = new GetAllProductsUseCase_1.GetAllProductsUseCase(productRepository);
         this.getProductUseCase = new GetProductUseCase_1.GetProductUseCase(productRepository);
-        this.searchProductsUseCase = new SearchProductsUseCase_1.SearchProductsUseCase(productRepository);
         this.getProductCommentsUseCase = new GetProductCommentsUseCase_1.GetProductCommentsUseCase(commentRepository);
         this.getPaymentMethodsUseCase = new GetPaymentMethodsUseCase_1.GetPaymentMethodsUseCase(paymentMethodRepository);
         this.getSellerUseCase = new GetSellerUseCase_1.GetSellerUseCase(sellerRepository);
@@ -48,40 +42,6 @@ class ProductController {
             res.status(500).json({
                 error: 'Internal server error',
                 message: 'An error occurred while retrieving the product'
-            });
-        }
-    }
-    async getAllProducts(req, res) {
-        try {
-            const products = await this.getAllProductsUseCase.execute();
-            res.json(products);
-        }
-        catch (error) {
-            console.error('Error getting all products:', error);
-            res.status(500).json({
-                error: 'Internal server error',
-                message: 'An error occurred while retrieving products'
-            });
-        }
-    }
-    async searchProducts(req, res) {
-        try {
-            const { q } = req.query;
-            if (!q || typeof q !== 'string') {
-                res.status(400).json({
-                    error: 'Bad request',
-                    message: 'Search query parameter "q" is required'
-                });
-                return;
-            }
-            const products = await this.searchProductsUseCase.execute(q);
-            res.json(products);
-        }
-        catch (error) {
-            console.error('Error searching products:', error);
-            res.status(500).json({
-                error: 'Internal server error',
-                message: 'An error occurred while searching products'
             });
         }
     }
@@ -161,42 +121,6 @@ class ProductController {
         }
         catch (error) {
             console.error('Error fetching seller:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
-    }
-    async getAllSellers(req, res) {
-        try {
-            const sellers = await this.getSellerUseCase.executeAll();
-            res.json(sellers);
-        }
-        catch (error) {
-            console.error('Error fetching sellers:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
-    }
-    async getSellersByIds(req, res) {
-        try {
-            const { ids } = req.query;
-            if (!ids || typeof ids !== 'string') {
-                res.status(400).json({ error: 'IDs parameter is required' });
-                return;
-            }
-            const idArray = ids.split(',').map(id => id.trim());
-            const sellers = await this.getSellerUseCase.executeByIds(idArray);
-            res.json(sellers);
-        }
-        catch (error) {
-            console.error('Error fetching sellers by IDs:', error);
-            res.status(500).json({ error: 'Internal server error' });
-        }
-    }
-    async getVerifiedSellers(req, res) {
-        try {
-            const sellers = await this.getSellerUseCase.executeVerified();
-            res.json(sellers);
-        }
-        catch (error) {
-            console.error('Error fetching verified sellers:', error);
             res.status(500).json({ error: 'Internal server error' });
         }
     }

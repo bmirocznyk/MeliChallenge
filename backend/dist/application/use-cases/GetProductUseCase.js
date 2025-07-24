@@ -9,8 +9,5 @@ class GetProductUseCase {
     async execute(id) {
         return await this.productRepository.findById(id);
     }
-    get repository() {
-        return this.productRepository;
-    }
 }
 exports.GetProductUseCase = GetProductUseCase;

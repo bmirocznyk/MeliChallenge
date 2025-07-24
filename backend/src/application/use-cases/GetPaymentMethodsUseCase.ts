@@ -11,8 +11,4 @@ export class GetPaymentMethodsUseCase {
   async executeByIds(ids: number[]): Promise<PaymentMethod[]> {
     return this.paymentMethodRepository.findByIds(ids);
   }
-
-  async executeByCategory(category: string): Promise<PaymentMethod[]> {
-    return this.paymentMethodRepository.findByCategory(category);
-  }
 } 

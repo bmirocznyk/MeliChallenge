@@ -1,53 +1,53 @@
-import { CommentRepository, Comment } from '@/domain/repositories/CommentRepository';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import fs from 'fs/promises';
+import path from 'path';
+import { CommentRepository } from '../../domain/repositories/CommentRepository';
 
 export class JsonCommentRepository implements CommentRepository {
-  private comments: { [productId: string]: Comment[] } = {};
+  private readonly dataPath: string;
 
   constructor() {
-    this.loadComments();
+    this.dataPath = path.join(__dirname, '../database/comments.json');
   }
 
-  private loadComments(): void {
+  private async loadComments(): Promise<{ [key: string]: any[] }> {
     try {
-      const dataPath = join(__dirname, '../database/comments.json');
-      const data = readFileSync(dataPath, 'utf-8');
-      this.comments = JSON.parse(data);
+      const data = await fs.readFile(this.dataPath, 'utf-8');
+      return JSON.parse(data);
     } catch (error) {
       console.error('Error loading comments:', error);
-      this.comments = {};
+      return {};
     }
   }
 
-  async findByProductId(productId: string): Promise<Comment[]> {
-    return this.comments[productId] || [];
+  async findByProductId(productId: string | number): Promise<any[]> {
+    const comments = await this.loadComments();
+    return comments[String(productId)] || [];
   }
 
-  async calculateAverageRating(productId: string): Promise<number> {
-    const comments = this.comments[productId] || [];
-    if (comments.length === 0) return 0;
+  async getReviewSummary(productId: string | number): Promise<any> {
+    const comments = await this.findByProductId(productId);
     
+    if (comments.length === 0) {
+      return {
+        averageRating: 0,
+        totalReviews: 0,
+        ratingDistribution: { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 }
+      };
+    }
+
     const totalRating = comments.reduce((sum, comment) => sum + comment.rating, 0);
-    return Math.round((totalRating / comments.length) * 10) / 10; // Round to 1 decimal
-  }
-
-  async getReviewSummary(productId: string): Promise<{
-    averageRating: number;
-    totalReviews: number;
-    ratingDistribution: { [key: number]: number };
-  }> {
-    const comments = this.comments[productId] || [];
-    const averageRating = await this.calculateAverageRating(productId);
+    const averageRating = totalRating / comments.length;
     
-    // Calculate rating distribution
-    const ratingDistribution: { [key: number]: number } = { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+    const ratingDistribution: { [key: number]: number } = { 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 };
     comments.forEach(comment => {
-      ratingDistribution[comment.rating]++;
+      const rating = comment.rating as number;
+      if (ratingDistribution[rating] !== undefined) {
+        ratingDistribution[rating]++;
+      }
     });
 
     return {
-      averageRating,
+      averageRating: Math.round(averageRating * 10) / 10,
       totalReviews: comments.length,
       ratingDistribution
     };

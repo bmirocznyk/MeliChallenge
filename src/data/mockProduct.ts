@@ -6,8 +6,8 @@ export const mockProduct: Product = {
   price: 1614916,
   currency: 'ARS',
   condition: 'new',
-  soldQuantity: 1000,
   availableQuantity: 1, // Set to 1 unit for testing subtle low stock warning
+  soldQuantity: 1200,
   images: [
     {
       id: 'iphone15-1',

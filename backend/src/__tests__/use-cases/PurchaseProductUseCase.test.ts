@@ -102,7 +102,8 @@ describe('PurchaseProductUseCase', () => {
 
   it('should handle zero quantity gracefully', async () => {
     // Arrange
-    mockProductRepository.findById.mockResolvedValue(mockProduct);
+    const freshMockProduct = { ...mockProduct, availableQuantity: 5 };
+    mockProductRepository.findById.mockResolvedValue(freshMockProduct);
 
     // Act
     const result = await purchaseUseCase.execute(1, 0);

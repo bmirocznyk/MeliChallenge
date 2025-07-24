@@ -21,30 +21,8 @@ export class JsonSellerRepository implements SellerRepository {
     }
   }
 
-  async findAll(): Promise<Seller[]> {
-    return this.sellers;
-  }
-
   async findById(id: string | number): Promise<Seller | null> {
     const sellerId = typeof id === 'string' ? parseInt(id) : id;
     return this.sellers.find(seller => seller.id === sellerId) || null;
-  }
-
-  async findByIds(ids: (string | number)[]): Promise<Seller[]> {
-    return this.sellers.filter(seller => 
-      ids.some(id => {
-        const numericId = typeof id === 'string' ? parseInt(id) : id;
-        const sellerIdNum = typeof seller.id === 'string' ? parseInt(seller.id) : seller.id;
-        return numericId === sellerIdNum;
-      })
-    );
-  }
-
-  async findByType(type: string): Promise<Seller[]> {
-    return this.sellers.filter(seller => seller.type === type);
-  }
-
-  async findVerified(): Promise<Seller[]> {
-    return this.sellers.filter(seller => seller.verified === true);
   }
 } 

@@ -12,8 +12,5 @@ class GetPaymentMethodsUseCase {
     async executeByIds(ids) {
         return this.paymentMethodRepository.findByIds(ids);
     }
-    async executeByCategory(category) {
-        return this.paymentMethodRepository.findByCategory(category);
-    }
 }
 exports.GetPaymentMethodsUseCase = GetPaymentMethodsUseCase;

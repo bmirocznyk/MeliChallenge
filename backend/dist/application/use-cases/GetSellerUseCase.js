@@ -9,17 +9,5 @@ class GetSellerUseCase {
     async execute(id) {
         return this.sellerRepository.findById(id);
     }
-    async executeAll() {
-        return this.sellerRepository.findAll();
-    }
-    async executeByIds(ids) {
-        return this.sellerRepository.findByIds(ids);
-    }
-    async executeByType(type) {
-        return this.sellerRepository.findByType(type);
-    }
-    async executeVerified() {
-        return this.sellerRepository.findVerified();
-    }
 }
 exports.GetSellerUseCase = GetSellerUseCase;

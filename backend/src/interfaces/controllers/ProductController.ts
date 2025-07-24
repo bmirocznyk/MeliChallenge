@@ -1,7 +1,5 @@
 import { Request, Response } from 'express';
-import { GetAllProductsUseCase } from '../../application/use-cases/GetAllProductsUseCase';
 import { GetProductUseCase } from '../../application/use-cases/GetProductUseCase';
-import { SearchProductsUseCase } from '../../application/use-cases/SearchProductsUseCase';
 import { GetProductCommentsUseCase } from '../../application/use-cases/GetProductCommentsUseCase';
 import { GetPaymentMethodsUseCase } from '../../application/use-cases/GetPaymentMethodsUseCase';
 import { GetSellerUseCase } from '../../application/use-cases/GetSellerUseCase';
@@ -11,9 +9,7 @@ import { JsonPaymentMethodRepository } from '../../infrastructure/repositories/J
 import { JsonSellerRepository } from '../../infrastructure/repositories/JsonSellerRepository';
 
 export class ProductController {
-  private getAllProductsUseCase: GetAllProductsUseCase;
   private getProductUseCase: GetProductUseCase;
-  private searchProductsUseCase: SearchProductsUseCase;
   private getProductCommentsUseCase: GetProductCommentsUseCase;
   private getPaymentMethodsUseCase: GetPaymentMethodsUseCase;
   private getSellerUseCase: GetSellerUseCase;
@@ -24,9 +20,7 @@ export class ProductController {
     const paymentMethodRepository = new JsonPaymentMethodRepository();
     const sellerRepository = new JsonSellerRepository();
 
-    this.getAllProductsUseCase = new GetAllProductsUseCase(productRepository);
     this.getProductUseCase = new GetProductUseCase(productRepository);
-    this.searchProductsUseCase = new SearchProductsUseCase(productRepository);
     this.getProductCommentsUseCase = new GetProductCommentsUseCase(commentRepository);
     this.getPaymentMethodsUseCase = new GetPaymentMethodsUseCase(paymentMethodRepository);
     this.getSellerUseCase = new GetSellerUseCase(sellerRepository);
@@ -51,42 +45,6 @@ export class ProductController {
       res.status(500).json({ 
         error: 'Internal server error',
         message: 'An error occurred while retrieving the product'
-      });
-    }
-  }
-
-  async getAllProducts(req: Request, res: Response): Promise<void> {
-    try {
-      const products = await this.getAllProductsUseCase.execute();
-      res.json(products);
-    } catch (error) {
-      console.error('Error getting all products:', error);
-      res.status(500).json({ 
-        error: 'Internal server error',
-        message: 'An error occurred while retrieving products'
-      });
-    }
-  }
-
-  async searchProducts(req: Request, res: Response): Promise<void> {
-    try {
-      const { q } = req.query;
-      
-      if (!q || typeof q !== 'string') {
-        res.status(400).json({ 
-          error: 'Bad request',
-          message: 'Search query parameter "q" is required'
-        });
-        return;
-      }
-
-      const products = await this.searchProductsUseCase.execute(q);
-      res.json(products);
-    } catch (error) {
-      console.error('Error searching products:', error);
-      res.status(500).json({ 
-        error: 'Internal server error',
-        message: 'An error occurred while searching products'
       });
     }
   }
@@ -173,45 +131,6 @@ export class ProductController {
       res.json(seller);
     } catch (error) {
       console.error('Error fetching seller:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  }
-
-  async getAllSellers(req: Request, res: Response): Promise<void> {
-    try {
-      const sellers = await this.getSellerUseCase.executeAll();
-      res.json(sellers);
-    } catch (error) {
-      console.error('Error fetching sellers:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  }
-
-  async getSellersByIds(req: Request, res: Response): Promise<void> {
-    try {
-      const { ids } = req.query;
-      
-      if (!ids || typeof ids !== 'string') {
-        res.status(400).json({ error: 'IDs parameter is required' });
-        return;
-      }
-
-      const idArray = ids.split(',').map(id => id.trim());
-      const sellers = await this.getSellerUseCase.executeByIds(idArray);
-
-      res.json(sellers);
-    } catch (error) {
-      console.error('Error fetching sellers by IDs:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-  }
-
-  async getVerifiedSellers(req: Request, res: Response): Promise<void> {
-    try {
-      const sellers = await this.getSellerUseCase.executeVerified();
-      res.json(sellers);
-    } catch (error) {
-      console.error('Error fetching verified sellers:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
   }

@@ -4,11 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "engines": {
-    "node": "22.17.x",
-    "npm": "please-use-yarn",
-    "yarn": ">=4.0.0"
+    "node": ">=18.0.0"
   },
-  "packageManager": "yarn@4.0.2",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

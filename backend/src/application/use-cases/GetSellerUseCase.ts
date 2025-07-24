@@ -7,20 +7,4 @@ export class GetSellerUseCase {
   async execute(id: string | number): Promise<Seller | null> {
     return this.sellerRepository.findById(id);
   }
-
-  async executeAll(): Promise<Seller[]> {
-    return this.sellerRepository.findAll();
-  }
-
-  async executeByIds(ids: (string | number)[]): Promise<Seller[]> {
-    return this.sellerRepository.findByIds(ids);
-  }
-
-  async executeByType(type: string): Promise<Seller[]> {
-    return this.sellerRepository.findByType(type);
-  }
-
-  async executeVerified(): Promise<Seller[]> {
-    return this.sellerRepository.findVerified();
-  }
 } 

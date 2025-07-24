@@ -7,7 +7,8 @@
     "brand": "Apple",
     "model": "iPhone 15 Pro Max",
     "condition": "new",
-    "availableQuantity": 21,
+    "availableQuantity": 20,
+    "soldQuantity": 1200,
     "description": "Descubrí el iPhone 15 Pro Max, el smartphone más avanzado de Apple. Con el revolucionario chip A17 Pro fabricado en 3 nanómetros, experimentá un rendimiento sin precedentes para gaming, fotografía profesional y multitasking intensivo.\n\nCARACTERÍSTICAS DESTACADAS:\n• Pantalla Super Retina XDR de 6.7\" con ProMotion y Dynamic Island\n• Sistema de cámaras Pro con sensor principal de 48MP y zoom óptico 5x\n• Chip A17 Pro - El procesador más potente en un smartphone\n• Diseño en titanio grado aeroespacial - 19% más liviano que el acero inoxidable\n• Batería de hasta 29 horas de reproducción de video\n• Puerto USB-C con USB 3 para transferencias ultrarrápidas\n• iOS 17 con nuevas funciones de personalización y productividad\n\nFOTOGRAFÍA PROFESIONAL:\nCámara principal de 48MP con modo Retrato avanzado, fotografía macro y Video Acción. Grabá en ProRes 4K y editá como un profesional directamente en tu iPhone.\n\nGAMING EXTREMO:\nJugá los títulos más exigentes con gráficos console-quality gracias al GPU de 6 núcleos del A17 Pro.\n\nINCLUYE:\n• iPhone 15 Pro Max\n• Cable USB-C a USB-C\n• Documentación\n\nGARANTÍA OFICIAL APPLE: 1 año de cobertura completa con servicio técnico autorizado en Argentina.",
     "specifications": {
       "storage": "256GB",
@@ -18,35 +19,46 @@
     },
     "images": [
       {
+        "id": "1",
         "url": "/product-images/iphone15/iphone3.png",
-        "alt": "Apple iPhone 15 - Imagen 1"
+        "alt": "Apple iPhone 15 - Imagen 1",
+        "width": 600,
+        "height": 600
       },
       {
+        "id": "2",
         "url": "/product-images/iphone15/iphone1.jpg",
-        "alt": "Apple iPhone 15 - Imagen 2"
+        "alt": "Apple iPhone 15 - Imagen 2",
+        "width": 600,
+        "height": 600
       },
       {
+        "id": "3",
         "url": "/product-images/iphone15/iphone2.webp",
-        "alt": "Apple iPhone 15 - Imagen 3"
+        "alt": "Apple iPhone 15 - Imagen 3",
+        "width": 600,
+        "height": 600
       },
       {
+        "id": "4",
         "url": "/product-images/iphone15/iphone4.webp",
-        "alt": "Apple iPhone 15 - Imagen 4"
+        "alt": "Apple iPhone 15 - Imagen 4",
+        "width": 600,
+        "height": 600
       },
       {
+        "id": "5",
         "url": "/product-images/iphone15/iphone5.jpg",
-        "alt": "Apple iPhone 15 - Imagen 5"
+        "alt": "Apple iPhone 15 - Imagen 5",
+        "width": 600,
+        "height": 600
       }
     ],
     "categories": [
       {
-        "id": 1,
+        "id": "1",
         "name": "Celulares y Smartphones",
-        "slug": "celulares-smartphones",
-        "parentId": null,
-        "level": 1,
-        "path": "Celulares y Smartphones",
-        "totalItems": 1500
+        "path": "Celulares y Smartphones"
       }
     ],
     "sellerId": 1,
@@ -63,7 +75,14 @@
     ],
     "reviews": {
       "rating": 4.5,
-      "totalReviews": 8
+      "totalReviews": 8,
+      "ratingDistribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 2,
+        "5": 5
+      }
     },
     "attributes": [
       {
@@ -154,26 +173,7 @@
         "available": true,
         "price": 2100000
       }
-    ],
-    "features": [
-      "Chip A17 Pro con GPU de 6 núcleos",
-      "Pantalla Super Retina XDR de 6.7 pulgadas",
-      "Cámara principal de 48MP",
-      "Cámara ultra gran angular de 12MP",
-      "Cámara teleobjetivo de 12MP",
-      "Cámara frontal TrueDepth de 12MP",
-      "Batería de hasta 29 horas de reproducción de video",
-      "Resistente al agua y al polvo (IP68)",
-      "Conexión USB-C",
-      "Soporte para 5G"
-    ],
-    "installments": {
-      "quantity": 12,
-      "amount": 125000,
-      "totalAmount": 1500000,
-      "interestRate": 0,
-      "isFree": true
-    }
+    ]
   },
   {
     "id": 2,
@@ -183,7 +183,8 @@
     "brand": "Samsung",
     "model": "Galaxy S24 Ultra",
     "condition": "new",
-    "availableQuantity": 0,
+    "availableQuantity": 15,
+    "soldQuantity": 950,
     "description": "Experimentá la evolución de la serie Galaxy con el S24 Ultra, el smartphone Android más potente de Samsung. Diseñado para profesionales y creadores de contenido que exigen lo máximo en fotografía, productividad y rendimiento.\n\nCARACTERÍSTICAS DESTACADAS:\n• Pantalla Dynamic AMOLED 2X de 6.8\" con brillo adaptativo hasta 2600 nits\n• Cámara principal de 200MP con zoom óptico 10x y Space Zoom 100x\n• S Pen integrado para máxima productividad y creatividad\n• Procesador Snapdragon 8 Gen 3 para Galaxy (optimizado exclusivamente)\n• 12GB RAM + 512GB almacenamiento - Multitasking sin límites\n• Batería de 5000mAh con carga rápida de 45W\n• Resistencia IP68 y Gorilla Glass Armor\n• Samsung DeX para experiencia desktop\n\nS PEN REVOLUCIONARIO:\nTomá notas, dibujá, editá fotos y controlá tu teléfono con precisión milimétrica. El S Pen ahora tiene menor latencia y nuevos gestos Air Actions.\n\nFOTOGRAFÍA PROFESIONAL:\nCapturá cada detalle con el sensor de 200MP. Modo Nightography mejorado, grabación 8K y edición IA integrada.\n\nINTELIGENCIA ARTIFICIAL:\n• Traducción en tiempo real\n• Asistente de escritura\n• Búsqueda con Circle to Search\n• Optimización automática de rendimiento\n\nINCLUYE:\n• Galaxy S24 Ultra 512GB\n• S Pen integrado\n• Cable USB-C\n• Herramienta para SIM\n• Guía de inicio rápido\n\nGARANTÍA OFICIAL SAMSUNG: 1 año con servicio técnico autorizado y Samsung Members support 24/7.",
     "specifications": {
       "storage": "512GB",
@@ -194,35 +195,39 @@
     },
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&h=600&fit=crop&crop=center",
-        "alt": "Samsung Galaxy S24 Ultra front"
-      },
-      {
-        "url": "/product-images/Galaxy/galaxy.webp",
-        "alt": "Samsung Galaxy S24 Ultra - Galaxy 1"
-      },
-      {
-        "url": "/product-images/Galaxy/galaxy2.webp",
-        "alt": "Samsung Galaxy S24 Ultra - Galaxy 2"
-      },
-      {
-        "url": "/product-images/Galaxy/galaxy3.jpg",
-        "alt": "Samsung Galaxy S24 Ultra - Galaxy 3"
-      },
-      {
+        "id": "1",
         "url": "/product-images/Galaxy/galaxy main.jpg",
-        "alt": "Samsung Galaxy S24 Ultra - Galaxy Main"
+        "alt": "Samsung Galaxy S24 Ultra front",
+        "width": 600,
+        "height": 600
+      },
+      {
+        "id": "2",
+        "url": "/product-images/Galaxy/galaxy.webp",
+        "alt": "Samsung Galaxy S24 Ultra back",
+        "width": 600,
+        "height": 600
+      },
+      {
+        "id": "3",
+        "url": "/product-images/Galaxy/galaxy2.webp",
+        "alt": "Samsung Galaxy S24 Ultra side",
+        "width": 600,
+        "height": 600
+      },
+      {
+        "id": "4",
+        "url": "/product-images/Galaxy/galaxy3.jpg",
+        "alt": "Samsung Galaxy S24 Ultra detail",
+        "width": 600,
+        "height": 600
       }
     ],
     "categories": [
       {
-        "id": 1,
+        "id": "2",
         "name": "Celulares y Smartphones",
-        "slug": "celulares-smartphones",
-        "parentId": null,
-        "level": 1,
-        "path": "Celulares y Smartphones",
-        "totalItems": 1500
+        "path": "Celulares y Smartphones"
       }
     ],
     "sellerId": 2,
@@ -237,8 +242,15 @@
       9
     ],
     "reviews": {
-      "rating": 4.4,
-      "totalReviews": 7
+      "rating": 4.8,
+      "totalReviews": 7,
+      "ratingDistribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 2,
+        "5": 4
+      }
     },
     "attributes": [
       {
@@ -286,65 +298,75 @@
         "available": true
       },
       {
-        "id": "color_silver",
+        "id": "color_phantom_titanium",
         "attributeId": "COLOR",
-        "value": "Silver",
+        "value": "Phantom Titanium",
         "selected": false,
         "available": true
+      },
+      {
+        "id": "color_phantom_violet",
+        "attributeId": "COLOR",
+        "value": "Phantom Violet",
+        "selected": false,
+        "available": true
+      },
+      {
+        "id": "storage_512gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "512 GB",
+        "selected": true,
+        "available": true
+      },
+      {
+        "id": "storage_1tb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "1 TB",
+        "selected": false,
+        "available": true,
+        "price": 1500000
       }
-    ],
-    "features": [
-      "Cámara principal de 200MP",
-      "Pantalla Dynamic AMOLED 2X de 6.8 pulgadas",
-      "S Pen integrado",
-      "Batería de 5000mAh",
-      "Resistente al agua y al polvo (IP68)",
-      "Soporte para 5G"
-    ],
-    "installments": {
-      "quantity": 12,
-      "amount": 100000,
-      "totalAmount": 1200000,
-      "interestRate": 0,
-      "isFree": true
-    }
+    ]
   },
   {
     "id": 3,
-    "title": "Xiaomi 13T Pro 256GB Meadow Green",
-    "price": 800000,
+    "title": "Xiaomi Redmi Note 13 Pro+ 5G 256GB Meadow Green",
+    "price": 450000,
     "currency": "ARS",
     "brand": "Xiaomi",
-    "model": "13T Pro",
+    "model": "Redmi Note 13 Pro+ 5G",
     "condition": "new",
-    "availableQuantity": 0,
-    "description": "Descubrí el Xiaomi 13T Pro, la perfecta combinación entre innovación Xiaomi y la legendaria calidad óptica Leica. Un flagship que redefine la fotografía móvil y el rendimiento, todo a un precio accesible.\n\nCARACTERÍSTICAS DESTACADAS:\n• Pantalla CrystalRes AMOLED de 6.67\" con 144Hz y Dolby Vision\n• Cámara triple co-desarrollada con Leica - Autenticidad fotográfica\n• Procesador MediaTek Dimensity 9200+ para máximo rendimiento\n• 12GB RAM + 256GB almacenamiento UFS 4.0\n• Carga HyperCharge de 120W - 0 a 100% en solo 19 minutos\n• Batería de 5000mAh con tecnología de gestión inteligente\n• MIUI 14 basado en Android 13 con 4 años de actualizaciones\n• Diseño premium con acabado eco-leather vegano\n\nSISTEMA LEICA PROFESSIONAL:\nCámara principal de 50MP Leica Summicron, ultra gran angular de 50MP y teleobjetivo de 12MP. Modos Leica Authentic y Leica Vibrant para diferentes estilos fotográficos.\n\nCARGA MÁS RÁPIDA:\n120W de carga por cable te lleva del 0 al 100% en menos de 20 minutos. Tecnología de batería de doble celda para mayor durabilidad.\n\nRENDIMIENTO GAMING:\nDimensity 9200+ con GPU Immortalis-G715 MC11 para gaming fluido en máxima calidad.\n\nINCLUYE:\n• Xiaomi 13T Pro 256GB\n• Cargador HyperCharge 120W\n• Cable USB-C premium\n• Protector de pantalla preinstalado\n• Funda TPU transparente\n• Herramienta SIM\n\nGARANTÍA OFICIAL XIAOMI: 1 año con servicio técnico autorizado y Mi Care+.",
+    "availableQuantity": 8,
+    "soldQuantity": 800,
+    "description": "Descubrí el Redmi Note 13 Pro+ 5G, el smartphone que combina tecnología de vanguardia con un precio accesible. Con su cámara Leica de 200MP y carga ultrarrápida de 120W, experimentá el futuro de la fotografía móvil.\n\nCARACTERÍSTICAS DESTACADAS:\n• Pantalla AMOLED de 6.67\" con resolución 1.5K y 120Hz\n• Cámara principal Leica de 200MP con estabilización óptica\n• Procesador MediaTek Dimensity 7200 Ultra\n• 12GB RAM + 256GB almacenamiento\n• Batería de 5000mAh con carga de 120W\n• Resistencia IP68 y Gorilla Glass 5\n• MIUI 14 basado en Android 13\n• Conexión 5G ultrarrápida\n\nFOTOGRAFÍA LEICA:\nCapturá momentos increíbles con la cámara Leica de 200MP. Modo nocturno mejorado, retrato profesional y grabación 4K estabilizada.\n\nCARGA ULTRARRÁPIDA:\nRecargá tu teléfono al 100% en solo 19 minutos con la tecnología de carga de 120W.\n\nDESEMPEÑO OPTIMIZADO:\nEl procesador Dimensity 7200 Ultra y 12GB de RAM garantizan un rendimiento fluido para gaming y multitasking.\n\nINCLUYE:\n• Redmi Note 13 Pro+ 5G 256GB\n• Cargador de 120W\n• Cable USB-C\n• Funda protectora\n• Herramienta para SIM\n• Guía de inicio rápido\n\nGARANTÍA OFICIAL XIAOMI: 1 año con servicio técnico autorizado en Argentina.",
     "specifications": {
       "storage": "256GB",
       "color": "Meadow Green",
       "screen": "6.67 pulgadas",
-      "camera": "50MP + 50MP + 12MP",
+      "camera": "200MP + 8MP + 2MP",
       "battery": "5000mAh"
     },
     "images": [
       {
+        "id": "1",
         "url": "/product-images/Xiaomi/D_NQ_NP_704144-MLA74806234609_022024-O.webp",
-        "alt": "Xiaomi 13T Pro - Imagen 1"
+        "alt": "Xiaomi Redmi Note 13 Pro+ front",
+        "width": 600,
+        "height": 600
       },
       {
+        "id": "2",
         "url": "/product-images/Xiaomi/xiaomi-2.jpg",
-        "alt": "Xiaomi 13T Pro - Imagen 2"
+        "alt": "Xiaomi Redmi Note 13 Pro+ back",
+        "width": 600,
+        "height": 600
       }
     ],
     "categories": [
       {
-        "id": 1,
+        "id": "3",
         "name": "Celulares y Smartphones",
-        "slug": "celulares-smartphones",
-        "parentId": null,
-        "level": 1,
-        "path": "Celulares y Smartphones",
-        "totalItems": 1500
+        "path": "Celulares y Smartphones"
       }
     ],
     "sellerId": 3,
@@ -352,15 +374,21 @@
       8,
       1,
       2,
+      3,
       4,
-      6,
-      7,
-      9,
-      10
+      5,
+      7
     ],
     "reviews": {
-      "rating": 4.2,
-      "totalReviews": 6
+      "rating": 4.3,
+      "totalReviews": 6,
+      "ratingDistribution": {
+        "1": 0,
+        "2": 0,
+        "3": 1,
+        "4": 2,
+        "5": 3
+      }
     },
     "attributes": [
       {
@@ -371,7 +399,7 @@
       {
         "id": "MODEL",
         "name": "Modelo",
-        "value": "13T Pro"
+        "value": "Redmi Note 13 Pro+ 5G"
       },
       {
         "id": "INTERNAL_MEMORY",
@@ -396,7 +424,7 @@
       {
         "id": "CAMERA_RESOLUTION",
         "name": "Resolución de la cámara trasera principal",
-        "value": "50 Mpx"
+        "value": "200 Mpx"
       }
     ],
     "variants": [
@@ -408,64 +436,82 @@
         "available": true
       },
       {
-        "id": "color_black",
+        "id": "color_midnight_black",
         "attributeId": "COLOR",
-        "value": "Black",
+        "value": "Midnight Black",
         "selected": false,
         "available": true
+      },
+      {
+        "id": "color_aurora_purple",
+        "attributeId": "COLOR",
+        "value": "Aurora Purple",
+        "selected": false,
+        "available": true
+      },
+      {
+        "id": "storage_256gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "256 GB",
+        "selected": true,
+        "available": true
+      },
+      {
+        "id": "storage_512gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "512 GB",
+        "selected": false,
+        "available": true,
+        "price": 550000
       }
-    ],
-    "features": [
-      "Cámara triple Leica",
-      "Pantalla AMOLED de 6.67 pulgadas",
-      "Carga rápida de 120W",
-      "Batería de 5000mAh",
-      "Soporte para 5G"
-    ],
-    "installments": {
-      "quantity": 12,
-      "amount": 66666.67,
-      "totalAmount": 800000,
-      "interestRate": 0,
-      "isFree": true
-    }
+    ]
   },
   {
     "id": 4,
-    "title": "Google Pixel 8 Pro 128GB Obsidian",
-    "price": 1100000,
+    "title": "Google Pixel 8 Pro 256GB Obsidian",
+    "price": 1800000,
     "currency": "ARS",
     "brand": "Google",
     "model": "Pixel 8 Pro",
     "condition": "new",
-    "availableQuantity": 20,
-    "description": "Experimentá la inteligencia artificial más avanzada en smartphones con el Google Pixel 8 Pro. Diseñado por Google, potenciado por IA, este flagship redefine lo que esperás de la fotografía computacional y la experiencia Android pura.\n\nCARACTERÍSTICAS DESTACADAS:\n• Pantalla Super Actua de 6.7\" con 120Hz adaptativo y brillo de 2400 nits\n• Procesador Google Tensor G3 con TPU dedicada para IA\n• Cámara triple con sensor principal de 50MP y zoom óptico 5x\n• 12GB RAM + 128GB almacenamiento con 7 años de actualizaciones\n• Batería de 5050mAh con carga inalámbrica de 30W\n• Android 14 puro con funciones exclusivas Pixel\n• Diseño premium con barra de cámara icónica y Gorilla Glass Victus 2\n• Titan M security chip para máxima seguridad\n\nFOTOGRAFÍA COMPUTACIONAL LÍDER:\nMagic Eraser, Photo Unblur, Real Tone, Night Sight astronómico y el nuevo Best Take para fotos grupales perfectas.\n\nINTELIGENCIA ARTIFICIAL AVANZADA:\n• Call Screen para filtrar llamadas spam\n• Live Translate en tiempo real\n• Car Crash Detection con ubicación automática\n• Hold for Me para esperas telefónicas\n• Assistant Voice Typing mejorado\n• Magic Eraser para video\n\nSEGURIDAD TITAN M:\nChip de seguridad dedicado que protege tus datos más sensibles y transacciones.\n\nANDROID PURO:\n7 años de actualizaciones garantizadas de Android y parches de seguridad. Siempre tendrás las últimas funciones.\n\nINCLUYE:\n• Pixel 8 Pro 128GB\n• Cable USB-C a USB-C\n• Adaptador USB-C a USB-A\n• Herramienta SIM\n• Guía de inicio rápido\n\nGARANTÍA OFICIAL GOOGLE: 1 año con soporte directo de Google y Pixel Care.",
+    "availableQuantity": 12,
+    "soldQuantity": 600,
+    "description": "Experimentá la magia de Google con el Pixel 8 Pro, el smartphone que redefine la fotografía computacional. Con el procesador Tensor G3 y funciones de IA avanzadas, capturá momentos increíbles como nunca antes.\n\nCARACTERÍSTICAS DESTACADAS:\n• Pantalla OLED de 6.7\" con resolución QHD+ y 120Hz\n• Cámara principal de 50MP con estabilización óptica\n• Procesador Google Tensor G3\n• 12GB RAM + 256GB almacenamiento\n• Batería de 4950mAh con carga inalámbrica\n• Resistencia IP68 y Gorilla Glass Victus 2\n• Android 14 con actualizaciones garantizadas\n• Funciones de IA exclusivas de Google\n\nFOTOGRAFÍA COMPUTACIONAL:\nMagic Eraser, Night Sight, Portrait Mode y más. El Pixel 8 Pro utiliza IA para crear fotos que parecen tomadas por un profesional.\n\nFUNCIONES DE IA:\n• Traducción en tiempo real\n• Asistente de escritura\n• Búsqueda visual avanzada\n• Optimización automática de batería\n\nINCLUYE:\n• Pixel 8 Pro 256GB\n• Cable USB-C\n• Herramienta para SIM\n• Guía de inicio rápido\n\nGARANTÍA OFICIAL GOOGLE: 1 año con soporte técnico directo de Google.",
     "specifications": {
-      "storage": "128GB",
+      "storage": "256GB",
       "color": "Obsidian",
       "screen": "6.7 pulgadas",
       "camera": "50MP + 48MP + 48MP",
-      "battery": "5050mAh"
+      "battery": "4950mAh"
     },
     "images": [
       {
-        "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=600&h=600&fit=crop&crop=center",
-        "alt": "Google Pixel 8 Pro main image"
+        "id": "1",
+        "url": "/product-images/pixel/pixel1.jpg",
+        "alt": "Google Pixel 8 Pro front",
+        "width": 600,
+        "height": 600
       },
       {
-        "url": "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=600&h=600&fit=crop&crop=center",
-        "alt": "Google Pixel 8 Pro alternate image"
+        "id": "2",
+        "url": "/product-images/pixel/pixel2.jpg",
+        "alt": "Google Pixel 8 Pro back",
+        "width": 600,
+        "height": 600
+      },
+      {
+        "id": "3",
+        "url": "/product-images/pixel/pixel3.jpg",
+        "alt": "Google Pixel 8 Pro side",
+        "width": 600,
+        "height": 600
       }
     ],
     "categories": [
       {
-        "id": 1,
+        "id": "4",
         "name": "Celulares y Smartphones",
-        "slug": "celulares-smartphones",
-        "parentId": null,
-        "level": 1,
-        "path": "Celulares y Smartphones",
-        "totalItems": 1500
+        "path": "Celulares y Smartphones"
       }
     ],
     "sellerId": 4,
@@ -473,14 +519,20 @@
       8,
       1,
       2,
-      6,
-      5,
-      7,
-      9
+      3,
+      4,
+      5
     ],
     "reviews": {
-      "rating": 4.4,
-      "totalReviews": 5
+      "rating": 4.7,
+      "totalReviews": 5,
+      "ratingDistribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 2,
+        "5": 3
+      }
     },
     "attributes": [
       {
@@ -496,7 +548,7 @@
       {
         "id": "INTERNAL_MEMORY",
         "name": "Memoria interna",
-        "value": "128 GB"
+        "value": "256 GB"
       },
       {
         "id": "RAM",
@@ -528,26 +580,34 @@
         "available": true
       },
       {
+        "id": "color_porcelain",
+        "attributeId": "COLOR",
+        "value": "Porcelain",
+        "selected": false,
+        "available": true
+      },
+      {
         "id": "color_bay",
         "attributeId": "COLOR",
         "value": "Bay",
         "selected": false,
         "available": true
+      },
+      {
+        "id": "storage_256gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "256 GB",
+        "selected": true,
+        "available": true
+      },
+      {
+        "id": "storage_512gb",
+        "attributeId": "INTERNAL_MEMORY",
+        "value": "512 GB",
+        "selected": false,
+        "available": true,
+        "price": 2100000
       }
-    ],
-    "features": [
-      "Procesador Google Tensor G3",
-      "Pantalla OLED de 6.7 pulgadas",
-      "Cámara triple",
-      "Batería de 5050mAh",
-      "Soporte para 5G"
-    ],
-    "installments": {
-      "quantity": 12,
-      "amount": 91666.67,
-      "totalAmount": 1100000,
-      "interestRate": 0,
-      "isFree": true
-    }
+    ]
   }
 ]

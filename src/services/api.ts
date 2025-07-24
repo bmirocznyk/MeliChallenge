@@ -22,14 +22,6 @@ export const api = {
     return response.json();
   },
 
-  async getPaymentMethods(): Promise<PaymentMethod[]> {
-    const response = await fetch(`${API_BASE}/payment-methods`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch payment methods');
-    }
-    return response.json();
-  },
-
   async getPaymentMethodsByIds(ids: number[]): Promise<PaymentMethod[]> {
     const idsParam = ids.join(',');
     const response = await fetch(`${API_BASE}/payment-methods/by-ids?ids=${idsParam}`);
@@ -47,40 +39,6 @@ export const api = {
     return response.json();
   },
 
-  // Seller API methods
-  async getSeller(id: string | number): Promise<Seller> {
-    const response = await fetch(`${API_BASE}/sellers/${id}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch seller');
-    }
-    return response.json();
-  },
-
-  async getAllSellers(): Promise<Seller[]> {
-    const response = await fetch(`${API_BASE}/sellers`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch sellers');
-    }
-    return response.json();
-  },
-
-  async getSellersByIds(ids: (string | number)[]): Promise<Seller[]> {
-    const idsParam = ids.join(',');
-    const response = await fetch(`${API_BASE}/sellers/by-ids?ids=${idsParam}`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch sellers by IDs');
-    }
-    return response.json();
-  },
-
-  async getVerifiedSellers(): Promise<Seller[]> {
-    const response = await fetch(`${API_BASE}/sellers/verified`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch verified sellers');
-    }
-    return response.json();
-  },
-
   async getProductWithSellerAndPaymentMethods(id: string): Promise<Product & { seller: Seller; paymentMethods: PaymentMethod[] }> {
     const [product, paymentMethodsData] = await Promise.all([
       this.getItem(parseInt(id)),
@@ -92,7 +50,12 @@ export const api = {
       throw new Error(`Product ${id} does not have a sellerId`);
     }
     
-    const seller = await this.getSeller(product.sellerId);
+    // Fetch seller directly from the backend
+    const sellerResponse = await fetch(`${API_BASE}/sellers/${product.sellerId}`);
+    if (!sellerResponse.ok) {
+      throw new Error('Failed to fetch seller');
+    }
+    const seller = await sellerResponse.json();
     
     return {
       ...product,
