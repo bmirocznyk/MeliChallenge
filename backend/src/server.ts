@@ -40,12 +40,12 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     endpoints: {
       health: '/api/health',
-      products: '/api/products',
       productById: '/api/products/:id',
-      search: '/api/products/search?q=query',
-      sellers: '/api/sellers',
-      sellerById: '/api/sellers/:id',
-      paymentMethods: '/api/payment-methods'
+      productComments: '/api/products/:id/comments',
+      productWithPaymentMethods: '/api/products/:id/with-payment-methods',
+      paymentMethods: '/api/payment-methods',
+      paymentMethodsByIds: '/api/payment-methods/by-ids',
+      sellerById: '/api/sellers/:id'
     }
   });
 });
