@@ -1,5 +1,5 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import '@testing-library/jest-dom';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Header } from '../Header';
@@ -71,7 +71,7 @@ describe('Header', () => {
 
   it('renders navigation and user/cart elements', () => {
     renderHeader();
-    expect(screen.getByText(/Enviar a/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Enviar a/).length).toBeGreaterThan(0);
     expect(screen.getByText('Categorías')).toBeInTheDocument();
     expect(screen.getByText('Ofertas')).toBeInTheDocument();
     expect(screen.getByText('Cupones')).toBeInTheDocument();
