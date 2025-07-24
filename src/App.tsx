@@ -8,7 +8,7 @@ import { mockProduct } from './data/mockProduct';
 import { api } from './services/api';
 
 function ProductPage() {
-  const { id } = useParams();
+  const { id } = useParams(); 
   const [product, setProduct] = useState(mockProduct);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

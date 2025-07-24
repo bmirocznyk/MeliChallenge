@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped 
+
+  purchase:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: npm run purchase
+    ports:
+      - "3002:3002"
+    environment:
+      - PURCHASE_PORT=3002
+    restart: unless-stopped 

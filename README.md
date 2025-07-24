@@ -1,74 +1,109 @@
-# MercadoLibre Challenge
+# E-commerce Challenge
 
-This project implements a MercadoLibre-like product page with seller information separation.
+Este proyecto es una aplicación de e-commerce fullstack desarrollada como desafío técnico. Incluye un backend en Node.js/TypeScript y un frontend en React/Vite.
 
-## 🚀 Architecture Updates
+---
 
-### Seller Data Separation
+## Tabla de Contenidos
+- [Características](#características)
+- [Requisitos](#requisitos)
+- [Instalación y Ejecución](#instalación-y-ejecución)
+- [Testing](#testing)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Decisiones de Diseño](#decisiones-de-diseño)
+- [Docker y Docker Compose](#docker-y-docker-compose)
+- [Créditos](#créditos)
 
-The seller information has been isolated from products into a separate data source:
+---
 
-#### Data Sources:
-- **Products**: `backend/src/infrastructure/database/products.json`
-  - Now contains `sellerId` references instead of full seller objects
-- **Sellers**: `backend/src/infrastructure/database/sellers.json` *(NEW)*
-  - Contains all seller information normalized by ID
-- **Payment Methods**: `backend/src/infrastructure/database/payment-methods.json`
-- **Comments**: `backend/src/infrastructure/database/comments.json`
+## Características
+- Catálogo de productos con imágenes y descripciones.
+- Visualización de métodos de pago.
+- Detalle de producto, comentarios y reviews.
+- Simulación de compra.
+- Backend desacoplado con casos de uso y repositorios.
+- Pruebas unitarias y de integración.
 
-#### Backend Architecture:
-- **Repository Pattern**: `SellerRepository` interface with `JsonSellerRepository` implementation
-- **Use Cases**: `GetSellerUseCase` for seller data operations
-- **Controllers**: Extended `ProductController` with seller endpoints
+## Requisitos
+- Node.js >= 18.x
+- npm >= 9.x
+- (Opcional) Docker y Docker Compose
 
-## 📡 API Endpoints
+## Instalación y Ejecución
 
-### Product Endpoints
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get product by ID
-- `GET /api/products/:id/comments` - Get product comments
-- `GET /api/products/:id/with-payment-methods` - Get product with payment methods
-- `GET /api/products/search?q=query` - Search products
+### Modo local (desarrollo)
 
-### Seller Endpoints *(NEW)*
-- `GET /api/sellers` - Get all sellers
-- `GET /api/sellers/:id` - Get seller by ID
-- `GET /api/sellers/by-ids?ids=1,2,3` - Get sellers by IDs
-- `GET /api/sellers/verified` - Get verified sellers only
+1. Instala dependencias del frontend y backend:
+   ```bash
+   npm install
+   cd backend
+   npm install
+   cd ..
+   ```
+2. Ejecuta el backend:
+   ```bash
+   cd backend
+   PORT=3001 npm run dev
+   ```
+   El backend corre en [http://localhost:3001](http://localhost:3001)
 
-### Payment Method Endpoints
-- `GET /api/payment-methods` - Get all payment methods
-- `GET /api/payment-methods/by-ids?ids=pm_001,pm_002` - Get payment methods by IDs
+3. Ejecuta el frontend:
+   ```bash
+   npm run dev
+   ```
+   El frontend corre en [http://localhost:5173](http://localhost:5173)
 
-## 🔧 Frontend Updates
+### Modo producción con Docker Compose (recomendado)
 
-### API Service
-- Added seller fetching methods in `src/services/api.ts`
-- New `getProductWithSellerAndPaymentMethods()` method for complete data
+1. Asegúrate de tener Docker y Docker Compose instalados.
+2. Desde la raíz del proyecto, ejecuta:
+   ```bash
+   docker-compose up --build
+   ```
+3. Accede a:
+   - Frontend: [http://localhost:5173](http://localhost:5173)
+   - Backend Productos: [http://localhost:3001](http://localhost:3001)
+   - Backend Compras: [http://localhost:3002](http://localhost:3002)
 
-### Type Definitions
-- Updated `Product` interface to use `sellerId` instead of `seller` object
-- Added optional `seller?` property for when seller data is populated
+## Testing
 
-## 🎯 Benefits of Seller Separation
-
-1. **Data Normalization**: Eliminates duplicate seller information across products
-2. **Better Performance**: Sellers can be cached separately and fetched on demand
-3. **Easier Maintenance**: Single source of truth for seller information
-4. **Scalability**: Supports independent seller and product updates
-5. **API Flexibility**: Clients can choose whether to fetch seller data or not
-
-## 🛠 Development
-
+### Frontend
 ```bash
-# Start backend
-cd backend
-npm install
-npm run dev
-
-# Start frontend  
-npm install
-npm run dev
+npm run test
 ```
 
-The seller separation maintains backward compatibility while providing a more scalable architecture for future enhancements. 
+### Backend
+```bash
+cd backend
+npm run test
+```
+
+## Estructura del Proyecto
+```
+Chall/
+  backend/           # Backend Node.js/TypeScript
+    src/
+      application/   # Casos de uso
+      domain/        # Interfaces de dominio
+      infrastructure/# Implementaciones (JSON, etc)
+      interfaces/    # Controladores y rutas
+  src/               # Frontend React
+    components/      # Componentes UI
+    services/        # Lógica de acceso a API
+    types/           # Tipos TypeScript
+public/              # Imágenes y assets
+```
+
+## Decisiones de Diseño
+ [DECISIONES_DE_DISENIO.md](./DECISIONES_DE_DISENIO.md) y [DOCUMENTACION_DESARROLLO.md](./DOCUMENTACION_DESARROLLO.md).
+
+## Docker y Docker Compose
+
+- El backend de productos se expone en el puerto 3001.
+- El backend de compras se expone en el puerto 3002.
+- El frontend se expone en el puerto 5173.
+- Puedes modificar los puertos en `docker-compose.yml` si lo necesitas.
+
+### Comandos útiles
+- Levantar ambos servicios: `docker-compose up --build`
+- Detener: `docker-compose down`
