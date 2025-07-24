@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { render } from '@testing-library/react';
-import { NotFoundProduct } from '../NotFoundProduct';
+import { Breadcrumb } from '../Breadcrumb';
 
-describe('NotFoundProduct', () => {
+describe('Breadcrumb', () => {
   it('renders without crashing', () => {
-    render(<NotFoundProduct />);
+    render(<Breadcrumb categories={[]} />);
   });
 }); 

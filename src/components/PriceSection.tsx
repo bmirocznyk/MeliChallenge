@@ -161,6 +161,7 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product, onProductUp
             <button
               onClick={decreaseQuantity}
               disabled={quantity <= 1}
+              aria-label="decrease"
               className="w-8 h-8 border border-gray-300 rounded-md flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Minus className="w-4 h-4" />
@@ -171,6 +172,7 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product, onProductUp
             <button
               onClick={increaseQuantity}
               disabled={quantity >= product.availableQuantity}
+              aria-label="increase"
               className="w-8 h-8 border border-gray-300 rounded-md flex items-center justify-center hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Plus className="w-4 h-4" />
@@ -233,7 +235,7 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product, onProductUp
                 <div className="flex space-x-2 flex-wrap gap-2">
                   {methods.map((method) => (
                     <div key={method.id} className="w-12 h-8 bg-gray-100 rounded flex items-center justify-center">
-                      <PaymentMethodIcon method={getMethodSlug(method.name)} size="small" />
+                      <PaymentMethodIcon method={getMethodSlug(method.name)} />
                     </div>
                   ))}
                 </div>

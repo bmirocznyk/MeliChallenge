@@ -1,5 +1,4 @@
-import { Product } from '../types/product';
-import { PaymentMethod, Seller } from '../types/product';
+import { Product, PaymentMethod, Seller } from '../types/product';
 
 const API_BASE = 'http://localhost:3001/api';
 

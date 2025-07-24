@@ -1,173 +1,82 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
-import { Header } from '../Header'
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import '@testing-library/jest-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import { Header } from '../Header';
 
-// Mock window.location
-const mockLocation = {
-  href: '',
-  assign: vi.fn(),
-  replace: vi.fn(),
-  reload: vi.fn(),
-}
-
-vi.stubGlobal('window', {
-  location: mockLocation,
-  history: {
-    back: vi.fn(),
-    forward: vi.fn(),
-    go: vi.fn(),
-    pushState: vi.fn(),
-    replaceState: vi.fn(),
-  }
-})
-
-const renderWithRouter = (component: React.ReactElement) => {
-  return render(
-    <BrowserRouter>
-      {component}
-    </BrowserRouter>
-  )
-}
-
-describe('Header Component', () => {
+describe('Header', () => {
+  let originalLocation: any;
   beforeEach(() => {
-    mockLocation.href = ''
-    vi.clearAllMocks()
-  })
+    originalLocation = globalThis.window.location;
+    // @ts-ignore
+    delete globalThis.window.location;
+    // @ts-ignore
+    globalThis.window.location = { href: '', assign: vi.fn() };
+  });
+  afterEach(() => {
+    globalThis.window.location = originalLocation;
+  });
 
-  it('renders header with logo', () => {
-    renderWithRouter(<Header />)
-    
-    const logo = screen.getByAltText('Mercado Libre')
-    expect(logo).toBeInTheDocument()
-  })
+  function renderHeader() {
+    return render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    );
+  }
 
-  it('renders search bar with placeholder', () => {
-    renderWithRouter(<Header />)
-    
-    const searchInput = screen.getByPlaceholderText('Buscar productos, marcas y más...')
-    expect(searchInput).toBeInTheDocument()
-  })
+  it('renders logo and search bar', () => {
+    renderHeader();
+    expect(screen.getByAltText('Mercado Libre')).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('Buscar productos, marcas y más...')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /buscar/i })).toBeInTheDocument();
+  });
 
-  it('renders search button', () => {
-    renderWithRouter(<Header />)
-    
-    const searchButton = screen.getByRole('button', { name: /buscar/i })
-    expect(searchButton).toBeInTheDocument()
-  })
+  it('redirects to numbered route when searching a positive number', () => {
+    renderHeader();
+    const input = screen.getByPlaceholderText('Buscar productos, marcas y más...');
+    const button = screen.getByRole('button', { name: /buscar/i });
+    fireEvent.change(input, { target: { value: '123' } });
+    fireEvent.click(button);
+    expect(globalThis.window.location.href).toBe('/123');
+  });
 
-  it('redirects to numbered route when searching a number', async () => {
-    renderWithRouter(<Header />)
-    
-    const searchInput = screen.getByPlaceholderText('Buscar productos, marcas y más...')
-    const searchButton = screen.getByRole('button', { name: /buscar/i })
-    
-    // Type a number
-    fireEvent.change(searchInput, { target: { value: '123' } })
-    fireEvent.click(searchButton)
-    
-    // Check if redirect happened
-    expect(mockLocation.href).toBe('/123')
-  })
+  it('does not redirect on text input', () => {
+    renderHeader();
+    const input = screen.getByPlaceholderText('Buscar productos, marcas y más...');
+    const button = screen.getByRole('button', { name: /buscar/i });
+    fireEvent.change(input, { target: { value: 'hello' } });
+    fireEvent.click(button);
+    expect(globalThis.window.location.href).toBe('');
+  });
 
-  it('handles non-numeric search input', () => {
-    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {})
-    
-    renderWithRouter(<Header />)
-    
-    const searchInput = screen.getByPlaceholderText('Buscar productos, marcas y más...')
-    const searchButton = screen.getByRole('button', { name: /buscar/i })
-    
-    // Type text
-    fireEvent.change(searchInput, { target: { value: 'producto' } })
-    fireEvent.click(searchButton)
-    
-    // Check if console.log was called (regular search handling)
-    expect(consoleSpy).toHaveBeenCalledWith('Searching for:', 'producto')
-    
-    consoleSpy.mockRestore()
-  })
+  it('does not redirect on empty input', () => {
+    renderHeader();
+    const button = screen.getByRole('button', { name: /buscar/i });
+    fireEvent.click(button);
+    expect(globalThis.window.location.href).toBe('');
+  });
 
-  it('handles empty search input', () => {
-    renderWithRouter(<Header />)
-    
-    screen.getByPlaceholderText('Buscar productos, marcas y más...')
-    const searchButton = screen.getByRole('button', { name: /buscar/i })
-    
-    // Leave input empty
-    fireEvent.click(searchButton)
-    
-    // Should not redirect
-    expect(mockLocation.href).toBe('')
-  })
+  it('does not redirect on zero or negative number', () => {
+    renderHeader();
+    const input = screen.getByPlaceholderText('Buscar productos, marcas y más...');
+    const button = screen.getByRole('button', { name: /buscar/i });
+    fireEvent.change(input, { target: { value: '0' } });
+    fireEvent.click(button);
+    expect(globalThis.window.location.href).toBe('');
+    fireEvent.change(input, { target: { value: '-5' } });
+    fireEvent.click(button);
+    expect(globalThis.window.location.href).toBe('');
+  });
 
-  it('handles zero as input', () => {
-    renderWithRouter(<Header />)
-    
-    const searchInput = screen.getByPlaceholderText('Buscar productos, marcas y más...')
-    const searchButton = screen.getByRole('button', { name: /buscar/i })
-    
-    // Type zero
-    fireEvent.change(searchInput, { target: { value: '0' } })
-    fireEvent.click(searchButton)
-    
-    // Should not redirect (only positive numbers)
-    expect(mockLocation.href).toBe('')
-  })
-
-  it('handles negative numbers', () => {
-    renderWithRouter(<Header />)
-    
-    const searchInput = screen.getByPlaceholderText('Buscar productos, marcas y más...')
-    const searchButton = screen.getByRole('button', { name: /buscar/i })
-    
-    // Type negative number
-    fireEvent.change(searchInput, { target: { value: '-5' } })
-    fireEvent.click(searchButton)
-    
-    // Should not redirect (only positive numbers)
-    expect(mockLocation.href).toBe('')
-  })
-
-  it('renders location information', () => {
-    renderWithRouter(<Header />)
-    
-    const locationText = screen.getByText(/Enviar a/)
-    expect(locationText).toBeInTheDocument()
-  })
-
-  it('renders navigation links', () => {
-    renderWithRouter(<Header />)
-    
-    const categoriesLink = screen.getByText('Categorías')
-    const offersLink = screen.getByText('Ofertas')
-    const couponsLink = screen.getByText('Cupones')
-    
-    expect(categoriesLink).toBeInTheDocument()
-    expect(offersLink).toBeInTheDocument()
-    expect(couponsLink).toBeInTheDocument()
-  })
-
-  it('renders user section', () => {
-    renderWithRouter(<Header />)
-    
-    const userName = screen.getAllByText('Bruno')[1] // Get the second "Bruno" (user section)
-    const myPurchases = screen.getByText('Mis compras')
-    const favorites = screen.getByText('Favoritos')
-    
-    expect(userName).toBeInTheDocument()
-    expect(myPurchases).toBeInTheDocument()
-    expect(favorites).toBeInTheDocument()
-  })
-
-  it('renders shopping cart with item count', () => {
-    renderWithRouter(<Header />)
-    
-    const cartButton = screen.getAllByRole('button')[2] // Get the shopping cart button (third button)
-    const itemCount = screen.getByText('1')
-    
-    expect(cartButton).toBeInTheDocument()
-    expect(itemCount).toBeInTheDocument()
-  })
-}) 
+  it('renders navigation and user/cart elements', () => {
+    renderHeader();
+    expect(screen.getByText(/Enviar a/)).toBeInTheDocument();
+    expect(screen.getByText('Categorías')).toBeInTheDocument();
+    expect(screen.getByText('Ofertas')).toBeInTheDocument();
+    expect(screen.getByText('Cupones')).toBeInTheDocument();
+    expect(screen.getByText('Mis compras')).toBeInTheDocument();
+    expect(screen.getByText('Favoritos')).toBeInTheDocument();
+    expect(screen.getByText('1')).toBeInTheDocument(); // cart count
+  });
+}); 

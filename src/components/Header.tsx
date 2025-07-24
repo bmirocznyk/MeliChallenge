@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
       window.location.href = `/${number}`;
     } else {
       // Handle regular search (you can add your search logic here)
-      console.log('Searching for:', searchQuery);
+      // TODO: Implement search functionality
     }
   };
 

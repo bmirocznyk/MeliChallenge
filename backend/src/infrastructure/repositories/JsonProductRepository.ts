@@ -26,7 +26,7 @@ export class JsonProductRepository implements ProductRepository {
     const products = this.loadProducts();
     const product = products.find(p => p.id == id) || null;
     // Guardamos referencia para persistir cambios en saveProducts
-    this.lastProductUpdated = product ? { ...product } : null;
+    this.lastProductUpdated = product;
     return product;
   }
 

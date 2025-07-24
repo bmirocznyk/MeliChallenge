@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PaymentMethodIcon: React.FC<{ method: string }> = ({ method }) => {
-  const sizeClass = 'h-10 w-16'; // Tamaño fijo para todos los íconos
+  const sizeClass = 'h-10 w-16';
 
   const methodMap: { [key: string]: JSX.Element } = {
     'visa': <img src="/payment-icons/visa.png" alt="VISA" className={`${sizeClass} object-contain`} />,

@@ -15,7 +15,10 @@ function ProductPage() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      if (!id) return;
+      if (!id) {
+        setError('No product ID provided');
+        return;
+      }
       
       setLoading(true);
       setError(null);
@@ -48,7 +51,7 @@ function ProductPage() {
     );
   }
 
-  if (error) {
+  if (error || !id) {
     return <NotFoundProduct />;
   }
 
@@ -69,7 +72,7 @@ function App() {
   return (
     <Routes>
       <Route path="/:id" element={<ProductPage />} />
-      <Route path="/" element={<ProductPage />} />
+      <Route path="/" element={<NotFoundProduct />} />
     </Routes>
   );
 }

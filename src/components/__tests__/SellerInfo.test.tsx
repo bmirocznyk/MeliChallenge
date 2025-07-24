@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import { render } from '@testing-library/react';
-import { NotFoundProduct } from '../NotFoundProduct';
+import { SellerInfo } from '../SellerInfo';
 
-describe('NotFoundProduct', () => {
+describe('SellerInfo', () => {
   it('renders without crashing', () => {
-    render(<NotFoundProduct />);
+    render(<SellerInfo seller={{ id: 1, name: 'Test Seller', reputation: 'gold', sales: 100 }} />);
   });
 }); 
