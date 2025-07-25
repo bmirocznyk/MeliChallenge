@@ -93,7 +93,11 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product, onProductUp
       alert(`¡Compra exitosa! Compraste ${quantity} unidad(es) de "${updatedProduct.title}". Stock restante: ${updatedProduct.availableQuantity}`);
     } catch (error) {
       console.error('Purchase failed:', error);
-      alert(`Error en la compra: ${error instanceof Error ? error.message : 'Error desconocido'}`);
+      if (error instanceof TypeError) {
+        alert('El servicio de compras no está disponible en este momento. Por favor, intenta nuevamente más tarde.');
+      } else {
+        alert(`Error en la compra: ${error instanceof Error ? error.message : 'Error desconocido'}`);
+      }
     } finally {
       setIsPurchasing(false);
     }

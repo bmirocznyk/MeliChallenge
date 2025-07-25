@@ -3,7 +3,7 @@ import { Routes, Route, useParams } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Breadcrumb } from './components/Breadcrumb';
 import { ProductDetail } from './components/ProductDetail';
-import { NotFoundProduct } from './components/NotFoundProduct';
+import { NotFoundProduct, MaintenanceScreen } from './components/NotFoundProduct';
 import { mockProduct } from './data/mockProduct';
 import { api } from './services/api';
 
@@ -32,8 +32,13 @@ function ProductPage() {
         };
         
         setProduct(mappedProduct);
-      } catch (err) {
-        setError('Failed to load product data');
+      } catch (err: any) {
+        if (err instanceof TypeError) {
+          // Error de red, servidor caído o fetch falló
+          setError('maintenance');
+        } else {
+          setError('notfound');
+        }
         console.error('Error fetching product:', err);
       } finally {
         setLoading(false);
@@ -51,7 +56,11 @@ function ProductPage() {
     );
   }
 
-  if (error || !id) {
+  if (error === 'maintenance') {
+    return <MaintenanceScreen />;
+  }
+
+  if (error === 'notfound' || !id) {
     return <NotFoundProduct />;
   }
 
