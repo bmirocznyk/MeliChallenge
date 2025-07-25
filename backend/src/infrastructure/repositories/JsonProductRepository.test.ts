@@ -38,10 +38,14 @@ describe('JsonProductRepository', () => {
   });
 
   it('saveProducts updates and writes the product', async () => {
-    await repository.findById('1');
-    mockProducts[0].title = 'Updated';
+    const product = await repository.findById('1');
+    product!.title = 'Updated';
     await repository.saveProducts();
-    expect(fs.writeFileSync).toHaveBeenCalledWith(expect.any(String), JSON.stringify(mockProducts, null, 2), 'utf-8');
+    
+    const expectedProducts = [...mockProducts];
+    expectedProducts[0] = { ...expectedProducts[0], title: 'Updated' };
+    
+    expect(fs.writeFileSync).toHaveBeenCalledWith(expect.any(String), JSON.stringify(expectedProducts, null, 2), 'utf-8');
   });
 
   it('saveProducts does nothing if no product was updated', async () => {

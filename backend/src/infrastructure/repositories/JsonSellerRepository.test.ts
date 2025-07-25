@@ -13,9 +13,11 @@ describe('JsonSellerRepository', () => {
   ];
 
   beforeEach(() => {
-    repository = new JsonSellerRepository();
+    // Set up the mock before creating the repository
     (fs.readFileSync as any).mockReturnValue(JSON.stringify(mockSellers));
+    repository = new JsonSellerRepository();
   });
+  
   afterEach(() => {
     vi.clearAllMocks();
   });
@@ -30,9 +32,16 @@ describe('JsonSellerRepository', () => {
     expect(seller).toBeNull();
   });
 
+  it('findById returns null when not found with string id', async () => {
+    const seller = await repository.findById('999');
+    expect(seller).toBeNull();
+  });
+
   it('findById handles JSON parse error gracefully', async () => {
+    // Create a new repository instance with error mock
     (fs.readFileSync as any).mockImplementation(() => { throw new Error('read error'); });
-    const seller = await repository.findById(1);
+    const errorRepository = new JsonSellerRepository();
+    const seller = await errorRepository.findById(1);
     expect(seller).toBeNull();
   });
 }); 

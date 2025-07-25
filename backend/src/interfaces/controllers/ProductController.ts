@@ -39,7 +39,7 @@ export class ProductController {
         return;
       }
 
-      res.json(product);
+      res.status(200).json(product);
     } catch (error) {
       console.error('Error getting product:', error);
       res.status(500).json({ 
@@ -55,7 +55,7 @@ export class ProductController {
       const comments = await this.getProductCommentsUseCase.execute(id);
       const reviewSummary = await this.getProductCommentsUseCase.getReviewSummary(id);
       
-      res.json({
+      res.status(200).json({
         comments,
         summary: reviewSummary
       });
@@ -71,7 +71,7 @@ export class ProductController {
   async getPaymentMethods(req: Request, res: Response): Promise<void> {
     try {
       const paymentMethods = await this.getPaymentMethodsUseCase.execute();
-      res.json(paymentMethods);
+      res.status(200).json(paymentMethods);
     } catch (error) {
       console.error('Error fetching payment methods:', error);
       res.status(500).json({ error: 'Internal server error' });
@@ -88,7 +88,7 @@ export class ProductController {
       
       const idArray = ids.split(',').map(id => parseInt(id.trim()));
       const paymentMethods = await this.getPaymentMethodsUseCase.executeByIds(idArray);
-      res.json(paymentMethods);
+      res.status(200).json(paymentMethods);
     } catch (error) {
       console.error('Error fetching payment methods by IDs:', error);
       res.status(500).json({ error: 'Internal server error' });
@@ -108,7 +108,7 @@ export class ProductController {
       // Fetch payment methods for this product
       const paymentMethods = await this.getPaymentMethodsUseCase.executeByIds(product.paymentMethodIds || []);
       
-      res.json({
+      res.status(200).json({
         ...product,
         paymentMethods
       });
@@ -128,7 +128,7 @@ export class ProductController {
         return;
       }
 
-      res.json(seller);
+      res.status(200).json(seller);
     } catch (error) {
       console.error('Error fetching seller:', error);
       res.status(500).json({ error: 'Internal server error' });

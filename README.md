@@ -43,9 +43,11 @@ Este proyecto es una aplicación fullstack desarrollada como desafío técnico. 
 Desde la raíz del proyecto:
 
 ```bash
-npm install
+nvm use
+corepack enable
+yarn
 cd backend
-npm install
+yarn
 cd ..
 ```
 
@@ -55,7 +57,7 @@ cd ..
 
 ```bash
 cd backend
-PORT=3001 npm run dev
+PORT=3001 yarn dev
 ```
 Accede a: [http://localhost:3001](http://localhost:3001)
 
@@ -65,7 +67,7 @@ En otra terminal:
 
 ```bash
 cd backend
-PURCHASE_PORT=3002 npm run purchase
+PURCHASE_PORT=3002 yarn purchase
 ```
 Accede a: [http://localhost:3002](http://localhost:3002)
 
@@ -74,7 +76,7 @@ Accede a: [http://localhost:3002](http://localhost:3002)
 En la raíz del proyecto:
 
 ```bash
-npm run dev
+yarn dev
 ```
 Accede a: [http://localhost:5173](http://localhost:5173)
 
@@ -92,9 +94,9 @@ Puedes modificar estos valores en los scripts de inicio o en los archivos de con
 
 | Servicio             | Comando de inicio                | Puerto por defecto | URL de acceso                  |
 |----------------------|----------------------------------|--------------------|-------------------------------|
-| Backend Productos    | `npm run dev` (en `/backend`)    | 3001               | http://localhost:3001         |
-| Backend Compras      | `npm run purchase` (en `/backend`)| 3002               | http://localhost:3002         |
-| Frontend             | `npm run dev` (en raíz)          | 5173               | http://localhost:5173         |
+| Backend Productos    | `yarn dev` (en `/backend`)       | 3001               | http://localhost:3001         |
+| Backend Compras      | `yarn purchase` (en `/backend`)  | 3002               | http://localhost:3002         |
+| Frontend             | `yarn dev` (en raíz)             | 5173               | http://localhost:5173         |
 
 
 ## Estructura del Proyecto

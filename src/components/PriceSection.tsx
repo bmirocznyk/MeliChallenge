@@ -21,21 +21,27 @@ export const PriceSection: React.FC<PriceSectionProps> = ({ product, onProductUp
   const canPurchase = product.availableQuantity > 0;
 
   useEffect(() => {
+    let isMounted = true;
+    
     const fetchPaymentMethods = async () => {
       if (product.paymentMethodIds && product.paymentMethodIds.length > 0) {
-        setIsLoading(true);
+        if (isMounted) setIsLoading(true);
         try {
           const methods = await api.getPaymentMethodsByIds(product.paymentMethodIds);
-          setPaymentMethods(methods);
+          if (isMounted) setPaymentMethods(methods);
         } catch (error) {
           console.error('Failed to fetch payment methods:', error);
         } finally {
-          setIsLoading(false);
+          if (isMounted) setIsLoading(false);
         }
       }
     };
 
     fetchPaymentMethods();
+    
+    return () => {
+      isMounted = false;
+    };
   }, [product.paymentMethodIds]);
 
   // Reset quantity if it exceeds available stock

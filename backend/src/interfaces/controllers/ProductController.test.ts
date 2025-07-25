@@ -82,7 +82,7 @@ describe('ProductController', () => {
     (getProductCommentsUseCase.execute as any).mockResolvedValue([{ id: 1 }]);
     (getProductCommentsUseCase.getReviewSummary as any).mockResolvedValue({});
     await controller.getProductComments(req, res);
-    expect(res.status).not.toHaveBeenCalled(); // No status set for success
+    expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({ comments: [{ id: 1 }], summary: {} });
   });
 
@@ -122,6 +122,22 @@ describe('ProductController', () => {
     expect(res.json).toHaveBeenCalledWith([{ id: 1 }]);
   });
 
+  it('getPaymentMethodsByIds returns 400 if ids parameter is missing', async () => {
+    const req = { query: {} } as unknown as Request;
+    const res = mockRes();
+    await controller.getPaymentMethodsByIds(req, res);
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({ error: 'Payment method IDs are required' });
+  });
+
+  it('getPaymentMethodsByIds returns 400 if ids parameter is not a string', async () => {
+    const req = { query: { ids: 123 } } as unknown as Request;
+    const res = mockRes();
+    await controller.getPaymentMethodsByIds(req, res);
+    expect(res.status).toHaveBeenCalledWith(400);
+    expect(res.json).toHaveBeenCalledWith({ error: 'Payment method IDs are required' });
+  });
+
   it('getPaymentMethodsByIds handles errors', async () => {
     const req = { query: { ids: '1,2' } } as unknown as Request;
     const res = mockRes();
@@ -139,6 +155,15 @@ describe('ProductController', () => {
     await controller.getProductWithPaymentMethods(req, res);
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({ id: '1', paymentMethods: [{ id: 1 }] });
+  });
+
+  it('getProductWithPaymentMethods returns 404 if product not found', async () => {
+    const req = { params: { id: '999' } } as unknown as Request;
+    const res = mockRes();
+    (getProductUseCase.execute as any).mockResolvedValue(null);
+    await controller.getProductWithPaymentMethods(req, res);
+    expect(res.status).toHaveBeenCalledWith(404);
+    expect(res.json).toHaveBeenCalledWith({ error: 'Product not found' });
   });
 
   it('getProductWithPaymentMethods handles errors', async () => {

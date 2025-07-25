@@ -1,14 +1,16 @@
-FROM node:18-alpine
+FROM node:22.17-alpine
+
+RUN corepack enable
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build
+RUN yarn build
 
 EXPOSE 5173
 
-CMD ["npm", "run", "preview"] 
+CMD ["yarn", "preview"] 
